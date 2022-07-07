@@ -9,6 +9,13 @@ button{
     border:none;
     cursor: pointer;
 }
+.video-container__video{
+    background-image: url(/media/images/no-thumbnail.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+}
 .video-options{
     padding:20px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
