@@ -14,7 +14,12 @@ button{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 500px;
+    height:300px;
+}
+@media (min-width:768px){
+    .video-container__video{
+        height: 500px;
+    }
 }
 .video-options{
     padding:20px;
