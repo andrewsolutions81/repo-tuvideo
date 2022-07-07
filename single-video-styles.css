@@ -1,40 +1,22 @@
-/* Globals */
-html, *{
-    padding:0;
-    margin:0;
-    box-sizing: border-box;
-}
-:root{
-    --font: 'Roboto', sans-serif;
-    --border: 1px solid rgba(0, 0, 0, 0.1);
-}
 img{
     max-width: 100%;
 }
 body{
-    font-family: var(--font);
-}
-h1, h2{
-    font-weight: 400;
-    font-size:18px;
-}
-p{
-    font-weight: 300;
-    font-size:16px;
+    font-family: 'Roboto', sans-serif;
 }
 button{
     background-color: transparent;
     border:none;
     cursor: pointer;
 }
-
-.container{
-    padding:20px;
-}
 .video-options{
-    border-bottom: var(--border);
+    padding:20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
-
+.video-options__title{
+    font-size:16px;
+    font-weight: 500;
+}
 .video-options__container{
     display:flex;
     flex-direction: column;
@@ -72,17 +54,18 @@ button{
     font-size:14px;
     color: #606060;
 }
-
-/* Channel Container Styles */
 .ch-info-container{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: space-between;
-    border-bottom: var(--border);
+    padding:20px;
 }
 .ch-info-container__avatar{
     margin-right: 20px;
 }
 .ch-info-container__avatar img{
+    max-width: 50px;
+    height:auto;
     cursor: pointer;
     border-radius: 50%;
 }
@@ -98,16 +81,16 @@ button{
         margin-right:auto;
     }
 }
-.ch-info-container__ch-info__name{
+.ch-info-container__name{
     cursor:pointer;
     font-size: 14px;
     font-weight: 500;
 }
-.ch-info-container__ch-info__subs{
+.ch-info-container__subs{
     color:#606060;
     font-size: 12px;
 }
-.ch-info-container__ch-info_desc{
+.ch-info-container__desc{
     color:#030303;
     line-height: 20px;
     font-weight: 400;
@@ -118,25 +101,26 @@ button{
     margin-top: 10px;
     display: flex;
 }
-.more-videos-container__video img{
+.more-videos-container__thumbnail{
+    padding-left: 20px;
     cursor: pointer;
     width:168px;
     height:auto;
     margin-right: 20px;
 }
-.more-videos-container__video__title{
+.more-videos-container__title{
     cursor: pointer;
     margin-top: 5px;
     font-size: 14px;
     font-weight: 500;
 }
-.more-videos-container__video__ch-name{
+.more-videos-container__ch-name{
     margin-top: 10px;
     color:#606060;
     font-size: 12px;
     font-weight: 400;
 }
-.more-videos-container__video_views{
+.more-videos-container__views{
     margin-top: 5px;
     color:#606060;
     font-size: 13px;
