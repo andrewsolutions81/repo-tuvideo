@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 56px;
+    padding: 15px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.card__button {
+    display: flex;
+    align-items: center;
+}
+
+.card__button__burger {
+    padding: 0 7px;
+    cursor: pointer;
+}
+
+.card__button__logo {
+    width: 100%;
+    height: auto;
+}
+
+.card__search{
+    display: flex;
+}
+
+.card__search__bar{
+    display: flex;
+    border: 1px solid #ddd;
+    height: 45px;
+}
+input[type=text]:focus {
+    border: 1px solid #ddd;
+    outline: none;
+  }
+
+.card__search__bar__input__search{
+    box-sizing: border-box;
+    width: 572px;
+    height: 100%;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    padding: 12px 20px 12px 40px;
+    border-radius: 2px 0 0 2px;
+    padding:10px;
+    border: 0;
+    height: 100%;
+
+  }
+
+.card__search__bar__icon{
+    box-sizing: border-box;
+    width: 64px;
+    height: 100%;
+    background: #F0F0F0;
+    border: 1px solid #C6C6C6;
+    display: flex;
+    justify-content: center;
+}
+
+.card__search__bar__icon__glass{
+    height: 22px;
+    width: 22px;
+    transform: translate(0%, 30%);
+    border: none;
+}
+
+.card__search__mic{
+    width: 40px;
+    height: 40px;
+    background: #F9F9F9;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.card__search__mic__mic{
+    width: 20px;
+    height: 22px;
+    transform: translate(0%, 40%);
+}
+
+.card__user{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    height: 40px;
+    width: 242px;
+    display: flex;
+    padding: 0 7px;
+}
+
+.card__user__apps{
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.card__user__settings{
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.card__user__signIn{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 11px;
+    gap: 9px;
+    width: 162px;
+    height: 40px;
+
+    
+    border: 1px solid #065FD4;
+    border-radius: 2px;
+    
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+    cursor: pointer;
+}
+
+.card__user__signIn__icon__icon{
+    width: 24px;
+    height: 24px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.card__user__signIn__text--Center{
+    width: 107px;
+    height: 16px;
+    
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+
+    color: #065FD4;
+}
+
+@media (max-width: 768px) {
+    .card__sidebar {
+        display: none;
+    }
+    .card__search {
+        display: none;
+    }
+}
+
+
+
+.card__main{
+    height: calc(100vh - 70px);
+    display: flex;
+    background-color: #f9f9f9;    
+    width: auto;
+}
+
+.card__sidebar {
+    height: 100%;
+    width: 17%;
+    background-color: white;
+    overflow-y: hidden;
+  } 
+
+.card__content{
+    background-color: #f9f9f9;
+    width: 100%;
+    height: 100%;
+    padding: 15px 15px;
+    border-top: 1px solid #ddd;
+    overflow-y: scroll;
+}
+  
+.card__videos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+  
+.video {
+    width: 360px;
+    margin-bottom: 30px;
+}
+
+.thumbnail {
+    width: 100%;
+    height: 200px;
+  }
+  
+  .thumbnail img {
+    object-fit: cover;
+    height: 96%;
+    width: 100%;
+  }
+  .author img {
+    object-fit: cover;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+  }
+  .details {
+    display: flex;
+  }
+   
+  .title {
+    display: flex;
+    flex-direction: column;
+  }
+   
+  .title h3 {
+    color: rgb(3, 3, 3);
+    line-height: 18px;
+    font-size: 15px;
+    margin-bottom: 6px;
+  }
+   
+  .title a,
+  span {
+    text-decoration: none;
+    color: rgb(96, 96, 96);
+    font-size: 13px;
+  }
