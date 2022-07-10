@@ -1,0 +1,223 @@
+html{
+    font-size: 10px;
+}
+
+body{
+    margin: 0px;
+    background-color: #f1f1f1;
+    font-family: 'Lobster', cursive;
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    
+}
+.navbar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 30px;
+    width: 100%;
+    background-color: #fff;
+}
+.content{
+    position: relative;
+    margin: 0px;
+    display: inline-flex;
+    width: 100%;
+    height: 100%;
+    overflow-x: scroll;
+}
+.leftNavBar{
+    width: 36px;
+    height: auto;
+    background-color: #fff;
+    left: 0px;
+}
+.channel{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.channel__banner{
+    height: calc(16.1290322581vw - 1px);;
+}
+.banner__img{
+    background-image: url(banner.png);
+    width: 100%;
+    height: 100%;
+    background-position: 0 0;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+.channelDescription{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-self: flex-start;
+    justify-content: space-between;
+    background-color: #f9f9f9;
+    width: 100%;
+}
+.channelDescription__container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 16px 17.550px 4px;
+}
+.channelDescription__perfil{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.perfil__logo{
+    margin-right: 10px;
+    width: 30%;
+}
+.perfil__logo img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.perfil__nombre{
+    font-weight: 600;
+    font-size: 2.4rem;
+    margin: 0px;
+}
+.perfil__totalSubs{
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 2rem;
+    margin: 0px;
+    color: #606060;
+}
+.opciones{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.opciones__button{
+    background-color: #065fd4;
+    color: #fff;
+    font-weight: 600;
+    border: 0px;
+    font-size: 1.4rem;
+    padding: 10px 16px;
+    margin-right: 8px;
+    white-space: nowrap;
+    margin-bottom: 8px;
+    border-radius: 2px;
+}
+.tabsContainer{
+    display: flex;
+    background-color: #f9f9f9;
+    width: 100%;
+    height: auto;
+    align-items: center;
+}
+.tabsContainer__tab{
+    font-size: 1.4rem;
+    text-align: center;
+    font-weight: bold;
+    color: #030303;
+    white-space: nowrap;
+    flex-grow: 1;
+}
+.video-introduccion{
+    display: flex;
+}
+
+.channel__videosContainer{
+    margin-top: 10px;
+    width: 100%;
+}
+.subheader__title{
+    font-size: 1.6rem;
+    display: flex;
+}
+.subheader__title a{
+    color: #030303;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 6px 16px;
+}
+.listvideos{
+    margin-top: 10px;
+    padding-left: 16px;
+}
+.scroll-container__items{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+.video-item{
+    padding-right: 4px;
+    flex-grow: 1;
+}
+.video-item__thumbnail img{
+    width: 100%;
+    min-width: 85px;
+    height: 30%;
+}
+.video-container{
+    width: 45%;
+}
+.title-video{
+    padding-right: 24px;
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+.title-video p {
+    font-size: 1.4rem;
+}
+.title-video p {
+    font-size: 1.4rem;
+    margin: 0px;
+}
+.video-data{
+    margin-bottom: 16px;
+}
+.video-data span{
+    font-size: 1.2rem;
+    color: #606060;
+}
+.introduccion{
+    display: flex;
+    padding: 12px 0px 24px;
+    padding-left: 17.5px;
+    border-bottom: 1px solid #60606035;
+    width: auto;
+    height: 20%;
+}
+.introduccion-container{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.video-description{
+    font-size: 1.4rem;
+    min-width: 0;
+    max-width: 400px;
+    height: 100%;
+    font-weight: 400;
+}
+
+@media screen and (max-width: 767px){
+    html{
+        font-size: 6px;
+    }
+    .introduccion{
+        height: 10%;
+    }
+}
+@media screen and (min-width: 768px) and (max-width:1023px) {
+    html{
+        font-size: 9px;
+    }
+}
+@media screen and (min-width: 1024px){
+    html{
+        font-size: 10px;
+    }
+}
