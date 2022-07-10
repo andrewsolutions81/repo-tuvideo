@@ -4,52 +4,102 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
     <link rel="stylesheet" href="sidebar-styles.css">
+    <title>sidebar</title>
 </head>
 <body>
-        
-          <!-- Sidebar Start -->
-          <div class="sidebar">
-            <div class="sidebar__categories">
-              <div class="sidebar__category">
-                <i class="material-icons">home</i>
-                <span>Home</span>
-              </div>
-              <div class="sidebar__category">
-                <i class="material-icons"></i>
-                <span>Explore</span>
-              </div>
-              <div class="sidebar__category">
-                <i class="material-icons">subscriptions</i>
-                <span>Subcriptions</span>
-              </div>
+    <!-- sidebar start -->
+    <!-- main-sidebar start -->
+    <div class="sidebars">
+        <div class="main-sidebar">
+            <div class="main-sidebar__categories">
+                <div class="main-sidebar__category">
+                    <i class="material-icons">home</i>
+                    <span>Home</span>
+                </div>
+                <div class="main-sidebar__category">
+                    <i class="material-icons">local_fire_department</i>
+                    <span>Trending</span>
+                </div>
+                <div class="main-sidebar__category">
+                    <i class="material-icons">home</i>
+                    <span>Suscriptions</span>
+                </div>
+                <div class="main-sidebar__category">
+                    <i class="material-icons">subscriptions</i>
+                    <span>Subscriptions</span>
+                </div>
             </div>
-            <hr />
-            <div class="sidebar__categories">
-              <div class="sidebar__category">
-                <i class="material-icons">library_add_check</i>
-                <span>Library</span>
-              </div>
-              <div class="sidebar__category">
-                <i class="material-icons">history</i>
-                <span>History</span>
-              </div>
-              <div class="sidebar__category">
-                <i class="material-icons">play_arrow</i>
-                <span>Your Videos</span>
-              </div>
-              <div class="sidebar__category">
-                <i class="material-icons">watch_later</i>
-                <span>Watch Later</span>
-              </div>
-              <div class="sidebar__category">
-                <i class="material-icons">thumb_up</i>
-                <span>Liked Videos</span>
-              </div>
+            <hr/>
+            <div class="main-sidebar__sub-categories">
+                <div class="main-sidebar__category">
+                    <i class="material-icons">library_add_check</i>
+                    <span>Library</span>
+                </div>
+                <div class="main-sidebar__category">
+                    <i class="material-icons">history</i>
+                    <span>History</span>
+                </div>
+                <div class="main-sidebar__category">
+                    <i class="material-icons">play_arrow</i>
+                    <span>Your Videos</span>
+                </div>
+                <div class="main-sidebar__category">
+                    <i class="material-icons">watch_later</i>
+                    <span>Watch Later</span>
+                </div>
+                <div class="main-sidebar__category">
+                    <i class="material-icons">thumb_up</i>
+                    <span>Liked Videos</span>
+                </div>
             </div>
-          </div>
-          <!-- Sidebar End -->
-
-    <script src="side-bar-script.js"></script>
+        </div>
+        <hr/>
+    <!-- main-sidebar end -->
+        <!-- mobile-siebar start -->
+        <div class="mobile-sidebar">
+            <div class="mobile-sidebar__categories">
+                <div class="mobile-sidebar__category">
+                    <i class="material-icons">home</i>
+                </div>
+                <div class="mobile-sidebar__category">
+                    <i class="material-icons">local_fire_department</i>
+                </div>
+                <div class="mobile-sidebar__category">
+                    <i class="material-icons">home</i>
+                </div>
+                <div class="mobile-sidebar__category">
+                    <i class="material-icons">subscriptions</i>
+                </div>
+            </div>
+            <hr/>
+            <div class="mobile-sidebar__categories">
+                <div class="mobile-sidebar__category">
+                    <i class="material-icons">library_add_check</i>
+                </div>
+                <div class="mobile-sidebar__category">
+                    <i class="material-icons">history</i>
+                </div>
+                <div class="mobile-sidebar__category">
+                    <i class="material-icons">play_arrow</i>
+                </div>
+                <div class="mobile-sidebar__category">
+                    <i class="material-icons">watch_later</i>
+                </div>
+                <div class="mobile-sidebar__category">
+                    <i class="material-icons">thumb_up</i>
+                </div>
+            </div>
+            <hr/>
+        </div>
+    </div>
+<!-- mobile-siebar end -->
+<!-- sidebar end -->
+    <script src="sidebar-script.js"></script>
 </body>
 </html>
