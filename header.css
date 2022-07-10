@@ -1,65 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
 .header {
     display: flex;
-    direction: row;
     justify-content: space-between;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    align-items: center;
     height: 56px;
-    max-width: 100%;
+    padding: 15px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .card__button {
     display: flex;
-    width: 134px;
-    height: 24px;
-    padding: 10px;
+    align-items: center;
 }
 
 .card__button__burger {
-    width: 100%;
-    height: auto;
-    text-align: left;
+    padding: 0 7px;
+    cursor: pointer;
 }
 
 .card__button__logo {
     width: 100%;
     height: auto;
-    text-align: left;
 }
 
 .card__search{
     display: flex;
-    justify-content: space-between;
 }
 
 .card__search__bar{
     display: flex;
-    direction: row;
+    border: 1px solid #ddd;
+    height: 45px;
 }
 input[type=text]:focus {
-    border: 1px solid #555;
-    width: 612px;
-    background-image: url('/media/icons/Search.png');
-    background-size: 20px 20px;
-    background-position: 10px 10px; 
-    background-repeat: no-repeat;
-
+    border: 1px solid #ddd;
+    outline: none;
   }
 
 .card__search__bar__input__search{
     box-sizing: border-box;
     width: 572px;
-    height: 40px;
-    border: 2px solid #ccc;
+    height: 100%;
     border-radius: 4px;
     font-size: 16px;
     background-color: white;
     padding: 12px 20px 12px 40px;
+    border-radius: 2px 0 0 2px;
+    padding:10px;
+    border: 0;
+    height: 100%;
+
   }
 
 .card__search__bar__icon{
     box-sizing: border-box;
     width: 64px;
-    height: 40px;
+    height: 100%;
     background: #F0F0F0;
     border: 1px solid #C6C6C6;
     display: flex;
@@ -70,6 +73,7 @@ input[type=text]:focus {
     height: 22px;
     width: 22px;
     transform: translate(0%, 30%);
+    border: none;
 }
 
 .card__search__mic{
@@ -89,24 +93,25 @@ input[type=text]:focus {
 
 .card__user{
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 16px;
-    padding: 0px;
+    gap: 18px;
     height: 40px;
     width: 242px;
     display: flex;
+    padding: 0 7px;
 }
 
 .card__user__apps{
     width: 24px;
     height: 24px;
+    cursor: pointer;
 }
 
 .card__user__settings{
     width: 24px;
     height: 24px;
+    cursor: pointer;
 }
 
 .card__user__signIn{
@@ -124,15 +129,10 @@ input[type=text]:focus {
     border: 1px solid #065FD4;
     border-radius: 2px;
     
-    /* Inside auto layout */
-    
     flex: none;
     order: 2;
     flex-grow: 0;
-}
-
-.card__user__signIn__icon{
-
+    cursor: pointer;
 }
 
 .card__user__signIn__icon__icon{
@@ -141,9 +141,6 @@ input[type=text]:focus {
     flex: none;
     order: 0;
     flex-grow: 0;
-}
-
-.card__user__signIn__text{
 }
 
 .card__user__signIn__text--Center{
