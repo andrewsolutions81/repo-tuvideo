@@ -10,7 +10,7 @@ body{
     font-family: 'Roboto', sans-serif;
 }
 
-.header {
+.header__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -19,36 +19,36 @@ body{
     font-family: 'Roboto', sans-serif;
 }
 
-.card__button {
+.header__logo {
     display: flex;
     align-items: center;
 }
 
-.card__button__burger {
+.header__logo__burger {
     padding: 0 7px;
     cursor: pointer;
 }
 
-.card__button__logo {
+.header__logo__logo {
     width: 100%;
     height: auto;
 }
 
-.card__search{
+.header__search-bar{
     display: flex;
 }
 
-.card__search__bar{
+.header__search-bar form{
     display: flex;
     border: 1px solid #ddd;
     height: 45px;
 }
-input[type=text]:focus {
+.header__search-bar input:focus {
     border: 1px solid #ddd;
     outline: none;
   }
 
-.card__search__bar__input__search{
+.header__search-bar form input{
     box-sizing: border-box;
     width: 572px;
     height: 100%;
@@ -63,7 +63,7 @@ input[type=text]:focus {
 
   }
 
-.card__search__bar__icon{
+  .header__search-bar__icon{
     box-sizing: border-box;
     width: 64px;
     height: 100%;
@@ -73,14 +73,14 @@ input[type=text]:focus {
     justify-content: center;
 }
 
-.card__search__bar__icon__glass{
+.header__search-bar__icon img{
     height: 22px;
     width: 22px;
     transform: translate(0%, 30%);
     border: none;
 }
 
-.card__search__mic{
+.header__search-bar__mic{
     width: 40px;
     height: 40px;
     background: #F9F9F9;
@@ -89,13 +89,13 @@ input[type=text]:focus {
     justify-content: center;
 }
 
-.card__search__mic__mic{
+.header__search-bar__mic img{
     width: 20px;
     height: 22px;
     transform: translate(0%, 40%);
 }
 
-.card__user{
+.header__user{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -106,19 +106,19 @@ input[type=text]:focus {
     padding: 0 7px;
 }
 
-.card__user__apps{
+.header__user__apps{
     width: 24px;
     height: 24px;
     cursor: pointer;
 }
 
-.card__user__settings{
+.header__user__settings{
     width: 24px;
     height: 24px;
     cursor: pointer;
 }
 
-.card__user__signIn{
+.header__user__sign-in{
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -128,18 +128,15 @@ input[type=text]:focus {
     gap: 9px;
     width: 162px;
     height: 40px;
-
-    
     border: 1px solid #065FD4;
     border-radius: 2px;
-    
     flex: none;
     order: 2;
     flex-grow: 0;
     cursor: pointer;
 }
 
-.card__user__signIn__icon__icon{
+.header__user__sign-in__icon{
     width: 24px;
     height: 24px;
     flex: none;
@@ -147,7 +144,7 @@ input[type=text]:focus {
     flex-grow: 0;
 }
 
-.card__user__signIn__text--Center{
+.header__user__sign-in__text--center{
     width: 107px;
     height: 16px;
     
@@ -166,7 +163,7 @@ input[type=text]:focus {
     .card__sidebar {
         display: none;
     }
-    .card__search {
+    .header__search-bar {
         display: none;
     }
 }
