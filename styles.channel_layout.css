@@ -123,6 +123,7 @@ body{
     color: #030303;
     white-space: nowrap;
     flex-grow: 1;
+    padding-bottom: 10px;
 }
 .video-introduccion{
     display: flex;
@@ -161,7 +162,12 @@ body{
     height: 30%;
 }
 .video-container{
-    width: 45%;
+    width: 40%;
+    margin-right: 20px;
+}
+.video-container img{
+    width: 100%;
+    height: 100%;
 }
 .title-video{
     padding-right: 24px;
@@ -189,7 +195,7 @@ body{
     padding-left: 17.5px;
     border-bottom: 1px solid #60606035;
     width: auto;
-    height: 20%;
+    height: 30%;
 }
 .introduccion-container{
     overflow: hidden;
@@ -215,9 +221,13 @@ body{
     html{
         font-size: 9px;
     }
+    .introduccion{
+        height: 20%;
+    }
 }
 @media screen and (min-width: 1024px){
     html{
         font-size: 10px;
+        height: 30%;
     }
 }
