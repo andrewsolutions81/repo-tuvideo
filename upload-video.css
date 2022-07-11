@@ -1,0 +1,49 @@
+.upload{
+  background-color:white;
+  border-radius: 10px;
+  border:1px solid gainsboro;
+  margin: 0 auto;
+  padding:0px 20px 20px 20px;
+  max-width: 100%;
+}
+@media (min-width:768px){
+  .upload{
+    width:700px;
+  }
+}
+.upload__header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom:1px solid gainsboro;
+}
+.upload__report-button{
+  margin-right:10px;
+}
+.upload__container{
+  padding:50px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.upload__container img{
+  height:150px;
+}
+.upload__container p{
+  font-weight: 300;
+}
+.upload__button button{
+  background-color:#0166CC;
+  color:white;
+  margin-left: auto;
+  padding:10px 16px;
+  text-transform: uppercase;
+  border-radius: 5px;
+}
+.upload__footer p{
+  font-weight: 300;
+  color:gray;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
