@@ -47,10 +47,6 @@ body {
   cursor: pointer;
 }
 
-.sidebar::-webkit-scrollbar {
-  display: none;
-}
-
 span {
   text-decoration: none;
   color: rgb(96, 96, 96);
@@ -59,45 +55,29 @@ span {
 /*   sidebar end */
 
 
-
 @media (max-width: 425px) {
-  .header__search {
-    display: none;
-  }
-
-  .header__icons .material-icons {
-    display: none;
-  }
-
-  .header__icons .display-this {
-    display: inline;
-  }
-
-  .sidebar {
-    display: none;
+  .main-sidebar span{
+    display : none;
   }
 }
 
+
 @media (max-width: 768px) {
-  .header__search {
-    display: none;
-  }
-
-  .sidebar {
-    display: none;
-  }
-
-  .show-sidebar {
-    display: inline;
-    position: fixed;
-    top: 4.4rem;
-    height: auto;
+  span {
+    text-decoration: none;
+    color: rgb(96, 96, 96);
+    font-size: 14px;
   }
 }
 
 @media (max-width: 941px) {
   .header__search input {
     width: 300px;
+  }
+  span {
+    text-decoration: none;
+    color: rgb(96, 96, 96);
+    font-size: 14px;
   }
 }
 
@@ -108,7 +88,4 @@ span {
 .main-sidebar__categories :hover {
   background-color: rgb(219, 218, 218);
 }
-
-.mobile-sidebar__categories :hover {
-  background-color: rgb(219, 218, 218);
-}
+/* sidebar end */
