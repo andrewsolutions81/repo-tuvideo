@@ -1,9 +1,9 @@
-import SideBar from "../components/Sidebar";
+import SingleVideo from "./SingleVideo";
 
 function HomePage () {
   return (
     <div>
-     {/* SideBar  */}
+     <SingleVideo />
     </div>
   )
 }
