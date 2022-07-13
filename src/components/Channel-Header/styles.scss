@@ -1,0 +1,59 @@
+html{
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+}
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 16px 17.550px 4px;
+}
+.channelDescription__perfil{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.perfil__logo{
+    margin-right: 10px;
+    width: 30%;
+
+    img{
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+    }
+}
+.perfil__nombre{
+    font-weight: 600;
+    font-size: 2.4rem;
+    margin: 0px;
+    white-space: nowrap;
+}
+.perfil__totalSubs{
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 2rem;
+    margin: 0px;
+    color: #606060;
+}
+
+.perfil__nombre{
+    font-weight: 600;
+    font-size: 2.4rem;
+    margin: 0px;
+}
+.opciones__button{
+    background-color: #065fd4;
+    color: #fff;
+    font-weight: 600;
+    border: 0px;
+    font-size: 1.4rem;
+    padding: 10px 16px;
+    margin-right: 8px;
+    white-space: nowrap;
+    margin-bottom: 8px;
+    border-radius: 2px;
+}

@@ -1,10 +1,10 @@
 import './App.css';
-import SingleVideo from './pages/SingleVideo';
+import Channel_Header from '../src/components/Channel-Header'
 
 function App() {
   return (
     <div className="App">
-      <SingleVideo />
+      <Channel_Header/>
     </div>
   );
 }
