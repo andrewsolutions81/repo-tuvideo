@@ -1,10 +1,10 @@
-
 import './App.css';
+import SingleVideo from './pages/SingleVideo';
 
 function App() {
   return (
     <div className="App">
-      <h1>hola mundo</h1>
+      <SingleVideo />
     </div>
   );
 }
