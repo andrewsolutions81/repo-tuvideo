@@ -1,0 +1,31 @@
+
+.more-videos-container__video{
+  margin-top: 10px;
+  display: flex;
+
+  & video{
+    padding-left: 20px;
+    cursor: pointer;
+    width:168px;
+    margin-right: 20px;
+  }
+}
+
+.more-videos-container__title{
+  cursor: pointer;
+  margin-top: 5px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.more-videos-container__ch-name{
+  margin-top: 10px;
+  color:#606060;
+  font-size: 12px;
+  font-weight: 400;
+}
+.more-videos-container__views{
+  margin-top: 5px;
+  color:#606060;
+  font-size: 13px;
+  font-weight: 400;
+}
