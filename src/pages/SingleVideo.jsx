@@ -1,12 +1,12 @@
-import SideBar from "../components/Sidebar"
+import MoreVideo from "../components/MoreVideo"
 import VideoBox from "../components/VideoBox"
 
 function SingleVideo(){
 
   return(
     <div>
-      {/*  <SideBar /> */}
       <VideoBox />
+      <MoreVideo />
     </div>
   )
 }
