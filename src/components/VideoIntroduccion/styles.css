@@ -1,0 +1,44 @@
+.video-container {
+  width: 40%;
+  height: 100%;
+  margin-right: 20px;
+}
+
+.video-data {
+  margin-bottom: 16px;
+}
+.video-data span {
+  font-size: 1.2rem;
+  color: #606060;
+}
+
+.introduccion {
+  display: flex;
+  padding: 12px 0px 24px;
+  padding-left: 17.5px;
+  border-bottom: 1px solid rgba(96, 96, 96, 0.2078431373);
+  width: auto;
+  height: 30%;
+}
+
+.introduccion-container {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.video-description {
+  font-size: 1.4rem;
+  min-width: 0;
+  max-width: 400px;
+  height: 100%;
+  font-weight: 400;
+}
+
+.title-video {
+  padding-right: 24px;
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+/*# sourceMappingURL=styles.css.map */
