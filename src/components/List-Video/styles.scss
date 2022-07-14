@@ -1,0 +1,35 @@
+.listvideos{
+    margin-top: 10px;
+    padding-left: 16px;
+}
+.scroll-container__items{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+.video-item{
+    padding-right: 4px;
+    flex-grow: 1;
+}
+.video-item__thumbnail img{
+    width: 100%;
+    min-width: 85px;
+    height: 30%;
+}
+.title-video{
+    padding-right: 24px;
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+.title-video p {
+    font-size: 1.4rem;
+    margin: 0px;
+}
+.video-data{
+    margin-bottom: 16px;
+}
+.video-data span{
+    font-size: 1.2rem;
+    color: #606060;
+}
