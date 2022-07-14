@@ -1,0 +1,47 @@
+$textUnselected: #606060;
+$textSelected: #030303;
+
+.carousel{
+    position: absolute;
+    width: 100%;
+}
+.arrow-left{
+    height: 100%;
+    width: 5%;
+    position: absolute;
+    float: left;
+    background-color: #fff;
+}
+.arrow-rigth{
+    height: 100%;
+    width: 5%;
+    position: absolute;
+    float: right;
+    right: 0px;
+    background-color: #fff;
+}
+.tabsContainer{
+    display: flex;
+    background-color: #f9f9f9;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    font-size: 1.4rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+.tab-unselected{
+    color: $textUnselected;
+    white-space: nowrap;
+    flex-grow: 1;
+    padding-bottom: 10px;
+    opacity: 1;
+}
+.tab-selected{
+    color: $textSelected;
+    white-space: nowrap;
+    flex-grow: 1;
+    padding-bottom: 10px;
+    opacity: 1;
+}
