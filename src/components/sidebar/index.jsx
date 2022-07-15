@@ -1,5 +1,5 @@
 import React from 'react'
-import "../Sidebar/styles.scss"
+import  "../Sidebar/styles.css"
 import MaterialIcon from 'material-icons-react';
 
 function SideBar() {
