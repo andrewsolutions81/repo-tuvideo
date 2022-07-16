@@ -1,59 +1,83 @@
+$colorTitle: #030303;
+$colorSecondary: #606060;
+$colorBlueButton: #065fd4;
+
 html{
-    font-family: 'Roboto', sans-serif;
     font-size: 10px;
 }
-.container{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
+
+.container-header{
+    display: inline-flex;
+    padding: 16px 35.3px  4px;
     width: 100%;
-    padding: 16px 17.550px 4px;
-}
-.channelDescription__perfil{
-    display: flex;
-    flex-direction: row;
+    box-sizing: border-box;
     align-items: center;
+    background-color: #f9f9f9;
 }
+.logo{
+    width: 80px;
+    height: 80px;
+    margin-right: 24px;
+    flex-grow: 0;
 
-.perfil__logo{
-    margin-right: 10px;
-    width: 30%;
-
-    img{
+    div{
+        background-color: #606060;
         width: 100%;
         height: 100%;
         border-radius: 50%;
     }
 }
-.perfil__nombre{
-    font-weight: 600;
-    font-size: 2.4rem;
-    margin: 0px;
-    white-space: nowrap;
+.details{
+    flex-grow: 1;
 }
-.perfil__totalSubs{
+.details-container{
+    display: flex;
+    align-items: center;
+}
+.channel-description{
+    flex: 1;
+    flex-basis: 0.0000001px;
+    margin-bottom: 8px;
+}
+.channel-name{
+    font-size: 2.4rem;
+    color: $colorTitle;
+    font-weight: 400;
+    
+}
+.channel-stadistics{
     font-size: 1.4rem;
+    color: $colorSecondary;
     font-weight: 400;
     line-height: 2rem;
-    margin: 0px;
-    color: #606060;
 }
-
-.perfil__nombre{
-    font-weight: 600;
-    font-size: 2.4rem;
-    margin: 0px;
+.channel-buttons{
+    button{
+        color: #fff;
+        background-color: $colorBlueButton;
+        border: 0px;
+        border-radius: 2px;
+        padding: 10px 16px;
+        margin-right: 8px;
+        margin-bottom: 8px;
+        white-space: nowrap;
+        font-weight: 500;
+        cursor: pointer;
+    }
 }
-.opciones__button{
-    background-color: #065fd4;
-    color: #fff;
-    font-weight: 600;
-    border: 0px;
-    font-size: 1.4rem;
-    padding: 10px 16px;
-    margin-right: 8px;
-    white-space: nowrap;
-    margin-bottom: 8px;
-    border-radius: 2px;
+@media screen and (max-width: 700px){
+    .details-container{
+        align-items: flex-start;
+    }
+    .channel-name{
+        font-size: 1.8rem;
+        font-weight: 100;
+    }
+    .details-container{
+        flex-direction: column;
+    }
+    .channel-buttons{
+        display: flex;
+        flex-direction: column;
+    }
 }

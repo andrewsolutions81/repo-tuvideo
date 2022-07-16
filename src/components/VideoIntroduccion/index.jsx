@@ -2,22 +2,27 @@ import './styles.css'
 
 function VideoIntroduccion(){
     return (
-        <div className="introduccion">
-            <div className="video-container">
-            </div>
-            <div className="introduccion-container">
-                <div className="title-video">
-                    ¿Porqué Make it Real?
+        <div className="container">
+            <div className="introduccion">
+                <div className="video-container">
+
                 </div>
-                <div className="video-data">
-                    <span>Make it Real</span> -
-                    <span>500 vistas</span> - 
-                    <span>hace 7 meses</span>
-                </div>
-                <div className="video-description">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, ullam eligendi magni deleniti,
-                    quam eius neque eaque nisi fugiat sunt reiciendis assumenda nam minus, pariatur 
-                    provident est odio sequi. Corrupti?
+                <div className="video-details-container">
+                    <div className="video-title">
+                        <div className="title">
+                            <a href="#">
+                                Conoce porque ampliar tu stack con
+                                Ruby on Rails
+                            </a>    
+                        </div>
+                        <div className="video-stadistics">
+                            500,116 vistas - hace 2 días
+                        </div>
+                    </div>
+                    <div className="video-description">
+                    En esta charla te contamos porque Ruby on Rails sigue siendo un stack muy
+                    demandado por las empresas tecnológicas. Súmate! 
+                    </div>
                 </div>
             </div>
         </div>

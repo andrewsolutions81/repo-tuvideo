@@ -1,38 +1,46 @@
-.video-container{
-    width: 40%;
-    height: 100%;
-    margin-right: 20px;
+.html{
+    font-size: 10px
 }
-.video-data{
-    margin-bottom: 16px;
-
-    span{
-        font-size: 1.2rem;
-        color: #606060;
-    }
+.container{
+    background: #f1f1f1;
+    padding: 24px 0px;
+    width: 1070px;    
+    margin: 0px;
+    padding-right: calc((100% - 1070px)/2);
+    padding-left: calc((100% - 1070px)/2);
 }
 .introduccion{
     display: flex;
-    padding: 12px 0px 24px;
-    padding-left: 17.5px;
-    border-bottom: 1px solid #60606035;
-    width: auto;
-    height: 30%;
 }
-.introduccion-container{
-    overflow: hidden;
-    text-overflow: ellipsis;
+.video-title{
+    margin-bottom: 16px;
+}
+.title{
+    margin-bottom: 16px;
+    a{
+        color: #030303;
+        white-space: pre;
+        cursor: pointer;
+        font-size: 1.4rem;
+        font-weight: 500;
+        text-decoration: none;
+    }
+}
+.video-stadistics{
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.8rem;
+    color: #606060;
 }
 .video-description{
     font-size: 1.4rem;
-    min-width: 0;
-    max-width: 400px;
-    height: 100%;
+    line-height: 2rem;
     font-weight: 400;
+    max-width: 400px;
 }
-.title-video{
-    padding-right: 24px;
-    font-size: 1.8rem;
-    font-weight: 500;
-    margin-bottom: 16px;
+.video-container{
+    width: 424px;
+    height: 238px;
+    background-color: #606060;
+    margin-right: 24px;
 }
