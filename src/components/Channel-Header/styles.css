@@ -80,6 +80,9 @@ html {
     display: flex;
     flex-direction: column;
   }
+  .video-description{
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
