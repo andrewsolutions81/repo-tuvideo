@@ -1,93 +1,26 @@
 import "./styles.css"
 
-function ListVideo(){
+function VideoCarousel(){
     return(
-        <div className="listvideos">
-        <div className="scroll-container">
-            <div className="scroll-container__items">
-                <div className="video-item">
-                    <div className="video-item__thumbnail">
-                        <img src="https://colegioprovidencia.cl/provieduca/main/img/no-video.jpg" alt=""/>
-                    </div>
-                    <div className="video-item__details">
-                        <div className="title-video">
-                            <p>Titulo de Video</p>
-                            <div className="video-data">
-                                <p>
-                                    <span>500 vistas</span> -
-                                    <span>hace 7 meses</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+        <div className="container-list">
+            <div className="list-details">
+                <div className="list-name">
+                    Videos subidos
                 </div>
-                <div className="video-item">
-                    <div className="video-item__thumbnail">
-                        <img src="https://colegioprovidencia.cl/provieduca/main/img/no-video.jpg" alt=""/>
+                <list className="button-play">
+                    <div className="play-icon">
                     </div>
-                    <div className="video-item__details">
-                        <div className="title-video">
-                            <p>Titulo de Video</p>
-                            <div className="video-data">
-                                <p>
-                                    <span>500 vistas</span> -
-                                    <span>hace 7 meses</span>
-                                </p>
-                            </div>
-                        </div>
+                    <div>
+                        REPRODUCIR TODO
                     </div>
-                </div>
-                <div className="video-item">
-                    <div className="video-item__thumbnail">
-                        <img src="https://colegioprovidencia.cl/provieduca/main/img/no-video.jpg" alt=""/>
-                    </div>
-                    <div className="video-item__details">
-                        <div className="title-video">
-                            <p>Titulo de Video</p>
-                            <div className="video-data">
-                                <p>
-                                    <span>500 vistas</span> -
-                                    <span>hace 7 meses</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="video-item">
-                    <div className="video-item__thumbnail">
-                        <img src="https://colegioprovidencia.cl/provieduca/main/img/no-video.jpg" alt=""/>
-                    </div>
-                    <div className="video-item__details">
-                        <div className="title-video">
-                            <p>Titulo de Video</p>
-                            <div className="video-data">
-                                <p>
-                                    <span>500 vistas</span> -
-                                    <span>hace 7 meses</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="video-item">
-                    <div className="video-item__thumbnail">
-                        <img src="https://colegioprovidencia.cl/provieduca/main/img/no-video.jpg" alt=""/>
-                    </div>
-                    <div className="video-item__details">
-                        <div className="title-video">
-                            <p>Titulo de Video</p>
-                            <div className="video-data">
-                                <p>
-                                    <span>500 vistas</span> -
-                                    <span>hace 7 meses</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                </list>
+            </div>
+            <div className="list-videos">
+                <div>
+
                 </div>
             </div>
         </div>
-    </div>
     )
 }
-export default ListVideo;
+export default VideoCarousel;

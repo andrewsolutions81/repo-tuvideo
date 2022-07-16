@@ -6,9 +6,6 @@ import ListVideo from '../components/List-Video'
 function Channel (){
     return(
         <div>
-            <Channel_Header/>
-            <TabCarousel/>
-            <VideoIntroduccion/>
             <ListVideo/>
         </div>
     )

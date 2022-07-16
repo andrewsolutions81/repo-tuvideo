@@ -1,26 +1,35 @@
 import "./styles.css"
+import React,{useRef} from "react";
 
-function Channel_Header(){
+function Channel_Header(props){
+
     return (
-        <div className="container">
-            <div className="channelDescription__perfil">
-                <div className="perfil__logo">
-                    <img src="media/images/ch-avatar.jpeg" alt=""/>
+        <div>
+            <div className="container-header">
+                <div className="logo">
+                    <div className="logo-img">
+
+                    </div>
                 </div>
-                <div className="perfil__datos">
-                    <p className="perfil__nombre">
-                        Make It Real
-                    </p>
-                    <p className="perfil__totalSubs">
-                        13.1 K suscriptores
-                    </p>
+                <div className="details">
+                    <div className="details-container">
+                        <div className="channel-description">
+                            <div className="channel-name">
+                                Make it Real
+                            </div>
+                            <div className="channel-stadistics">
+                                102 K suscriptores
+                            </div>
+                        </div>
+                        <div className="channel-buttons">
+                            <button>PERSONALIZAR CANAL</button>
+                            <button>ADMINISTRAR VIDEOS</button>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div className="opciones">
-                <button className="opciones__button">PERSONALIZAR CANAL</button>
-                <button className="opciones__button">ADMINISTRAR VIDEOS</button>
             </div>
         </div>
     )
 }
+
 export default Channel_Header;
