@@ -4,7 +4,7 @@
 .container{
     background: #f1f1f1;
     padding: 24px 0px;
-    width: 1070px;    
+    max-width: 1070px;    
     margin: 0px;
     padding-right: calc((100% - 1070px)/2);
     padding-left: calc((100% - 1070px)/2);
@@ -44,3 +44,19 @@
     background-color: #606060;
     margin-right: 24px;
 }
+@media screen and (max-width: 700px) {
+    .details-container {
+      align-items: flex-start;
+    }
+    .channel-name {
+      font-size: 1.8rem;
+      font-weight: 100;
+    }
+    .details-container {
+      flex-direction: column;
+    }
+    .channel-buttons {
+      display: flex;
+      flex-direction: column;
+    }
+  }

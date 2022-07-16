@@ -1,3 +1,10 @@
+.container-list{
+  align-self: flex-start;
+  overflow-x: hidden;
+  width: 100%;
+  border-top: 1.2px solid #6060601d;
+  background-color: #f1f1f1;
+}
 .list-name {
   font-size: 1.6rem;
   color: #030303;
@@ -12,12 +19,6 @@
 .list-videos {
   margin-top: 24px;
   display: flex;
-}
-.list-videos div {
-  width: 210px;
-  height: 192px;
-  background-color: #606060;
-  padding-right: 4px;
 }
 
 .list-details {
