@@ -1,6 +1,6 @@
 import "../MoreVideo/styles.scss"
 
- export const videoSamples = [
+const videoSamples = [
       { "description" : "Big Buck Bunny tells the story of a giant rabbit with a heart bigger than himself. When one sunny day three rodents rudely harass him, something snaps... and the rabbit ain't no bunny anymore! In the typical cartoon tradition he prepares the nasty rodents a comical revenge.\n\nLicensed under the Creative Commons Attribution license\nhttp://www.bigbuckbunny.org",
         "sources" : [ "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" ],
         "subtitle" : "By Blender Foundation",
@@ -87,9 +87,9 @@ function MoreVideo(){
 
     <div className="more-videos-container">
       {
-        videoSamples.map(video => {
+        videoSamples.map((video, index) => {
           return(
-            <div className="more-videos-container__video">
+            <div className="more-videos-container__video" key={index}>
               <video width="320" poster={video.thumb} controls>
                 <source src={video.sources} type="video/mp4" />
                 Your browser does not support the video tag.
