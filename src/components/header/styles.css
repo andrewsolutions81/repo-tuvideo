@@ -5,38 +5,38 @@
     height: 56px;
     padding: 15px;
     font-family: 'Roboto', sans-serif;
-  }
-  
-  .header__logo {
+}
+
+.header__logo {
     display: flex;
     align-items: center;
-  }
-  
-  .header__logo__burger {
+}
+
+.header__logo__burger {
     padding: 0 7px;
     cursor: pointer;
-  }
-  
-  .header__logo__logo {
+}
+
+.header__logo__logo {
     width: 100%;
     height: auto;
-  }
-  
-  .header__search-bar{
+}
+
+.header__search-bar{
     display: flex;
-  }
-  
-  .header__search-bar form{
+}
+
+.header__search-bar form{
     display: flex;
     border: 1px solid #ddd;
     height: 45px;
-  }
-  .header__search-bar input:focus {
+}
+.header__search-bar input:focus {
     border: 1px solid #ddd;
     outline: none;
   }
-  
-  .header__search-bar form input{
+
+.header__search-bar form input{
     box-sizing: border-box;
     width: 572px;
     height: 100%;
@@ -48,9 +48,9 @@
     padding:10px;
     border: 0;
     height: 100%;
-  
+
   }
-  
+
   .header__search-bar__icon{
     box-sizing: border-box;
     width: 64px;
@@ -59,31 +59,31 @@
     border: 1px solid #C6C6C6;
     display: flex;
     justify-content: center;
-  }
-  
-  .header__search-bar__icon img{
+}
+
+.header__search-bar__icon img{
     height: 22px;
     width: 22px;
     transform: translate(0%, 30%);
     border: none;
-  }
-  
-  .header__search-bar__mic{
+}
+
+.header__search-bar__mic{
     width: 40px;
     height: 40px;
     background: #F9F9F9;
     border-radius: 100px;
     display: flex;
     justify-content: center;
-  }
-  
-  .header__search-bar__mic img{
+}
+
+.header__search-bar__mic img{
     width: 20px;
     height: 22px;
     transform: translate(0%, 40%);
-  }
-  
-  .header__user{
+}
+
+.header__user{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -92,21 +92,21 @@
     width: 242px;
     display: flex;
     padding: 0 7px;
-  }
-  
-  .header__user__apps{
+}
+
+.header__user__apps{
     width: 24px;
     height: 24px;
     cursor: pointer;
-  }
-  
-  .header__user__settings{
+}
+
+.header__user__settings{
     width: 24px;
     height: 24px;
     cursor: pointer;
-  }
-  
-  .header__user__sign-in{
+}
+
+.header__user__sign-in{
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -122,17 +122,17 @@
     order: 2;
     flex-grow: 0;
     cursor: pointer;
-  }
-  
-  .header__user__sign-in__icon{
+}
+
+.header__user__sign-in__icon{
     width: 24px;
     height: 24px;
     flex: none;
     order: 0;
     flex-grow: 0;
-  }
-  
-  .header__user__sign-in__text--center{
+}
+
+.header__user__sign-in__text--center{
     width: 107px;
     height: 16px;
     
@@ -143,17 +143,6 @@
     line-height: 16px;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-  
+
     color: #065FD4;
-  }
-  
-  
-  @media (max-width: 768px) {
-    .card__sidebar {
-        display: none;
-    }
-    .header__search-bar {
-        display: none;
-    }
-  }
-  
+}
