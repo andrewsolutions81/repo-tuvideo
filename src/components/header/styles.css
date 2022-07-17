@@ -1,3 +1,4 @@
+
 .header__container {
     display: flex;
     justify-content: space-between;
@@ -145,4 +146,13 @@
     text-transform: uppercase;
 
     color: #065FD4;
+}
+
+@media (max-width: 768px) {
+    .card__sidebar {
+        display: none;
+    }
+    .header__search-bar {
+        display: none;
+    }
 }

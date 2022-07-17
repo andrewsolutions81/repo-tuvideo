@@ -1,11 +1,11 @@
 import './App.css';
 import SingleVideo from './pages/SingleVideo';
-import Header from './components/header/index.jsx';
+import HeaderBar from './pages/Header';
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      <HeaderBar />
       <SingleVideo />
     </div>
   );
