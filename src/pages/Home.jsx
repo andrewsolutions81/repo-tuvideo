@@ -1,12 +1,9 @@
-import SingleVideo from "./SingleVideo";
+import Landing from "../components/Landing"
 
-function HomePage () {
+function Home() {
   return (
-    <div><>
-    <SingleVideo />
-    </>
-    </div>
+    <Landing />
   )
 }
 
-export default HomePage;
+export default Home;
