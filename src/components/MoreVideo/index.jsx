@@ -87,9 +87,9 @@ function MoreVideo(){
 
     <div className="more-videos-container">
       {
-        videoSamples.map(video => {
+        videoSamples.map((video, index) => {
           return(
-            <div className="more-videos-container__video">
+            <div className="more-videos-container__video" key={index}>
               <video width="320" poster={video.thumb} controls>
                 <source src={video.sources} type="video/mp4" />
                 Your browser does not support the video tag.
