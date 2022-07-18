@@ -5,7 +5,7 @@
 .container {
   background: #f1f1f1;
   padding: 24px 0px;
-  align-self: flex-start;
+  
   margin: 0px;
   padding-right: calc((100% - 1070px) / 2);
   padding-left: calc((100% - 1070px) / 2);
@@ -49,9 +49,14 @@
 .video-container {
   width: 424px;
   height: 238px;
+<<<<<<< HEAD
   margin-right: 24px;
   background-image: url("https://i.ytimg.com/vi/ynNh7709JWE/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBBI6rQ8Btg3xHyDcVGb7NnR0DFig");
   background-size: cover;
+=======
+  background-color: #606060;
+  margin-right: 24px;
+>>>>>>> 6996791419a3b06bde3aa66974598fc4ee761c96
 }
 
 @media screen and (max-width: 700px) {

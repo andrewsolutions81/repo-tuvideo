@@ -8,7 +8,6 @@ import Header from '../Header'
 function PageManager(){
     return(
         <div className="manager">
-                <Header/>
                 <Channel_Header/>
                 <TabCarousel/>
                 <VideoIntroduccion/>

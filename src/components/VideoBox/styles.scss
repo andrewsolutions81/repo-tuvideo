@@ -6,10 +6,15 @@ button{
   border:none;
   cursor: pointer;
 }
-
+.video-box{
+  height:400px;
+}
 @media (min-width:768px){
   .video-container__video{
       height: 500px;
+  }
+  .video-box{
+    height:600px;
   }
 }
 .video-options{
