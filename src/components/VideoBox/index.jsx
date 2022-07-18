@@ -83,11 +83,11 @@ const videoSamples = [
 function VideoBox(){
   return(
     <div>
-      <div >
-        <video width="100%" height="600px" poster={videoSamples[0].thumb} controls>
+      <div>
+        <video className="video-box" width="100%" poster={videoSamples[0].thumb} controls>
           <source src={videoSamples[0].sources} type="video/mp4" />
         </video>
-    </div>
+      </div>
     <div className="video-options">
         <h1 className="video-options__title">{videoSamples[0].title}</h1>
         <div className="video-options__container">
@@ -104,7 +104,7 @@ function VideoBox(){
         <div className="ch-info-container__ch-info">
             <h2 className="ch-info-container__name">{videoSamples[0].subtitle}</h2>
             <p className="ch-info-container__subs">45.567 subscribers</p>
-            <p className="ch-info-container__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At excepturi animi nobis facilis soluta a repellat ducimus et minima! Illum, recusandae? Nam, ipsum? Enim, minima excepturi aspernatur dolor vel commodi.</p>
+            <p className="ch-info-container__desc">{videoSamples[0].description}</p>
         </div>
         <div className="ch-info-container__subs-btn">
             <button type="button">Subscribe</button>
