@@ -20,20 +20,12 @@ function VideoIntroduccion(){
                         </div>
                     </div>
                     <div className="video-description">
-<<<<<<< HEAD
-                    Desafortunadamente, la mayoría de la educación está mal implementada. ¡Creemos que es el momento de repensar la educación!
-=======
                     En esta charla te contamos porque Ruby on Rails sigue siendo un stack muy
                     demandado por las empresas tecnológicas. Súmate! 
->>>>>>> 6996791419a3b06bde3aa66974598fc4ee761c96
                     </div>
                 </div>
             </div>
         </div>
     )
 }
-<<<<<<< HEAD
 export default VideoIntroduccion;
-=======
-export default VideoIntroduccion;
->>>>>>> 6996791419a3b06bde3aa66974598fc4ee761c96
