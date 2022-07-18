@@ -156,3 +156,55 @@
         display: none;
     }
 }
+
+
+.sidebar-open{
+  width:250px !important;
+}
+.sidebar-open--main{
+  margin-left:250px
+}
+
+.sidebar {
+  background-color:white;
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 50px;
+  left: 0;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  background-color: white;
+}
+
+.sidebar__categories {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.sidebar__category {
+  display: flex;
+  align-items: center;
+  padding: 12px 25px;
+}
+
+.sidebar__category span {
+  margin-left: 15px;
+}
+
+.sidebar__category:hover {
+  background: #e5e5e5;
+  cursor: pointer;
+}
+
+.sidebar-float{
+  position: absolute;
+  top: 0;
+  left: -200px;
+  background-color: white;
+
+}
