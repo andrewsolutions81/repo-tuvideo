@@ -1,11 +1,22 @@
 import "./styles.css";
+import {useState} from 'react'
+import { Link } from 'react-router-dom'
 
 function Header() {
-    return (
+
+  const [open, setOpen] = useState()
+
+  const handleMenu = (e) => {
+    const sidebar = document.querySelector(".sidebar")
+    const body = document.querySelector("body")
+    setOpen(sidebar.classList.toggle('sidebar-open'))
+    setOpen(body.classList.toggle('sidebar-open--main'))
+  }
+      return (
     <div className="header__container">
       <div className="header__logo">
           <div className="header__logo__burger">
-              <img src="/media/icons/Burger.png" alt="Menu" />
+              <img src="/media/icons/Burger.png" alt="Menu" onClick={handleMenu}/>
           </div>
           <div className="header__logo__logo">
               <img src="/media/icons/LogoYoutube.png" alt="Menu" />
@@ -38,6 +49,51 @@ function Header() {
               </div>
           </div>
       </div>
+
+      <div className="sidebar">
+        <div className="main-sidebar">
+            <div className="main-sidebar__categories">
+                <Link to='/' className="main-sidebar__category">
+                    <i className="material-icons">home</i>
+                </Link>
+                <Link to='/channel' className="main-sidebar__category">
+                    <i className="material-icons">local_fire_department</i>
+                </Link>
+                <div className="main-sidebar__category">
+                    <i className="material-icons">home</i>
+                    <span>Suscriptions</span>
+                </div>
+                <div className="main-sidebar__category">
+                    <i className="material-icons">subscriptions</i>
+                    <span>Subscriptions</span>
+                </div>
+            </div>
+            <hr></hr>
+            <div className="main-sidebar__sub-categories">
+                <div className="main-sidebar__category">
+                    <i className="material-icons">library_add_check</i>
+                    <span>Library</span>
+                </div>
+                <div className="main-sidebar__category">
+                    <i className="material-icons">history</i>
+                    <span>History</span>
+                </div>
+                <div className="main-sidebar__category">
+                    <i className="material-icons">play_arrow</i>
+                    <span>Your Videos</span>
+                </div>
+                <div className="main-sidebar__category">
+                    <i className="material-icons">watch_later</i>
+                    <span>Watch Later</span>
+                </div>
+                <div className="main-sidebar__category">
+                    <i className="material-icons">thumb_up</i>
+                    <span>Liked Videos</span>
+                </div>
+            </div>
+            <hr></hr>
+        </div>
+    </div>
     </div>        
     )
 }
