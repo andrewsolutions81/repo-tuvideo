@@ -1,14 +1,11 @@
 import "./styles.css"
-import React,{useRef} from "react";
 
 function Channel_Header(props){
 
     return (
         <div className="container-header">
             <div className="logo">
-                <div className="logo-img">
-
-                </div>
+                <img className="logo-img"src="https://media-exp2.licdn.com/dms/image/C4E0BAQGVo4pGdZLlgg/company-logo_200_200/0/1519881615474?e=2147483647&v=beta&t=mgHJFcs_qe_fEKG9M9A9ortCqz3HOcO-lB2pT1VB0pQ" alt=""/>
             </div>
             <div className="details">
                 <div className="details-container">

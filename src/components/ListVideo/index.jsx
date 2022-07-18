@@ -1,5 +1,5 @@
 import "./styles.css"
-import VideoItem from "../Video-Item";
+import VideoItem from "../VideoItem";
 
 function VideoCarousel(){
     return(
@@ -17,7 +17,7 @@ function VideoCarousel(){
                 </list>
             </div>
             <div className="arrow">
-                    
+                
             </div>
             <div className="list-videos">
                 <VideoItem/>

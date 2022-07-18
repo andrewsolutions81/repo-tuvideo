@@ -49,8 +49,9 @@
 .video-container {
   width: 424px;
   height: 238px;
-  background-color: #606060;
   margin-right: 24px;
+  background-image: url("https://i.ytimg.com/vi/ynNh7709JWE/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBBI6rQ8Btg3xHyDcVGb7NnR0DFig");
+  background-size: cover;
 }
 
 @media screen and (max-width: 700px) {
