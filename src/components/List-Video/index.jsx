@@ -16,6 +16,9 @@ function VideoCarousel(){
                     </div>
                 </list>
             </div>
+            <div className="arrow">
+                    
+            </div>
             <div className="list-videos">
                 <VideoItem/>
                 <VideoItem/>
