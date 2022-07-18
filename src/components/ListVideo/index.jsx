@@ -1,5 +1,5 @@
 import "./styles.css"
-import VideoItem from "../Video-Item";
+import VideoItem from "../VideoItem";
 
 function VideoCarousel(){
     return(
@@ -15,6 +15,9 @@ function VideoCarousel(){
                         REPRODUCIR TODO
                     </div>
                 </list>
+            </div>
+            <div className="arrow">
+                
             </div>
             <div className="list-videos">
                 <VideoItem/>

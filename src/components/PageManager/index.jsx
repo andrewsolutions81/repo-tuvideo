@@ -1,8 +1,9 @@
 import './styles.scss'
-import Channel_Header from '../Channel-Header'
-import TabCarousel from '../Tab-Carousel'
+import Channel_Header from '../ChannelHeader'
+import TabCarousel from '../TabCarousel'
 import VideoIntroduccion from '../VideoIntroduccion'
-import ListVideo from '../List-Video'
+import ListVideo from '../ListVideo'
+import Header from '../Header'
 
 function PageManager(){
     return(
