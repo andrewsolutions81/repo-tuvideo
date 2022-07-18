@@ -7,7 +7,11 @@ import SingleVideo from './pages/SingleVideo';
 function App() {
   return (
     <div className="App">
+
+      <SingleVideo />
+
       <UploadVideo />
+
     </div>
   );
 }
