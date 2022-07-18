@@ -53,6 +53,40 @@ button{
   }
 }
 }
+}
+&__container{
+  display:flex;
+  flex-direction: column;
+  align-items:stretch;
+
+  &__views{
+    font-weight: 400;
+    font-size:14px;
+    color: #606060;
+  }
+
+  .video-options__buttons{
+    margin-top:20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    & button{
+      text-transform:uppercase;
+      margin-right: 40px;
+      font-weight: 600;
+      align-items: center;
+    }
+    & button:last-child{
+      margin-right: 0;
+    }
+    & img{
+      margin-right: 10px;
+      width:24px;
+      height: 24px;
+    }
+  }
+}
+}
 
 
 .video-options__title{
@@ -105,6 +139,10 @@ button{
   justify-content: space-between;
   padding:20px;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9a8db18 (Feat: add videos.json (#26))
   &__avatar{
     margin-right: 20px;
 
