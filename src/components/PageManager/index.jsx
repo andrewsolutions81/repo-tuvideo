@@ -4,11 +4,7 @@ import TabCarousel from '../TabCarousel'
 import VideoIntroduccion from '../VideoIntroduccion'
 import ListVideo from '../ListVideo'
 import Header from '../Header'
-<<<<<<< HEAD
-
-=======
 import Banner from '../Banner'
->>>>>>> develop
 function PageManager(){
     return(
         <div className="manager">
