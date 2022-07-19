@@ -16,7 +16,7 @@ function Header() {
     <div className="header__container">
       <div className="header__logo">
           <div className="header__logo__burger">
-              <img src="/media/icons/Burger.png" alt="Menu" onClick={handleMenu}/>
+          <img src="/media/icons/Burger.png" alt="Menu" onClick={handleMenu}/>
           </div>
           <div className="header__logo__logo">
               <img src="/media/icons/LogoYoutube.png" alt="Menu" />
@@ -54,40 +54,42 @@ function Header() {
         <div className="main-sidebar">
             <div className="main-sidebar__categories">
                 <Link to='/' className="main-sidebar__category">
-                    <i className="material-icons">home</i>
+                    <img src="/media/icons/Home-icon.png" alt="Home-icon"/>
+                    <p>Home</p>
                 </Link>
                 <Link to='/channel' className="main-sidebar__category">
-                    <i className="material-icons">local_fire_department</i>
+                    <img src="/media/icons/Trending-icon.png" alt="Trending-icon"/>
+                    <span>Trending</span>
                 </Link>
                 <div className="main-sidebar__category">
-                    <i className="material-icons">home</i>
-                    <span>Suscriptions</span>
+                    <img src="/media/icons/Compass.png" alt="Compass-explore-icon"/>
+                    <span>Explore</span>
                 </div>
                 <div className="main-sidebar__category">
-                    <i className="material-icons">subscriptions</i>
-                    <span>Subscriptions</span>
+                    <img src="/media/icons/Subscriptions.png" alt="Subcriptions-icon"/>
+                    <span>Subcriptions</span>
                 </div>
             </div>
             <hr></hr>
             <div className="main-sidebar__sub-categories">
                 <div className="main-sidebar__category">
-                    <i className="material-icons">library_add_check</i>
+                    <img src="/media/icons/Library.png" alt="Library-icon"/>
                     <span>Library</span>
                 </div>
                 <div className="main-sidebar__category">
-                    <i className="material-icons">history</i>
+                    <img src="/media/icons/History.png" alt="History-icon"/>
                     <span>History</span>
                 </div>
                 <div className="main-sidebar__category">
-                    <i className="material-icons">play_arrow</i>
+                    <img src="/media/icons/Yourvideos.png" alt="Yourvideos-icon"/>
                     <span>Your Videos</span>
                 </div>
                 <div className="main-sidebar__category">
-                    <i className="material-icons">watch_later</i>
+                    <img src="/media/icons/Watchlater.png" alt="Watchlater-icon"/>
                     <span>Watch Later</span>
                 </div>
                 <div className="main-sidebar__category">
-                    <i className="material-icons">thumb_up</i>
+                    <img src="/media/icons/Mylikes.png" alt="Mylikes-icon"/>
                     <span>Liked Videos</span>
                 </div>
             </div>
