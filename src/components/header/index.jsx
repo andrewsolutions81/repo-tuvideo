@@ -1,11 +1,22 @@
 import "./styles.css";
+import {useState} from 'react'
+import { Link } from 'react-router-dom'
 
 function Header() {
-    return (
+
+  const [open, setOpen] = useState()
+
+  const handleMenu = (e) => {
+    const sidebar = document.querySelector(".sidebar")
+    const body = document.querySelector("body")
+    setOpen(sidebar.classList.toggle('sidebar-open'))
+    setOpen(body.classList.toggle('sidebar-open--main'))
+  }
+      return (
     <div className="header__container">
       <div className="header__logo">
           <div className="header__logo__burger">
-              <img src="/media/icons/Burger.png" alt="Menu" />
+          <img src="/media/icons/Burger.png" alt="Menu" onClick={handleMenu}/>
           </div>
           <div className="header__logo__logo">
               <img src="/media/icons/LogoYoutube.png" alt="Menu" />
@@ -38,6 +49,53 @@ function Header() {
               </div>
           </div>
       </div>
+
+      <div className="sidebar">
+        <div className="main-sidebar">
+            <div className="main-sidebar__categories">
+                <Link to='/' className="main-sidebar__category">
+                    <img src="/media/icons/Home-icon.png" alt="Home-icon"/>
+                    <p>Home</p>
+                </Link>
+                <Link to='/channel' className="main-sidebar__category">
+                    <img src="/media/icons/Trending-icon.png" alt="Trending-icon"/>
+                    <span>Trending</span>
+                </Link>
+                <div className="main-sidebar__category">
+                    <img src="/media/icons/Compass.png" alt="Compass-explore-icon"/>
+                    <span>Explore</span>
+                </div>
+                <div className="main-sidebar__category">
+                    <img src="/media/icons/Subscriptions.png" alt="Subcriptions-icon"/>
+                    <span>Subcriptions</span>
+                </div>
+            </div>
+            <hr></hr>
+            <div className="main-sidebar__sub-categories">
+                <div className="main-sidebar__category">
+                    <img src="/media/icons/Library.png" alt="Library-icon"/>
+                    <span>Library</span>
+                </div>
+                <div className="main-sidebar__category">
+                    <img src="/media/icons/History.png" alt="History-icon"/>
+                    <span>History</span>
+                </div>
+                <div className="main-sidebar__category">
+                    <img src="/media/icons/Yourvideos.png" alt="Yourvideos-icon"/>
+                    <span>Your Videos</span>
+                </div>
+                <div className="main-sidebar__category">
+                    <img src="/media/icons/Watchlater.png" alt="Watchlater-icon"/>
+                    <span>Watch Later</span>
+                </div>
+                <div className="main-sidebar__category">
+                    <img src="/media/icons/Mylikes.png" alt="Mylikes-icon"/>
+                    <span>Liked Videos</span>
+                </div>
+            </div>
+            <hr></hr>
+        </div>
+    </div>
     </div>        
     )
 }

@@ -1,13 +1,23 @@
-import './App.css';
-import UploadVideo from './components/UploadVideo';
-import SingleVideo from './pages/SingleVideo';
+import './App.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
 import Channel from './pages/Channel'
-import LoginRegister from './pages/LoginRegister';
+import SingleVideo from './pages/SingleVideo'
+
+
+
 
 function App() {
   return (
     <div className="App">
-      <Channel/>
+
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/channel' element={<Channel />} />
+          <Route path='/:id' element={<SingleVideo />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
