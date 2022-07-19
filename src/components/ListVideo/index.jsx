@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import "./styles.css"
+=======
+import "./styles.scss"
+>>>>>>> develop
 import VideoItem from "../VideoItem";
 
 function VideoCarousel(){
