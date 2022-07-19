@@ -179,9 +179,17 @@
   background-color: white;
 }
 
+.sidebar {
+  height: 100%;
+  width: 230px;
+  background-color: white;
+  overflow-y: scroll;
+}
+
 .sidebar__categories {
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction:row;
   margin-bottom: 15px;
   margin-top: 15px;
 }
@@ -190,21 +198,5 @@
   display: flex;
   align-items: center;
   padding: 12px 25px;
-}
-
-.sidebar__category span {
-  margin-left: 15px;
-}
-
-.sidebar__category:hover {
-  background: #e5e5e5;
-  cursor: pointer;
-}
-
-.sidebar-float{
-  position: absolute;
-  top: 0;
-  left: -200px;
-  background-color: white;
-
+  block-size: 48px;
 }
