@@ -7,6 +7,9 @@ $textSelected: #030303;
     display: flex;
     background-color: #f9f9f9;
     overflow: hidden;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
 }
 .arrow-left{
     height: 100%;

@@ -1,100 +1,30 @@
-<<<<<<< HEAD
-=======
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
->>>>>>> b6e72d7 (feat fix sidebar, work in progress (#27))
 .mainBody {
   height: calc(100vh - 70px);
   display: flex;
   overflow: hidden;
-  width: 400px;
-  max-width:100%;
-  height:100vh
 }
-
 .sidebar {
+  height: 100%;
+  width: 230px;
   background-color: white;
   overflow-y: scroll;
 }
-
 .sidebar__categories {
+  width: 100%;
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
   margin-top: 15px;
 }
-
 .sidebar__category {
   display: flex;
   align-items: center;
   padding: 12px 25px;
-<<<<<<< HEAD
 }
-
 .sidebar__category span {
   margin-left: 15px;
 }
-
 .sidebar__category:hover {
   background: #e5e5e5;
   cursor: pointer;
-=======
-
-  span {
-    margin-left: 15px;
-  }
-
-  &:hover {
-    background: #e5e5e5;
-    cursor: pointer;
-  }
-}
-
-span {
-  text-decoration: none;
-  color: rgb(96, 96, 96);
-  font-size: 14px;
-}
-
-@media (max-width: 425px) {
-  .main-sidebar span {
-    display: none;
-  }
-}
-
-@media (max-width: 768px) {
-  span {
-    text-decoration: none;
-    color: rgb(96, 96, 96);
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 941px) {
-  .header__search input {
-    width: 300px;
-  }
-
-  span {
-    text-decoration: none;
-    color: rgb(96, 96, 96);
-    font-size: 14px;
-  }
-}
-
-.main-sidebar__sub-categories :hover, .main-sidebar__categories :hover {
-  background-color: rgb(219, 218, 218);
->>>>>>> b6e72d7 (feat fix sidebar, work in progress (#27))
-}
-
-.sidebar-float{
-  position: absolute;
-  top: 0;
-  left: -200px;
-  background-color: white;
-
 }

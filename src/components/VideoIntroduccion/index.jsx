@@ -1,4 +1,4 @@
-import './styles.css'
+import './styles.scss'
 
 function VideoIntroduccion(){
     return (
@@ -11,8 +11,7 @@ function VideoIntroduccion(){
                     <div className="video-title">
                         <div className="title">
                             <a href="#">
-                                Conoce porque ampliar tu stack con
-                                Ruby on Rails
+                                ¿Porqué Make it Real?
                             </a>    
                         </div>
                         <div className="video-stadistics">
@@ -20,8 +19,7 @@ function VideoIntroduccion(){
                         </div>
                     </div>
                     <div className="video-description">
-                    En esta charla te contamos porque Ruby on Rails sigue siendo un stack muy
-                    demandado por las empresas tecnológicas. Súmate! 
+                    Desafortunadamente, la mayoría de la educación está mal implementada. ¡Creemos que es el momento de repensar la educación!
                     </div>
                 </div>
             </div>
