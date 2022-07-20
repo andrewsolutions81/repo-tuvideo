@@ -3,21 +3,23 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Channel from './pages/Channel'
 import SingleVideo from './pages/SingleVideo'
-import LoginRegister from './pages/LoginRegister'
+import Header from './components/Header'
+
 
 
 
 function App() {
   return (
     <div className="App">
-      <LoginRegister/>
-      {/* <BrowserRouter>
+
+      <BrowserRouter>
+        <Header />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/channel' element={<Channel />} />
           <Route path='/:id' element={<SingleVideo />} />
         </Routes>
-  </BrowserRouter> */}
+  </BrowserRouter>
     </div>
   );
 }
