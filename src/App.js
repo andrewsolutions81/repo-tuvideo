@@ -19,7 +19,7 @@ function App() {
           <Route path='/channel' element={<Channel />} />
           <Route path='/:id' element={<SingleVideo />} />
         </Routes>
-      </BrowserRouter>
+  </BrowserRouter>
     </div>
   );
 }
