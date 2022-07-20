@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Channel from './pages/Channel'
 import SingleVideo from './pages/SingleVideo'
+import Header from './components/Header'
 
 
 
@@ -12,6 +13,7 @@ function App() {
     <div className="App">
 
       <BrowserRouter>
+        <Header />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/channel' element={<Channel />} />
