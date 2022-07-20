@@ -51,49 +51,52 @@ function Header() {
       </div>
 
       <div className="sidebar">
+      <div className="header__logo--active">
+          <div className="header__logo__burger">
+          <img src="/media/icons/Burger.png" alt="Menu" onClick={handleMenu}/>
+          </div>
+          <div className="header__logo__logo">
+              <img src="/media/icons/LogoYoutube.png" alt="Menu" />
+          </div>
+      </div>
         <div className="main-sidebar">
             <div className="main-sidebar__categories">
-                <Link to='/' className="main-sidebar__category">
-                    <img src="/media/icons/Home-icon.png" alt="Home-icon"/>
-                    <p>Home</p>
+              <ul>
+                <Link to="/" className="main-sidebar__category">
+                  <img src="/media/icons/Home-icon.png" alt="Home-icon"/> Home
                 </Link>
-                <Link to='/channel' className="main-sidebar__category">
-                    <img src="/media/icons/Trending-icon.png" alt="Trending-icon"/>
-                    <span>Trending</span>
+                <Link to="/" className="main-sidebar__category">
+                  <img src="/media/icons/Trending-icon.png" alt="Trending-icon"/> Trending
                 </Link>
-                <div className="main-sidebar__category">
-                    <img src="/media/icons/Compass.png" alt="Compass-explore-icon"/>
-                    <span>Explore</span>
-                </div>
-                <div className="main-sidebar__category">
-                    <img src="/media/icons/Subscriptions.png" alt="Subcriptions-icon"/>
-                    <span>Subcriptions</span>
-                </div>
+                <Link to="/" className="main-sidebar__category">
+                  <img src="/media/icons/Compass.png" alt="Compass-explore-icon"/> Explore
+                </Link>
+                <Link to="/" className="main-sidebar__category">
+                  <img src="/media/icons/Subscriptions.png" alt="Subcriptions-icon"/> Subscriptions
+                </Link>
+              </ul>
             </div>
-            <hr></hr>
-            <div className="main-sidebar__sub-categories">
-                <div className="main-sidebar__category">
-                    <img src="/media/icons/Library.png" alt="Library-icon"/>
-                    <span>Library</span>
-                </div>
-                <div className="main-sidebar__category">
-                    <img src="/media/icons/History.png" alt="History-icon"/>
-                    <span>History</span>
-                </div>
-                <div className="main-sidebar__category">
-                    <img src="/media/icons/Yourvideos.png" alt="Yourvideos-icon"/>
-                    <span>Your Videos</span>
-                </div>
-                <div className="main-sidebar__category">
-                    <img src="/media/icons/Watchlater.png" alt="Watchlater-icon"/>
-                    <span>Watch Later</span>
-                </div>
-                <div className="main-sidebar__category">
-                    <img src="/media/icons/Mylikes.png" alt="Mylikes-icon"/>
-                    <span>Liked Videos</span>
-                </div>
+            <hr />
+            <div className="main-sidebar__categories">
+              <ul>
+                <Link to="/" className="main-sidebar__category">
+                  <img src="/media/icons/Library.png" alt="Library-icon"/> Library
+                </Link>
+                <Link to="/" className="main-sidebar__category">
+                  <img src="/media/icons/History.png" alt="History-icon"/> History
+                </Link>
+                <Link to="/" className="main-sidebar__category">
+                  <img src="/media/icons/Yourvideos.png" alt="Yourvideos-icon"/> Your Videos
+                </Link>
+                <Link to="/" className="main-sidebar__category">
+                  <img src="/media/icons/Watchlater.png" alt="Watchlater-icon"/> Watch Later
+                </Link>
+                <Link to="/" className="main-sidebar__category">
+                  <img src="/media/icons/Mylikes.png" alt="Watchlater-icon"/> Liked Videos
+                </Link>
+              </ul>
             </div>
-            <hr></hr>
+            <hr />
         </div>
     </div>
     </div>        
