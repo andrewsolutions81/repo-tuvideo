@@ -1,9 +1,15 @@
 import MoreVideos from "../MoreVideos";
 import "../VideoBox/styles.scss";
+import {useEffect} from 'react'
 
 function VideoBox(props){
   
   const { videos, id} = props;
+  useEffect(() => {
+    
+    videos.map(video => (video.id + '-' + video.title.toLowerCase().replaceAll(' ', '-') === id ? document.title = video.title : null ))
+     
+  }, [videos,id]);
   return(
     <div>
       { 
