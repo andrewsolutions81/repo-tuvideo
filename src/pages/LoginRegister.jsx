@@ -1,8 +1,11 @@
-import Login from '../components/Login';
-
+import LoginCard from '../components/LoginCard';
+import HeaderLogin from '../components/HeaderLogin';
 function LoginRegister(){
     return(
-        <Login/>
+        <>
+            <HeaderLogin/>
+            <LoginCard/>
+        </>
     )
 }
 export default LoginRegister;

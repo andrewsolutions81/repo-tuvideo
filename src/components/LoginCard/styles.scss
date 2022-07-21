@@ -1,0 +1,77 @@
+$colorRed: #ff4c41ff;
+$colorGris: #898989;
+.card{
+    width: 300px;
+    height: 380px;
+    box-shadow: 0px 0px 10px 0.2px #898989;
+    border-radius: 10px;
+    margin: auto auto;
+}
+.items-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: max-content;
+    margin: auto auto;
+}
+.tabs{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 15px;
+    color: $colorGris;
+    p{
+        margin-bottom: 5px;
+    }
+}
+.tab-login{
+    border-bottom: 2px solid $colorRed;
+    color: $colorRed;
+}
+.formData{
+    margin-top: 20px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    input{
+        border: 0px;
+        border-bottom: 1px solid $colorGris;
+        margin-bottom: 10px;
+    }
+    input::placeholder{
+        color: $colorRed;
+    }
+}
+.button-login{
+    color: #fff;
+    background-color: $colorRed;
+    margin-top: 25px;
+    padding: 5px 10px;
+    width: 100%;
+    border-radius: 2px;
+}
+.forgot-password{
+    margin-top: 25px;
+    a{
+        color: $colorRed;
+        text-decoration: none;
+    }
+}
+.image-login{
+    display: none;
+}
+
+@media screen and (min-width: 1024px) {
+    .card{
+        margin: auto 200px;
+    }
+    .image-login{
+        display: block;
+        position: absolute;
+        right: 0px;
+        top: 60px;
+        width: 400px;
+        margin-right: 50px;
+    }
+}

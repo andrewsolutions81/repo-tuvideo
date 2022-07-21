@@ -7,7 +7,7 @@ function VideoItem(){
                 <div className="video-thumbnail">
                 </div>
                 <div className="info-container">
-                    <div className="details">
+                    <div>
                         <div className="title">
                             Solucionando ejercicios de Algoritmia #88
                         </div>
