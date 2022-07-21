@@ -5,10 +5,14 @@ import {useEffect, useState} from 'react'
 function VideoBox(props){
   
   const [likes, setLikes] = useState(0)
+  const [dislike, setDislike] =useState(false)
   const { videos, id} = props;
 
     function handleLike(){
       setLikes(likes + 1)
+    }
+    function handleDislike(){
+      setDislike(!dislike)
     }
 
 
@@ -32,8 +36,8 @@ function VideoBox(props){
                 <img src="/media/icons/like.png" alt="like" style={ likes > 0 ? { opacity:'1'} : {opacity:'0.2'}}/>
              {likes}
               </button>
-              <button type="button" className="video-options__dislike-btn">
-                <img src="/media/icons/dislike.png" alt="dislike"/>
+              <button type="button" className="video-options__dislike-btn" onClick={handleDislike}>
+                <img src="/media/icons/dislike.png" alt="dislike" className={dislike ? "opacity" : null}/>
                 Don't like it
               </button>
               <button type="button" className="video-options__share-btn">
