@@ -1,14 +1,19 @@
 import MoreVideos from "../MoreVideos";
 import "../VideoBox/styles.scss";
-import {useEffect} from 'react'
+import {useEffect, useState} from 'react'
 
 function VideoBox(props){
   
+  const [likes, setLikes] = useState(0)
   const { videos, id} = props;
+
+    function handleLike(){
+      setLikes(likes + 1)
+    }
+
+
   useEffect(() => {
-    
     videos.map(video => (video.id + '-' + video.title.toLowerCase().replaceAll(' ', '-') === id ? document.title = video.title : null ))
-     
   }, [videos,id]);
   return(
     <div>
@@ -23,16 +28,16 @@ function VideoBox(props){
           <div className="video-options__container">
             <p className="video-options__views">3.000.000 views</p>
             <div className="video-options__buttons">
-              <button type="button" className="video-options__like-btn">
-                <img src="/media/icons/Mylikes.png" alt="like" />
-                60.000
+              <button type="button" className="video-options__like-btn" onClick={handleLike}>
+                <img src="/media/icons/like.png" alt="like" style={ likes > 0 ? { opacity:'1'} : {opacity:'0.2'}}/>
+             {likes}
               </button>
               <button type="button" className="video-options__dislike-btn">
-                <img src="/media/icons/dont-like.png" alt="dislike" />
+                <img src="/media/icons/dislike.png" alt="dislike"/>
                 Don't like it
               </button>
               <button type="button" className="video-options__share-btn">
-                <img src="/media/icons/share.png" alt="share" />
+                <img src="/media/icons/forward.png" alt="share" />
                 Share
               </button>
             </div>
