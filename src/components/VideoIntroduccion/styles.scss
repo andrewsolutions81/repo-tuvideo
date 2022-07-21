@@ -47,6 +47,9 @@
     background-size: cover;
 }
 @media screen and (max-width: 700px) {
+    .video-container{
+        width: calc(100% - 10px);
+    }
     .details-container {
       align-items: flex-start;
     }
@@ -64,5 +67,12 @@
     .introduccion{
         display: flex;
         flex-direction: column;
+    }
+    .container{
+        align-self: center;
+        width: 100%;
+    }
+    .video-description{
+        display: none;
     }
   }

@@ -65,7 +65,7 @@ function Header() {
                 <Link to="/" className="main-sidebar__category">
                   <img src="/media/icons/Home-icon.png" alt="Home-icon"/> Home
                 </Link>
-                <Link to="/" className="main-sidebar__category">
+                <Link to="/channel" className="main-sidebar__category">
                   <img src="/media/icons/Trending-icon.png" alt="Trending-icon"/> Trending
                 </Link>
                 <Link to="/" className="main-sidebar__category">
