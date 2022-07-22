@@ -27,7 +27,7 @@
     .upload__button button{
       background-color:#0166CC;
       color:white;
-      margin-left: auto;
+      margin-top:20px;
       padding:10px 16px;
       text-transform: uppercase;
       border-radius: 5px;
@@ -44,6 +44,50 @@
 @media (min-width:768px){
   .upload{
     width:700px;
+  }
+}
+
+.file-input{
+
+  & img{
+    width:60px;
+    height:60px;
+  }
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin:20px 0;
+  & label{
+    background-color:#0166CC;
+    color:white;
+    font-size: 15px;
+    padding:10px 16px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}
+.upload-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  & div{
+    padding:10px;
+  }
+  & input{
+    width:100%;
+  }
+  & textarea{
+    width:100%;
+  }
+  & label{
+    font-size:17px;
+    font-weight: 400;
+  }
+  & select{
+    width:100%;
   }
 }
 
