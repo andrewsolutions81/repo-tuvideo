@@ -1,4 +1,5 @@
 import { useState } from "react";
+import UploadForm from "../UploadForm";
 import '../UploadVideo/styles.scss'
 
 
@@ -24,7 +25,6 @@ function VideoUploader() {
 
   }
 
-  
   return (
     <div>
       <div className="file-input">
@@ -36,38 +36,7 @@ function VideoUploader() {
       <div>
       {file ? <video width="100%"  src={`${showVideo}#t=5`} poster={showVideo} controls/> : null} 
       </div>
-      {/* Upload Form */}
-      {
-        file ? 
-        <form className="upload-form">
-          <div>
-            <label htmlFor="video-channel-name">What is your channel name</label>
-            <input type="text" name="video-channel-name" placeholder="Channel name"/>
-          </div>
-          <div>
-            <label htmlFor="select-category">What category suits your video better
-              <select name="select-category">
-                <option value="fun">Fun</option>
-                <option value="music">Music</option>
-                <option value="terror">Terror</option>
-              </select>
-            </label>
-          </div>
-          <div>
-            <label htmlFor="video-title-name">What title you want for your video</label>
-            <input type="text" name="video-title-name"placeholder="Write a meaningfull title"/>
-          </div>
-          <div>
-            <label htmlFor="video-desc-name">What description you want for your video</label>
-            <textarea type="text" name="video-desc-name"  rows="7"/>
-          </div>
-          <div className="upload__button">
-            <button type="button">UPLOAD VIDEO</button>      
-          </div>
-        </form> :
-        null
-      }
-
+      <UploadForm file={file}/>
     </div>
   );
 }
