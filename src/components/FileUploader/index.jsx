@@ -2,7 +2,6 @@ import { useState } from "react";
 import UploadForm from "../UploadForm";
 import '../UploadVideo/styles.scss'
 
-
 function VideoUploader() {
   const [file, setFile] = useState(null);
   const [showVideo, setShowVideo] = useState()
@@ -24,7 +23,6 @@ function VideoUploader() {
     }
 
   }
-
   return (
     <div>
       <div className="file-input">
@@ -36,7 +34,7 @@ function VideoUploader() {
       <div>
       {file ? <video width="100%"  src={`${showVideo}#t=5`} poster={showVideo} controls/> : null} 
       </div>
-      <UploadForm file={file}/>
+      <UploadForm file={showVideo}/>
     </div>
   );
 }

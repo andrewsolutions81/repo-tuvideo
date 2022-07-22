@@ -13,11 +13,6 @@ function VideoBox(props){
     return video.id + '-' + video.title.toLowerCase().replaceAll(' ', '-')
   }
 
-  function handleLocal(){
-    isActive ? 
-    setSaveLocal(localStorage.setItem("# likes", likes)):
-    setSaveLocal(saveLocal)
-  } 
 
   function handleLike(){
       isActive ?
