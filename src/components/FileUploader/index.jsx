@@ -23,6 +23,10 @@ function VideoUploader() {
     }
 
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 37c2c6d (feat: add upload form as component)
   return (
     <div>
       <div className="file-input">
@@ -34,7 +38,11 @@ function VideoUploader() {
       <div>
       {file ? <video width="100%"  src={`${showVideo}#t=5`} poster={showVideo} controls/> : null} 
       </div>
+<<<<<<< HEAD
       <UploadForm file={showVideo}/>
+=======
+      <UploadForm file={file}/>
+>>>>>>> 37c2c6d (feat: add upload form as component)
     </div>
   );
 }
