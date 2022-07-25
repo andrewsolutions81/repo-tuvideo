@@ -10,3 +10,4 @@ export function getVideo(id) {
 export function getVideoByCategory(category) {
   return data.find(video => video.category === category);
 }
+

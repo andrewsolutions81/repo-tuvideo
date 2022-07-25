@@ -7,6 +7,7 @@ function VideoBox(props){
   const [likes, setLikes] = useState(0)
   const [isActive, setIsActive] =useState(true)
   const [saveLocal, setSaveLocal] =useState()
+  const [dislike, setDislike] =useState()
   const { videos, id} = props
 
   function createSlug(video){
@@ -22,10 +23,6 @@ function VideoBox(props){
     }
     function handleDislike(){
       setDislike(!dislike)
-    }
-
-  function handleDislike(){
-    //setIsActive(!isActive)
     }
 
   useEffect(() => {
