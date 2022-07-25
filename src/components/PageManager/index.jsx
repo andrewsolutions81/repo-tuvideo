@@ -3,8 +3,9 @@ import Channel_Header from '../ChannelHeader'
 import TabCarousel from '../TabCarousel'
 import VideoIntroduccion from '../VideoIntroduccion'
 import ListVideo from '../ListVideo'
-import Header from '../Header'
+import Header from '../header/index'
 import Banner from '../Banner'
+
 function PageManager(){
     return(
         <div className="manager">

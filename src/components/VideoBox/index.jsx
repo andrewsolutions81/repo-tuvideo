@@ -1,6 +1,7 @@
 import MoreVideos from "../MoreVideos";
 import "../VideoBox/styles.scss";
 import {useEffect} from 'react'
+import Comments from "../Comments";
 
 function VideoBox(props){
   
@@ -52,8 +53,11 @@ function VideoBox(props){
             <button type="button">Subscribe</button>
           </div>
         </div>
+        <div>
+          <Comments />
+        </div>
       <MoreVideos video={video} videos={videos}/>
-        </div>       
+        </div>
       :null))
       }
     </div>

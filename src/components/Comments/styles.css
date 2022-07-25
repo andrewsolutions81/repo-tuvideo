@@ -1,0 +1,39 @@
+.coments-container{
+  display: block;
+  margin-top: 24px;
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.comments-header-renderer{
+  margin-right: 16px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.comments__title{
+  display: block;
+  margin-top: 0%;
+}
+
+.imput-container{
+  margin-right: 16px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.comment-button {
+  background-color: #151515;
+  border: none;
+  color: rgb(107, 107, 107);
+  padding: 16px 25px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+

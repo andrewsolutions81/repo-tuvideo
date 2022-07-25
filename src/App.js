@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Channel from './pages/Channel'
 import SingleVideo from './pages/SingleVideo'
-import Header from './components/Header'
+import Header from './components/header/index.jsx'
 
 
 
