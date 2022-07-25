@@ -19,7 +19,7 @@ function Header() {
           <img src="/media/icons/Burger.png" alt="Menu" onClick={handleMenu}/>
           </div>
           <div className="header__logo__logo">
-              <img src="/media/icons/LogoYoutube.png" alt="Menu" />
+          <Link to="/"><img src="/media/icons/LogoYoutube.png" alt="Menu" /></Link>
           </div>
       </div>
       <div className="header__search-bar">
@@ -45,7 +45,7 @@ function Header() {
                   <img src="/media/icons/User.png" alt="Sign In" />
               </div>
               <div className="header__user__sign-in__text">
-                  <p className="header__user__sign-in__text--center">Sign In</p>
+              <Link to="/login-register"><p className="header__user__sign-in__text--center">Sign In</p></Link>
               </div>
           </div>
       </div>
