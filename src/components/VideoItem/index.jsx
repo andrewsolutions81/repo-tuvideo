@@ -1,15 +1,17 @@
 import './styles.scss';
+import React from 'react';
 
-function VideoItem(){
+const VideoItem = (props) => {
+    const {video} = props
     return(
         <div>
             <div className="items-container">
-                <div className="video-thumbnail">
+                <div className="video-thumbnail" style={{backgroundImage: `url(${video.thumb})`}}>
                 </div>
                 <div className="info-container">
                     <div>
                         <div className="title">
-                            Solucionando ejercicios de Algoritmia #88
+                            {video.title}
                         </div>
                         <div className="statistics">
                             15 K vistas - hace 18 horas

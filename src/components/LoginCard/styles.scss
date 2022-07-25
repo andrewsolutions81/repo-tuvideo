@@ -1,11 +1,14 @@
 $colorRed: #ff4c41ff;
 $colorGris: #898989;
+.container-card{
+    margin-top: 80px;
+}
 .card{
     width: 300px;
     height: 380px;
     box-shadow: 0px 0px 10px 0.2px #898989;
     border-radius: 10px;
-    margin: auto auto;
+    margin-left: 100px;
 }
 .items-container{
     display: flex;
@@ -63,14 +66,12 @@ $colorGris: #898989;
 }
 
 @media screen and (min-width: 1024px) {
-    .card{
-        margin: auto 200px;
-    }
     .image-login{
-        display: block;
+        display: flex;
         position: absolute;
         right: 0px;
-        top: 60px;
+        top: 150px;
+        margin-left: 400px;
         width: 400px;
         margin-right: 50px;
     }
