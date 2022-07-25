@@ -1,17 +1,18 @@
 import './styles.scss'
 
-function VideoIntroduccion(){
+function VideoIntroduccion(props){
+    const {video} = props
     return (
         <div className="container">
             <div className="introduccion">
                 <div className="video-container">
-
+                    <video src={video.sources} controls></video>
                 </div>
                 <div className="video-details-container">
                     <div className="video-title">
                         <div className="title">
                             <a href="#">
-                                ¿Porqué Make it Real?
+                                {video.title}
                             </a>    
                         </div>
                         <div className="video-stadistics">
@@ -19,7 +20,7 @@ function VideoIntroduccion(){
                         </div>
                     </div>
                     <div className="video-description">
-                    Desafortunadamente, la mayoría de la educación está mal implementada. ¡Creemos que es el momento de repensar la educación!
+                        {video.description}
                     </div>
                 </div>
             </div>

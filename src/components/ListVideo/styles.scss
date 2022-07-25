@@ -1,10 +1,10 @@
 .container-list{
     align-self: flex-start;
-    overflow-x: hidden;
+    overflow: hidden;
     width: 100%;
     border-top: 1.2px solid #6060601d;
     background-color: #f1f1f1;
-    padding-left: 32px;
+    padding-left: 10px;
     box-sizing: border-box;
 }
 .list-name{
@@ -19,6 +19,7 @@
 .list-videos {
     margin-top: 24px;
     display: flex;
+    overflow: hidden;
 }
 .list-details{
     display: flex;
