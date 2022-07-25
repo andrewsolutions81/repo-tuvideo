@@ -1,19 +1,38 @@
-import MoreVideos from "../MoreVideos";
-import "../VideoBox/styles.scss";
-import {useEffect} from 'react'
+import MoreVideos from "../MoreVideos"
+import {useEffect, useState} from 'react'
+import "../VideoBox/styles.scss"
 
 function VideoBox(props){
   
-  const { videos, id} = props;
+  const [likes, setLikes] = useState(0)
+  const [isActive, setIsActive] =useState(true)
+  const [saveLocal, setSaveLocal] =useState()
+  const { videos, id} = props
+
+  function createSlug(video){
+    return video.id + '-' + video.title.toLowerCase().replaceAll(' ', '-')
+  }
+
+
+  function handleLike(){
+      isActive ?
+      setLikes(likes + 1):
+      setLikes(likes - 1)
+      setIsActive(!isActive)
+    }
+
+  function handleDislike(){
+    //setIsActive(!isActive)
+    }
+
   useEffect(() => {
-    
-    videos.map(video => (video.id + '-' + video.title.toLowerCase().replaceAll(' ', '-') === id ? document.title = video.title : null ))
-     
-  }, [videos,id]);
+    videos.map(video => (createSlug(video) === id ? document.title = video.title : null ))
+  }, [videos,id])
+  
   return(
     <div>
       { 
-      videos.map((video) => (video.id + '-' + video.title.toLowerCase().replaceAll(' ', '-') === id ?
+      videos.map((video) => (createSlug(video) === id ?
         <div key={video.id}>
         <video className="video-box" width="100%" poster={video.thumb} controls>
           <source src={video.sources} type="video/mp4" />
@@ -23,16 +42,16 @@ function VideoBox(props){
           <div className="video-options__container">
             <p className="video-options__views">3.000.000 views</p>
             <div className="video-options__buttons">
-              <button type="button" className="video-options__like-btn">
-                <img src="/media/icons/Mylikes.png" alt="like" />
-                60.000
+              <button type="button" className="video-options__like-btn" onClick={handleLike}>
+                <img src="/media/icons/like.png" alt="like" style={ isActive > true ? { opacity:'1'} : {opacity:'0.2'}}/>
+             {likes}
               </button>
-              <button type="button" className="video-options__dislike-btn">
-                <img src="/media/icons/dont-like.png" alt="dislike" />
+              <button type="button" className="video-options__dislike-btn" onClick={handleDislike}>
+                <img src="/media/icons/dislike.png" alt="dislike"/>
                 Don't like it
               </button>
               <button type="button" className="video-options__share-btn">
-                <img src="/media/icons/share.png" alt="share" />
+                <img src="/media/icons/forward.png" alt="share" />
                 Share
               </button>
             </div>
@@ -52,11 +71,12 @@ function VideoBox(props){
             <button type="button">Subscribe</button>
           </div>
         </div>
-      <MoreVideos video={video} videos={videos}/>
+        <MoreVideos video={video} videos={videos} createSlug={createSlug}/>
         </div>       
       :null))
       }
     </div>
   )
 }
-export default VideoBox;
+export default VideoBox
+

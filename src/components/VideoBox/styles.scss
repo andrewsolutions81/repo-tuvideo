@@ -51,6 +51,7 @@ button{
       margin-right: 0;
     }
     & img{
+      margin-bottom:-5px;
       margin-right: 10px;
       width:24px;
       height: 24px;
@@ -216,4 +217,7 @@ button{
   color:#606060;
   font-size: 13px;
   font-weight: 400;
+}
+.opacity{
+  opacity: 0.2;
 }
