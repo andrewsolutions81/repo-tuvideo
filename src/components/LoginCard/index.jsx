@@ -2,9 +2,8 @@ import './styles.scss'
 
 function LoginCard(){
     return(
-        <div>
+        <div className='container-card'>
             <div className="card">
-                
                 <div className="items-container">
                     <div className="tabs">
                         <div className="tab-login">

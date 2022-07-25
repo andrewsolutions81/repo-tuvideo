@@ -1,7 +1,8 @@
 .container-list{
-    align-self: flex-start;
-    overflow: hidden;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 97%;
     border-top: 1.2px solid #6060601d;
     background-color: #f1f1f1;
     padding-left: 10px;
@@ -18,12 +19,19 @@
 }
 .list-videos {
     margin-top: 24px;
-    display: flex;
+    width: 100%;
+    margin: 0px;
     overflow: hidden;
+    align-self: flex-start;
+}
+.scroll-container{
+    display: flex;
+    width: max-content;
 }
 .list-details{
     display: flex;
     margin-top: 24px;
+    margin-bottom: 20px;
     align-items: center;
     cursor: pointer;
 }

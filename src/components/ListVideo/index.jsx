@@ -28,8 +28,8 @@ const VideoCarousel =()=>{
             <div className="arrow">
                 
             </div>
-            <div>
-                <div className="list-videos">
+            <div className="list-videos">
+                <div className="scroll-container">
                 {
                     videos.map((video)=>{
                         return <VideoItem key={video.id} video = {video}/>
