@@ -8,8 +8,8 @@ function UploadVideo(){
         <div className="upload__header">
           <h2>Upload videos</h2>
           <div className="upload__header__icons">
-          <a href="/" class="upload__report-button"><img src="/media/icons/Alert.png" alt="report button"/></a>
-          <a href="/" class="upload__close-button"><img src="/media/icons/close.png" alt="close button"/></a>
+          <a href="/" className="upload__report-button"><img src="/media/icons/Alert.png" alt="report button"/></a>
+          <a href="/" className="upload__close-button"><img src="/media/icons/close.png" alt="close button"/></a>
         </div>
         </div>
         <div className='upload__container'>
