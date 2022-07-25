@@ -20,6 +20,9 @@ function VideoBox(props){
       setLikes(likes - 1)
       setIsActive(!isActive)
     }
+    function handleDislike(){
+      setDislike(!dislike)
+    }
 
   function handleDislike(){
     //setIsActive(!isActive)
