@@ -1,15 +1,28 @@
 import './styles.scss'
-import Channel_Header from '../ChannelHeader'
+import ChannelHeader from '../ChannelHeader'
 import TabCarousel from '../TabCarousel'
 import VideoIntroduccion from '../VideoIntroduccion'
 import ListVideo from '../ListVideo'
-import Header from '../Header'
 import Banner from '../Banner'
-function PageManager(){
+import { useEffect, useState } from 'react'
+import { getChannel } from '../../services/channels'
+
+const PageManager = () => {
+    const [channel,setChannel] = useState(null);
+    useEffect(()=>{
+        const result = getChannel(1);
+        setChannel(result);
+        console.log(channel)
+    },[])
+    
     return(
         <div className="manager">
-                <Banner/>
-                <Channel_Header/>
+                {
+                    channel? <Banner channel={channel}/> : <p>Error</p>
+                }  
+                {
+                    channel? <ChannelHeader channel={channel}/> : <p>Error</p>
+                }                
                 <TabCarousel/>
                 <VideoIntroduccion/>
                 <ListVideo/>

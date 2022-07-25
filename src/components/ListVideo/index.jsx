@@ -1,7 +1,16 @@
 import "./styles.scss"
 import VideoItem from "../VideoItem";
+import { useEffect, useState } from "react";
+import { getVideos } from "../../services/videos";
 
-function VideoCarousel(){
+const VideoCarousel =()=>{
+    const [videos,setVideos] = useState([])
+    useEffect(()=>{
+        const result = getVideos();
+        setVideos(result);
+        console.log(result);
+    },[])
+
     return(
         <div className="container-list">
             <div className="list-details">
@@ -19,19 +28,14 @@ function VideoCarousel(){
             <div className="arrow">
                 
             </div>
-            <div className="list-videos">
-                <VideoItem/>
-                <VideoItem/>
-                <VideoItem/>
-                <VideoItem/>
-                <VideoItem/>
-                <VideoItem/>
-                <VideoItem/>
-                <VideoItem/>
-                <VideoItem/>
-                <VideoItem/>
-                <VideoItem/>
-                <VideoItem/>
+            <div>
+                <div className="list-videos">
+                {
+                    videos.map((video)=>{
+                        return <VideoItem key={video.id} video = {video}/>
+                    })
+                }
+                </div>
             </div>
         </div>
     )

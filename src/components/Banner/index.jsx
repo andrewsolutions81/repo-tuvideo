@@ -1,8 +1,9 @@
 import './styles.scss'
 
-function Banner (){
+function Banner (props){
+    const {channel} = props
     return(
-        <div className='banner-visible-area'>
+        <div className='banner-visible-area' style={{backgroundImage: `url(${channel.snippet.banner})`}}>
             <div className="banner-editor"></div>
         </div>
     )

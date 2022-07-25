@@ -1,20 +1,21 @@
 import "./styles.scss"
 
-function Channel_Header(props){
-
+const ChannelHeader = (props) => {
+    const{channel} = props
+    
     return (
-        <div className="container-header">
+        <div id="container" className="container-header">
             <div className="logo">
-                <img className="logo-img"src="https://media-exp2.licdn.com/dms/image/C4E0BAQGVo4pGdZLlgg/company-logo_200_200/0/1519881615474?e=2147483647&v=beta&t=mgHJFcs_qe_fEKG9M9A9ortCqz3HOcO-lB2pT1VB0pQ" alt=""/>
+                <img className="logo-img" src={channel.snippet.logo} alt=""/>
             </div>
             <div className="details">
                 <div className="details-container">
                     <div className="channel-description">
                         <div className="channel-name">
-                            Make it Real
+                            {channel.snippet.title}
                         </div>
                         <div className="channel-stadistics">
-                            102 K suscriptores
+                            {`${channel.statistics.subscriberCount} suscriptores`}
                         </div>
                     </div>
                     <div className="channel-buttons">
@@ -27,4 +28,4 @@ function Channel_Header(props){
     )
 }
 
-export default Channel_Header;
+export default ChannelHeader;
