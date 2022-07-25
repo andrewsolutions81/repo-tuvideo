@@ -2,9 +2,8 @@ import React from 'react'
 
 export default function SingleComment({ comment }) {
   return (
-    <div>
+    <div className='single-comment__container'>
       {comment.name}
-      {comment.comment}
       </div>
   )
 }

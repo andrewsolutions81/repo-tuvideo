@@ -16,7 +16,7 @@ const [comments, setComments] = useState([])
     return[...prevComments, {
       id: uuidv4(), 
       name: name,
-      comment: '',}]
+    }]
    })
    imputCommentRef.current.value = null
   }
@@ -29,7 +29,6 @@ const [comments, setComments] = useState([])
           <div className="comments-imput">
             <div className="imput-container">
               <form>
-              {/* <input ref={imputNameRef} type="text" className="comments__user-name" name="comments__user-name" placeholder="Your name"></input> */}
               <input ref={imputCommentRef} type="text" className="new-comment" name="new-comment" placeholder="Add a comment..."></input>
               </form>
               <br class="comments-line"/>
