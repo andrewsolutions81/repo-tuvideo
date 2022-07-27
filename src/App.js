@@ -5,7 +5,6 @@ import Channel from './pages/Channel'
 import SingleVideo from './pages/SingleVideo'
 import Header from './components/Header'
 import LoginRegister from './pages/LoginRegister'
-
 import UploadVideo from './components/UploadVideo'
 import AddVideoToJson from './components/AddVideoToJson'
 
