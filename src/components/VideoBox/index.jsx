@@ -1,6 +1,7 @@
 import MoreVideos from "../MoreVideos"
 import {useEffect, useState} from 'react'
 import "../VideoBox/styles.scss"
+import CommentsApp from "../Comments"
 
 function VideoBox(props){
   
@@ -72,7 +73,8 @@ function VideoBox(props){
           </div>
         </div>
         <MoreVideos video={video} videos={videos} createSlug={createSlug}/>
-        </div>       
+        <CommentsApp />
+        </div>
       :null))
       }
     </div>

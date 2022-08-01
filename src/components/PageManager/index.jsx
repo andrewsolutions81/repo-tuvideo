@@ -28,7 +28,7 @@ const PageManager = () => {
                 }  
                 {
                     channel? <ChannelHeader channel={channel}/> : <p>Error</p>
-                }                
+                }
                 <TabCarousel/>
                 {
                     video? <VideoIntroduccion video = {video}/>: <p>Error</p>
