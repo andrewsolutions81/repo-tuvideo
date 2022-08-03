@@ -4,13 +4,13 @@ import { getVideos } from '../../services/videos';
 import './styles.scss';
 import VideoItem from '../VideoItem';
 
-const VideoCarousel = () => {
-  const [videos, setVideos] = useState([])
+function VideoCarousel() {
+  const [videos, setVideos] = useState([]);
   useEffect(() => {
     const result = getVideos();
     setVideos(result);
     console.log(result);
-  }, [])
+  }, []);
 
   return (
     <div className="container-list">
@@ -19,8 +19,7 @@ const VideoCarousel = () => {
           Videos subidos
         </div>
         <list className="button-play">
-          <div className="play-icon">
-          </div>
+          <div className="play-icon" />
           <div>
             ▶ REPRODUCIR TODO
           </div>
@@ -35,5 +34,5 @@ const VideoCarousel = () => {
       </div>
     </div>
   );
-};
+}
 export default VideoCarousel;
