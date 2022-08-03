@@ -1,4 +1,4 @@
-import Landing from "../components/landing/index"
+import Landing from "../components/Landing"
 
 function Home() {
   return (
