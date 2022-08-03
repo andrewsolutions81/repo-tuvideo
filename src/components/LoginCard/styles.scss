@@ -1,78 +1,91 @@
 $colorRed: #ff4c41ff;
 $colorGris: #898989;
-.container-card{
-    margin-top: 80px;
+
+.container-card {
+	margin-top: 80px;
 }
-.card{
-    width: 300px;
-    height: 380px;
-    box-shadow: 0px 0px 10px 0.2px #898989;
-    border-radius: 10px;
-    margin-left: 100px;
+
+.card {
+	width: 300px;
+	height: 380px;
+	box-shadow: 0px 0px 10px 0.2px #898989;
+	border-radius: 10px;
+	margin-left: 100px;
 }
-.items-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: max-content;
-    margin: auto auto;
+
+.tabs-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: max-content;
+	margin: auto auto;
 }
-.tabs{
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    margin-bottom: 15px;
-    color: $colorGris;
-    p{
-        margin-bottom: 5px;
-    }
+
+.tabs {
+	margin-top: 20px;
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
+	margin-bottom: 15px;
+	color: $colorGris;
+
+	p {
+		margin-bottom: 5px;
+	}
 }
-.tab-login{
-    border-bottom: 2px solid $colorRed;
-    color: $colorRed;
+
+.tab-login {
+	border-bottom: 2px solid $colorRed;
+	color: $colorRed;
 }
-.formData{
-    margin-top: 20px;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    input{
-        border: 0px;
-        border-bottom: 1px solid $colorGris;
-        margin-bottom: 10px;
-    }
-    input::placeholder{
-        color: $colorRed;
-    }
+
+.formData {
+	margin-top: 20px;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+
+	input {
+		border: 0px;
+		border-bottom: 1px solid $colorGris;
+		margin-bottom: 10px;
+	}
+
+	input::placeholder {
+		color: $colorRed;
+	}
 }
-.button-login{
-    color: #fff;
-    background-color: $colorRed;
-    margin-top: 25px;
-    padding: 5px 10px;
-    width: 100%;
-    border-radius: 2px;
+
+.button-login {
+	color: #fff;
+	background-color: $colorRed;
+	margin-top: 25px;
+	padding: 5px 10px;
+	width: 100%;
+	border-radius: 2px;
 }
-.forgot-password{
-    margin-top: 25px;
-    a{
-        color: $colorRed;
-        text-decoration: none;
-    }
+
+.forgot-password {
+	margin-top: 25px;
+
+	a {
+		color: $colorRed;
+		text-decoration: none;
+	}
 }
-.image-login{
-    display: none;
+
+.image-login {
+	display: none;
 }
 
 @media screen and (min-width: 1024px) {
-    .image-login{
-        display: flex;
-        position: absolute;
-        right: 0px;
-        top: 150px;
-        margin-left: 400px;
-        width: 400px;
-        margin-right: 50px;
-    }
+	.image-login {
+		display: flex;
+		position: absolute;
+		right: 0px;
+		top: 150px;
+		margin-left: 400px;
+		width: 400px;
+		margin-right: 50px;
+	}
 }

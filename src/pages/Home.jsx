@@ -1,11 +1,11 @@
-import Landing from "../components/Landing"
+import Landing from '../components/Landing';
 
 function Home() {
   return (
     <div>
-    <Landing />
+      <Landing />
     </div>
-  )
+  );
 }
 
 export default Home;
