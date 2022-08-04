@@ -51,7 +51,7 @@ function VideoBox(props) {
                     </button>
                     <button type="button" className="video-options__dislike-btn" onClick={handleDislike}>
                       <img src="/media/icons/dislike.png" alt="dislike" />
-                      Don't like it
+                      Don`t like it
                     </button>
                     <button type="button" className="video-options__share-btn">
                       <img src="/media/icons/forward.png" alt="share" />
