@@ -5,9 +5,8 @@ export function getVideos() {
 }
 
 export function getVideo(id) {
-  return data.find(video => video.id === id);
+  return data.find((video) => video.id === id);
 }
 export function getVideoByCategory(category) {
-  return data.find(video => video.category === category);
+  return data.find((video) => video.category === category);
 }
-
