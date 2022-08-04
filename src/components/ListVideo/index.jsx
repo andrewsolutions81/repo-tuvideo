@@ -9,7 +9,6 @@ function VideoCarousel() {
   useEffect(() => {
     const result = getVideos();
     setVideos(result);
-    console.log(result);
   }, []);
 
   return (
