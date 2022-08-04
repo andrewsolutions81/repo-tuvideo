@@ -19,9 +19,9 @@ function Landing() {
               </div>
               <div className="title">
                 <h3>
-                  "¡Déjenlo y dedíquense a otra cosa!" | Shark Tank México
+                  ¡Déjenlo y dedíquense a otra cosa! | Shark Tank México
                 </h3>
-                <a href="">
+                <a href="/">
                   Shark Tank México
                 </a>
                 <span> 323.892 Views • 2 Months Ago </span>
@@ -59,7 +59,7 @@ function Landing() {
                 <h3>
                   The 2 Big Problems of Dragonflight
                 </h3>
-                <a href="">
+                <a href="/">
                   Asmongold TV
                 </a>
                 <span> 41.178 Views • 52 Minutes Ago </span>

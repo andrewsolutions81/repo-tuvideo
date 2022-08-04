@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,6 +8,8 @@ function UploadForm(props) {
   const [data, setData] = useState({});
   const [saveForm, setSaveForm] = useState([]);
   const [isSent, setIsSent] = useState(false);
+
+  console.log(navigate, saveForm);
 
   function handleChange(e) {
     const { name, value } = e.target;

@@ -5,19 +5,19 @@ function TabCarousel() {
     <div className="carousel">
       <div className="arrow-left" />
       <div className="tabsContainer">
-        <a className="tab-selected">
+        <a href="/" className="tab-selected">
           PÁGINA PRINCIPAL
         </a>
-        <a className="tab-unselected">
+        <a href="/" className="tab-unselected">
           VIDEOS
         </a>
-        <a className="tab-unselected">
+        <a href="/" className="tab-unselected">
           LISTAS DE REPRODUCCIÓN
         </a>
-        <a className="tab-unselected">
+        <a href="/" className="tab-unselected">
           CANALES
         </a>
-        <a className="tab-unselected">
+        <a href="/" className="tab-unselected">
           MÁS INFORMACIÓN
         </a>
       </div>
