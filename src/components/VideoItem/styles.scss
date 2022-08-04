@@ -1,38 +1,43 @@
+.link {
+  text-decoration: none;
+  color: black;
+}
+
 .items-container {
-	width: 180px;
-	padding-right: 4px;
-	display: flex;
-	flex-direction: column;
-	box-sizing: border-box;
-	cursor: pointer;
+  width: 180px;
+  padding-right: 4px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  cursor: pointer;
 }
 
 .info-container {
-	padding-right: 24px;
-	display: flex;
-	box-sizing: border-box;
+  padding-right: 24px;
+  display: flex;
+  box-sizing: border-box;
 }
 
 .title {
-	font-size: 1.4rem;
-	font-weight: 500;
-	max-height: 4rem;
-	line-height: 2rem;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	margin: 8px 0px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  max-height: 4rem;
+  line-height: 2rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 8px 0px;
 }
 
 .statistics {
-	font-size: 1.2rem;
-	color: #606060;
+  font-size: 1.2rem;
+  color: #606060;
 }
 
 .video-thumbnail {
-	width: 100%;
+  width: 100%;
 
-	img {
-		width: 100%;
-		height: auto;
-	}
+  img {
+    width: 100%;
+    height: auto;
+  }
 }

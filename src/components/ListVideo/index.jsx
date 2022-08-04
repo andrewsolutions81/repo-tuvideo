@@ -9,7 +9,6 @@ function VideoCarousel() {
   useEffect(() => {
     const result = getVideos();
     setVideos(result);
-    console.log(result);
   }, []);
 
   return (
@@ -30,8 +29,10 @@ function VideoCarousel() {
           {
             videos.map((video) => <VideoItem key={video.id} video={video} />)
           }
+
         </div>
       </div>
+      <div className="arrow">.</div>
     </div>
   );
 }

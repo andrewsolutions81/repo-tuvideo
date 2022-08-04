@@ -1,9 +1,8 @@
 import LoginCard from '../components/LoginCard';
-function LoginRegister(){
-    return(
-        <>
-            <LoginCard/>
-        </>
-    )
+
+function LoginRegister() {
+  return (
+    <LoginCard />
+  );
 }
 export default LoginRegister;
