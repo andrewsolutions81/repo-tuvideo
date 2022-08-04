@@ -7,6 +7,7 @@
   background-color: #f1f1f1;
   padding-left: 10px;
   box-sizing: border-box;
+  position: relative;
 }
 
 .list-name {
@@ -42,17 +43,18 @@
   cursor: pointer;
 }
 
-.arrow-right {
+.arrow {
   width: 20px;
   height: 20px;
   font-size: 2rem;
   font-weight: bolder;
   background-color: white;
   position: absolute;
-  right: 0px;
-  top: 30%;
+  right: -20px;
+  top: 125px;
   padding: 10px;
   border-radius: 50%;
+  box-shadow: 3px 4px 4px 1px #6060605f;
 }
 
 @media screen and (min-width: 545px) {
