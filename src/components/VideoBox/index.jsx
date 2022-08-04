@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-unused-expressions */
+/* eslint-disable jsx-a11y/media-has-caption */
 import { useEffect, useState } from 'react';
 import MoreVideos from '../MoreVideos';
 import './styles.scss';
@@ -24,6 +27,7 @@ function VideoBox(props) {
   }
 
   useEffect(() => {
+    // eslint-disable-next-line no-return-assign
     videos.map((video) => (createSlug(video) === id ? document.title = video.title : null));
   }, [videos, id]);
 
@@ -47,7 +51,7 @@ function VideoBox(props) {
                     </button>
                     <button type="button" className="video-options__dislike-btn" onClick={handleDislike}>
                       <img src="/media/icons/dislike.png" alt="dislike" />
-                      Don't like it
+                      Don`t like it
                     </button>
                     <button type="button" className="video-options__share-btn">
                       <img src="/media/icons/forward.png" alt="share" />

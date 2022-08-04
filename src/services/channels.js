@@ -1,9 +1,9 @@
-import data from '../assets/data/channels.json'
+import data from '../assets/data/channels.json';
 
-export function getChannels(){
-    return data
+export function getChannels() {
+  return data;
 }
 
-export function getChannel(id){
-    return data.find(channel => channel.id === id)
+export function getChannel(id) {
+  return data.find((channel) => channel.id === id);
 }
