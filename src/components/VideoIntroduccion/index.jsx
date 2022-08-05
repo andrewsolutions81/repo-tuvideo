@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/media-has-caption */
+
 import './styles.scss';
 
 function VideoIntroduccion(props) {
@@ -6,7 +8,7 @@ function VideoIntroduccion(props) {
     <div className="container">
       <div className="introduccion">
         <div className="video-container">
-          <video src={video.sources}><track kind="captions" /></video>
+          <video controls autoPlay><source src={video.sources} type="video/mp4" /></video>
         </div>
         <div className="video-details-container">
           <div className="video-title">

@@ -70,7 +70,7 @@ function Header() {
                 Home
               </Link>
               <Link to="/channel" className="main-sidebar__category">
-                <img src="/media/icons/Trending-icon.png" alt="Trending-icon" />
+                <img src="/media/icons/trending.png" alt="Trending-icon" />
                 {' '}
                 Trending
               </Link>
