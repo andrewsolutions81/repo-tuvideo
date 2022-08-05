@@ -4,7 +4,6 @@
 
 .container {
   background: #f1f1f1;
-  max-width: 1070px;
   margin: 0px;
   align-self: flex-start;
   box-sizing: border-box;
@@ -48,7 +47,7 @@
 
 .video-container {
   width: 424px;
-  height: 238px;
+  height: auto;
   margin-right: 24px;
   box-sizing: border-box;
 
@@ -98,8 +97,12 @@
   }
 }
 
-@media screen and (min-width: 1600px) {
+@media screen and (min-width: 1440px) {
   .container {
     margin: 0px auto;
+  }
+
+  .video-container {
+    width: 550px;
   }
 }
