@@ -1,7 +1,8 @@
 import './styles.scss';
+import { useAppContext } from '../../store';
 
-function Banner(props) {
-  const { channel } = props;
+function Banner() {
+  const { channel } = useAppContext();
   return (
     <div className="banner-visible-area" style={{ backgroundImage: `url(${channel.snippet.banner})` }}>
       <div className="banner-editor" />

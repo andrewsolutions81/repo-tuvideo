@@ -1,4 +1,5 @@
 import './styles.scss';
+import { Link } from 'react-router-dom';
 
 function TabCarousel() {
   return (
@@ -8,18 +9,18 @@ function TabCarousel() {
         <a href="/" className="tab-selected">
           PÁGINA PRINCIPAL
         </a>
-        <a href="/" className="tab-unselected">
+        <Link to="/channel/videos" className="tab-unselected">
           VIDEOS
-        </a>
-        <a href="/" className="tab-unselected">
+        </Link>
+        <Link to="/channel/playlist" className="tab-unselected">
           LISTAS DE REPRODUCCIÓN
-        </a>
-        <a href="/" className="tab-unselected">
+        </Link>
+        <Link to="/channel/channels" className="tab-unselected">
           CANALES
-        </a>
-        <a href="/" className="tab-unselected">
-          MÁS INFORMACIÓN
-        </a>
+        </Link>
+        <Link to="/channel/about" className="tab-unselected">
+          MAS INFORMACIÓN
+        </Link>
       </div>
       <div className="arrow-rigth" />
     </div>
