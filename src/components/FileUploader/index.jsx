@@ -21,7 +21,6 @@ function VideoUploader() {
     })
       .then((res) => res.json())
       .then((newdata) => {
-        console.log(newdata);
         setUrl(newdata.secure_url);
       })
       .catch((err) => {
