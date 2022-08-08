@@ -29,7 +29,7 @@ function UploadForm(props) {
     const {
       title, description, category, _id,
     } = list;
-    fetch('https://tuvideo-backend.herokuapp.com/api/videos', {
+    fetch('https://tuvideo-backend.herokuapp.com/api/users', {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',
