@@ -1,14 +1,13 @@
 import {
   createContext, useEffect, useState,
 } from 'react';
-import { getChannel } from '../services/channels';
 
 const AppContext = createContext();
 const [channel, setChannel] = useState();
 
 useEffect(() => {
   const fetchData = async () => {
-    const data = await getChannel(1);
+    const data = await fetch('https://tuvideo-backend.herokuapp.com/api/videos/62f0762f96c42425d915fe0f');
     setChannel(data);
   };
   fetchData();

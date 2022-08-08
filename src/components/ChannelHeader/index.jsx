@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { useAppContext } from '../../store';
 import './styles.scss';
 
-function ChannelHeader() {
-  const { channel } = useAppContext;
+function ChannelHeader(props) {
+  const { channel } = props;
   const [modEdit, setModEdit] = useState(false);
   const [style, setStyle] = useState({});
   const handleEditChannel = () => {

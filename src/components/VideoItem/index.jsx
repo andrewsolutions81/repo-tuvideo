@@ -20,7 +20,7 @@ function VideoItem(props) {
       </Link>
       <div className="info-container">
         <div>
-          <div className="title">
+          <div className="title-video">
             {video.title}
           </div>
           <div className="channel-name">
