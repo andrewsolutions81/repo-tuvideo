@@ -79,6 +79,10 @@ function MainHeader() {
                 {' '}
                 Explore
               </Link>
+              <Link to="/upload" className="main-sidebar__category">
+                <img src="/media/icons/upload.png" alt="Subcriptions-icon" />
+                {' '}
+                Upload Video
               <Link to="/" className="main-sidebar__category">
                 <img src="/media/icons/Subscriptions.png" alt="Subcriptions-icon" />
                 {' '}
