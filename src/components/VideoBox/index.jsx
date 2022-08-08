@@ -1,7 +1,8 @@
+/* eslint-disable no-shadow */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable jsx-a11y/media-has-caption */
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import MoreVideos from '../MoreVideos';
 import './styles.scss';
 import CommentsApp from '../Comments';
@@ -9,12 +10,13 @@ import CommentsApp from '../Comments';
 export function createSlug(video) {
   return `${video.id}-${video.title.toLowerCase().replaceAll(' ', '-')}`;
 }
+
 function VideoBox(props) {
   const [likes, setLikes] = useState(0);
   const [isActive, setIsActive] = useState(true);
   const [saveLocal, setSaveLocal] = useState();
   const [dislike, setDislike] = useState();
-  const { videos, id } = props;
+  const { video, videos, id } = props;
 
   function handleLike() {
     isActive
@@ -34,12 +36,10 @@ function VideoBox(props) {
   return (
     <div>
       {
-        videos.map((video) => (createSlug(video) === id
-          ? (
+/*         videos.map((video) => (createSlug(video) === id
+          ?  */(
             <div key={video.id}>
-              <video className="video-box" width="100%" poster={video.thumb} controls>
-                <source src={video.sources} type="video/mp4" />
-              </video>
+              <video className="video-box" width="100%" src={video.url} poster={video.url} controls />
               <div className="video-options">
                 <h1 className="video-options__title">{video.title}</h1>
                 <div className="video-options__container">
@@ -66,7 +66,7 @@ function VideoBox(props) {
                   <img src="/media/images/ch-avatar.jpeg" alt="avatar" />
                 </div>
                 <div className="ch-info-container__ch-info">
-                  <h2 className="ch-info-container__name">{video.subtitle}</h2>
+                  <h2 className="ch-info-container__name">Channel</h2>
                   <p className="ch-info-container__subs">{`${new Intl.NumberFormat().format(Math.floor(Math.random() * 100000))} subscribers`}</p>
                   <p className="ch-info-container__desc">{video.description}</p>
                 </div>
@@ -78,7 +78,7 @@ function VideoBox(props) {
               <CommentsApp />
             </div>
           )
-          : null))
+/*           : null)) */
       }
     </div>
   );

@@ -1,43 +1,65 @@
+/* eslint-disable max-len */
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function UploadForm(props) {
-  const { file } = props;
-  const navigate = useNavigate();
-  const [data, setData] = useState({});
-  const [saveForm, setSaveForm] = useState([]);
+  const { cloudinary } = props;
+  const [dataForm, setDataForm] = useState({});
+  const [saveForm, setSaveForm] = useState({});
   const [isSent, setIsSent] = useState(false);
-
-  console.log(navigate, saveForm);
+  const [videoId, setVideoId] = useState('');
+  const navigate = useNavigate();
 
   function handleChange(e) {
     const { name, value } = e.target;
-    setData({ ...data, [name]: value });
+    setDataForm({ ...dataForm, [name]: value });
   }
-  function handleSubmit(e) {
+
+  function handlePublish(e) {
     e.preventDefault();
     const list = {
-      ...data,
-      id: Math.floor(Math.random() * 1000),
-      sources: file,
+      ...dataForm,
+      cloudinary,
     };
     setSaveForm(list);
-    setData('');
     setIsSent(true);
-    // navigate('/:id', {state:list});
+
+    const {
+      title, description, category, _id,
+    } = list;
+    fetch('https://tuvideo-backend.herokuapp.com/api/videos', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        title,
+        description,
+        category,
+        url: cloudinary,
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        if (res) {
+          console.log('successfully added to DB 😄');
+        } else {
+          console.log('error');
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   return (
     <div>
       {
-        file
-          ? (
-            <form className="upload-form" onSubmit={handleSubmit}>
-              <div>
-                <label htmlFor="video-channel-name">What is your channel name</label>
-                <input type="text" id="video-channel-name" name="channel" placeholder="Channel name" onChange={handleChange} />
-              </div>
+        cloudinary
+          && (
+            <form className="upload-form" onSubmit={handlePublish}>
               <div>
                 <label htmlFor="select-category">
                   What category suits your video better
@@ -58,17 +80,13 @@ function UploadForm(props) {
                 <textarea type="text" id="video-desc-name" name="description" rows="7" onChange={handleChange} />
               </div>
               <div className="upload__button">
-                <button type="submit">UPLOAD VIDEO</button>
+                <button type="submit">PUBLISH VIDEO</button>
               </div>
             </form>
           )
-          : null
       }
       {
-        isSent ? <h2 style={{ textAlign: 'center', fontSize: '22px' }}>Subiendo Video....</h2> : null
-      }
-      {
-/* Here Im gonna add edit json file feature */
+        isSent && <h2 style={{ textAlign: 'center', fontSize: '22px' }}>Video successfully published.</h2>
       }
     </div>
   );

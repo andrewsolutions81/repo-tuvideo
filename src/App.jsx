@@ -26,6 +26,7 @@ function App() {
           <Route path="/channel/channels" element={<ChannelSubChannels />} />
           <Route path="/channel/about" element={<ChannelMoreInfo />} />
           <Route path="/:id" element={<SingleVideo />} />
+          <Route path="/api/videos/:id" element={<SingleVideo />} />
           <Route path="/login-register" element={<LoginRegister />} />
           <Route path="/add-video-to-json" element={<AddVideoToJson />} />
         </Routes>
