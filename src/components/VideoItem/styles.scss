@@ -18,7 +18,24 @@
   box-sizing: border-box;
 }
 
-.title {
+.button-content {
+  color: #03030300;
+}
+
+.options {
+  position: absolute;
+  font-size: 2rem;
+  bottom: -4px;
+  right: -34px;
+}
+
+.options:hover {
+  .button-content {
+    color: #030303;
+  }
+}
+
+.title-video {
   font-size: 1.4rem;
   font-weight: 500;
   max-height: 4rem;
@@ -31,6 +48,36 @@
 .statistics {
   font-size: 1.2rem;
   color: #606060;
+  position: relative;
+}
+
+.channel-name {
+  font-size: 1.2rem;
+  color: #606060;
+  position: relative;
+  padding-bottom: 5px;
+
+}
+
+.channel-name:hover {
+  color: #202020;
+}
+
+.container-display {
+  font-size: 1.4rem;
+  width: 320px;
+  background-color: white;
+  color: #030303;
+  box-shadow: 1px 1px 1px #606060ad;
+  position: absolute;
+  bottom: 30px;
+  z-index: 1;
+  text-align: left;
+  border-radius: 4px;
+
+  div {
+    padding: 8px 5px;
+  }
 }
 
 .video-thumbnail {
