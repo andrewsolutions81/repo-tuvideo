@@ -5,7 +5,7 @@ import './styles.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-function Header() {
+function MainHeader() {
   const [open, setOpen] = useState();
 
   const handleMenu = () => {
@@ -123,4 +123,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default MainHeader;
