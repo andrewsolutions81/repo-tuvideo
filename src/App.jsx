@@ -17,7 +17,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/upload" element={<UploadVideo />} />
           <Route path="/channel" element={<Channel />} />
-          <Route path="/:id" element={<SingleVideo />} />
+          <Route path="/api/videos/:id" element={<SingleVideo />} />
           <Route path="/login-register" element={<LoginRegister />} />
           <Route path="/add-video-to-json" element={<AddVideoToJson />} />
         </Routes>
