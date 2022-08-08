@@ -29,7 +29,9 @@ function VideoItem(props) {
           <div className="statistics">
             15 K vistas - hace 18 horas
             <button type="button" className="options" onClick={HandleToggle}>
-              ⦙
+              <div className="button-content">
+                ⦙
+              </div>
               {
                 display
                 && (

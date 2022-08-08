@@ -18,11 +18,21 @@
   box-sizing: border-box;
 }
 
+.button-content {
+  color: #03030300;
+}
+
 .options {
   position: absolute;
   font-size: 2rem;
   bottom: -4px;
   right: -34px;
+}
+
+.options:hover {
+  .button-content {
+    color: #030303;
+  }
 }
 
 .title-video {
