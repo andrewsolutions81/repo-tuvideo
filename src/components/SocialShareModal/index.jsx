@@ -11,7 +11,7 @@ function SocialShareModal(props) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const videoUrl = `https://tuvideo-frontend-tuvideoteam.vercel.app/api/videos/${videoId._id}`;
+  const videoUrl = `https://tuvideo-frontend-ten.vercel.app/api/videos/${videoId._id}`;
   return (
     <>
       <button type="button" className="video-options__share-btn" onClick={handleOpen}>
