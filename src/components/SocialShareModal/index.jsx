@@ -28,13 +28,6 @@ function SocialShareModal(props) {
           <h2>SHARE</h2>
           <div className="modal-content">
             <div className="modal-social">
-              <a href="/">
-                <img src="/media/icons/insert.png" alt="" />
-                {' '}
-              </a>
-              <p>Insert</p>
-            </div>
-            <div className="modal-social">
               <a href={`http://www.facebook.com/sharer.php?u=${videoUrl}`} target="_blank" rel="noreferrer">
                 <img src="/media/icons/facebook.png" alt="" />
                 {' '}
