@@ -14,7 +14,6 @@ function MoreVideos(props) {
       .then((res) => {
         if (res) {
           setAllVideos(res);
-          console.log(res);
         } else {
           console.log('error');
         }
@@ -40,9 +39,7 @@ function MoreVideos(props) {
           </div>
         )
       ))
-
       }
-
     </div>
   );
 }
