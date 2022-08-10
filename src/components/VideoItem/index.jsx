@@ -1,7 +1,6 @@
 import './styles.scss';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { createSlug } from '../VideoBox';
 
 function VideoItem(props) {
   const { video } = props;
@@ -13,7 +12,7 @@ function VideoItem(props) {
   return (
 
     <div className="items-container">
-      <Link to={`/${createSlug(video)}`} className="link">
+      <Link to={`/${video}`} className="link">
         <div className="video-thumbnail">
           <img src={video.thumb} alt="" />
         </div>
