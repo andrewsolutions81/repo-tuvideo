@@ -1,11 +1,9 @@
-import ChannelManager from '../components/ChannelManager';
+import PlayListModal from '../components/PlayListModal';
 
 function ChannelPlayList() {
   return (
     <div>
-      <ChannelManager>
-        <h1>PlayLists</h1>
-      </ChannelManager>
+      <PlayListModal />
     </div>
   );
 }
