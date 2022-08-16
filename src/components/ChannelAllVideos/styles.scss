@@ -1,0 +1,30 @@
+.allVideos-container {
+  width: 370px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+@media screen and (min-width: 560px) {
+  .allVideos-container {
+    width: 550px;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .allVideos-container {
+    width: 730px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .allVideos-container {
+    width: 910px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .allVideos-container {
+    width: 1090px;
+  }
+}

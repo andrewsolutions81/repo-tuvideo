@@ -1,41 +1,38 @@
-import { useState } from 'react';
 import './styles.scss';
+import { useChannel } from '../../channelContext';
 
-function ChannelHeader(props) {
-  const { channel } = props;
-  const [modEdit, setModEdit] = useState(false);
-  const [style, setStyle] = useState({});
-  const handleEditChannel = () => {
-    const banner = document.querySelector('.banner-visible-area');
-    const styleString = 'border: 3px solid #14ad73';
+function ChannelHeader() {
+  const {
+    channel, modEdit, style, handleEditChannel,
+  } = useChannel();
 
-    setModEdit((prevModEdit) => !prevModEdit);
-    setModEdit((prevModEdit) => {
-      if (prevModEdit) {
-        setStyle({ border: '3px solid #14ad73' });
-        banner.style.cssText += styleString;
-      } else {
-        setStyle({});
-        banner.style.cssText = banner.style.cssText.replace('border: 3px solid rgb(20, 173, 115);', '');
-      }
-      return prevModEdit;
-    });
-  };
   return (
     <div id="container" className="container-header">
       <div className="logo">
-        <img className="logo-img" src={channel.snippet.logo} alt="" style={style} />
+        <img className="logo-img" src={channel?.logo} alt="" style={style} />
+        {
+          modEdit && (
+            <div className="input-file">
+              <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" className="camera-icon">
+                <g className="style-scope yt-icon">
+                  <path d="M12,10c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,10,12,10 M12,9c-2.21,0-4,1.79-4,4s1.79,4,4,4s4-1.79,4-4 S14.21,9,12,9L12,9z M14.59,5l1.71,1.71L16.59,7H17h4v12H3V7h4h0.41l0.29-0.29L9.41,5H14.59 M15,4H9L7,6H2v14h20V6h-5L15,4L15,4z" className="style-scope yt-icon" stroke="white" />
+                </g>
+              </svg>
+            </div>
+          )
+        }
+
       </div>
       <div className="details">
         <div className="details-container">
           <div className="channel-description">
             <div className="channel-title">
               {
-                modEdit ? <input className="input-edit" type="text" placeholder={channel.snippet.title} /> : channel.snippet.title
+                modEdit ? <input className="input-edit" type="text" placeholder={channel?.name} /> : channel?.name
               }
             </div>
             <div className="channel-stadistics">
-              {`${channel.statistics.subscriberCount} suscriptores`}
+              {`${channel?.subscribers} suscriptores`}
             </div>
           </div>
           <div className="channel-buttons">
