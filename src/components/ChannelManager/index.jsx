@@ -1,43 +1,23 @@
-/* eslint-disable max-len */
 import './styles.scss';
-import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
 import ChannelHeader from '../ChannelHeader';
 import TabCarousel from '../TabCarousel';
 import Banner from '../Banner';
-
-import { getChannel } from '../../services/channels';
+import { useChannel } from '../../channelContext';
 
 function ChannelManager({ children }) {
-  const [channel, setChannel] = useState(null);
-  const [modEdit, setModEdit] = useState(false);
-  const [style, setStyle] = useState({ border: '' });
+  const { setId } = useChannel();
+  const { id } = useParams();
 
-  const handleEditChannel = () => {
-    setModEdit((prevModEdit) => !prevModEdit);
-    setModEdit((prevModEdit) => {
-      if (prevModEdit) {
-        setStyle({ border: '3px solid #14ad73' });
-      } else {
-        setStyle({ border: '' });
-      }
-      return prevModEdit;
-    });
-  };
   useEffect(() => {
-    const result = getChannel(1);
-    setChannel(result);
+    setId(id);
   }, []);
 
   return (
     <div className="manager">
-      {
-        channel && (
-          <>
-            <Banner channel={channel} modEdit={modEdit} style={style} />
-            <ChannelHeader channel={channel} modEdit={modEdit} handleEditChannel={handleEditChannel} style={style} />
-          </>
-        )
-      }
+      <Banner />
+      <ChannelHeader />
       <TabCarousel />
       <div className="content">
         {children}

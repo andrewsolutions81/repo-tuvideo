@@ -1,10 +1,12 @@
 import ChannelManager from '../components/ChannelManager';
+import { useChannel } from '../channelContext';
 
 function ChannelMoreInfo() {
+  const { channel } = useChannel();
   return (
     <div>
       <ChannelManager>
-        <h1>More Info</h1>
+        <h1>{channel.description}</h1>
       </ChannelManager>
     </div>
   );

@@ -1,8 +1,12 @@
 import './styles.scss';
+import { useChannel } from '../../channelContext';
 
-function Banner({ channel, modEdit, style }) {
+function Banner() {
+  const {
+    channel, modEdit, style,
+  } = useChannel();
   return (
-    <div className="banner-visible-area" style={{ backgroundImage: `url(${channel.snippet.banner})`, border: style.border }}>
+    <div className="banner-visible-area" style={{ backgroundImage: `url(${channel?.banner})`, border: style.border }}>
       <div className="banner-editor" />
       {
         modEdit && (
