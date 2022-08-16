@@ -11,26 +11,29 @@ import ChannelVideos from './pages/ChannelVideos';
 import ChannelPlayList from './pages/ChannelPlayList';
 import ChannelSubChannels from './pages/ChannelSubChannels';
 import ChannelMoreInfo from './pages/ChannelMoreInfo';
+import { ChannelProvider } from './channelContext';
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <MainHeader />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/upload" element={<UploadVideo />} />
-          <Route path="/channel" element={<Channel />} />
-          <Route path="/channel/videos" element={<ChannelVideos />} />
-          <Route path="/channel/playlist" element={<ChannelPlayList />} />
-          <Route path="/channel/channels" element={<ChannelSubChannels />} />
-          <Route path="/channel/about" element={<ChannelMoreInfo />} />
-          <Route path="/:id" element={<SingleVideo />} />
-          <Route path="/api/videos/:id" element={<SingleVideo />} />
-          <Route path="/login-register" element={<LoginRegister />} />
-          <Route path="/add-video-to-json" element={<AddVideoToJson />} />
-        </Routes>
-      </BrowserRouter>
+      <ChannelProvider>
+        <BrowserRouter>
+          <MainHeader />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/upload" element={<UploadVideo />} />
+            <Route path="/channel/:id/featured" element={<Channel />} />
+            <Route path="/channel/:id/videos" element={<ChannelVideos />} />
+            <Route path="/channel/:id/playlist" element={<ChannelPlayList />} />
+            <Route path="/channel/:id/channels" element={<ChannelSubChannels />} />
+            <Route path="/channel/:id/about" element={<ChannelMoreInfo />} />
+            <Route path="/:id" element={<SingleVideo />} />
+            <Route path="/api/videos/:id" element={<SingleVideo />} />
+            <Route path="/login-register" element={<LoginRegister />} />
+            <Route path="/add-video-to-json" element={<AddVideoToJson />} />
+          </Routes>
+        </BrowserRouter>
+      </ChannelProvider>
     </div>
   );
 }

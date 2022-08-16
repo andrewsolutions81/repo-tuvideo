@@ -1,27 +1,23 @@
 import './styles.scss';
-import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
 import ChannelHeader from '../ChannelHeader';
 import TabCarousel from '../TabCarousel';
 import Banner from '../Banner';
-
-import { getChannel } from '../../services/channels';
+import { useChannel } from '../../channelContext';
 
 function ChannelManager({ children }) {
-  const [channel, setChannel] = useState(null);
+  const { setId } = useChannel();
+  const { id } = useParams();
 
   useEffect(() => {
-    const result = getChannel(1);
-    setChannel(result);
+    setId(id);
   }, []);
 
   return (
     <div className="manager">
-      {
-        channel ? <Banner channel={channel} /> : <p>Error</p>
-      }
-      {
-        channel ? <ChannelHeader channel={channel} /> : <p>Error</p>
-      }
+      <Banner />
+      <ChannelHeader />
       <TabCarousel />
       <div className="content">
         {children}

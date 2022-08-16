@@ -17,7 +17,6 @@ function Channel() {
           video && <VideoIntroduccion video={video} />
         }
         <ListVideo />
-        <ListVideo />
       </ChannelManager>
     </div>
   );

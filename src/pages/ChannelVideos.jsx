@@ -1,10 +1,11 @@
 import ChannelManager from '../components/ChannelManager';
+import ChannelAllVideos from '../components/ChannelAllVideos';
 
 function ChannelVideos() {
   return (
     <div>
       <ChannelManager>
-        <h1>Hola mundo Videos</h1>
+        <ChannelAllVideos />
       </ChannelManager>
     </div>
   );

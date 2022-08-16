@@ -1,7 +1,8 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function UploadForm(props) {
@@ -9,7 +10,6 @@ function UploadForm(props) {
   const [dataForm, setDataForm] = useState({});
   const [saveForm, setSaveForm] = useState({});
   const [isSent, setIsSent] = useState(false);
-  const [videoId, setVideoId] = useState('');
   const navigate = useNavigate();
 
   function handleChange(e) {
@@ -18,10 +18,12 @@ function UploadForm(props) {
   }
 
   function handlePublish(e) {
+    const thumbnail = cloudinary.replace('.mp4', '.jpg');
     e.preventDefault();
     const list = {
       ...dataForm,
       cloudinary,
+      thumbnail,
     };
     setSaveForm(list);
     setIsSent(true);
@@ -39,6 +41,7 @@ function UploadForm(props) {
         description,
         category,
         url: cloudinary,
+        thumbnail,
       }),
     })
       .then((res) => res.json())
