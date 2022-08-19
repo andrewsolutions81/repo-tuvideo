@@ -1,12 +1,16 @@
+/* eslint-disable func-names */
+/* eslint-disable object-shorthand */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import UploadingSpinner from '../UploadingSpinner';
 
 function UploadForm(props) {
-  const { cloudinary } = props;
+  const { cloudinary, setShowFileInput } = props;
   const [dataForm, setDataForm] = useState({});
   const [saveForm, setSaveForm] = useState({});
   const [isSent, setIsSent] = useState(false);
@@ -17,7 +21,7 @@ function UploadForm(props) {
     setDataForm({ ...dataForm, [name]: value });
   }
 
-  function handlePublish(e) {
+  async function handlePublish(e) {
     const thumbnail = cloudinary.replace('.mp4', '.jpg');
     e.preventDefault();
     const list = {
@@ -29,67 +33,65 @@ function UploadForm(props) {
     setIsSent(true);
 
     const {
-      title, description, category, _id,
+      title, description, category,
     } = list;
-    fetch('https://tuvideo-backend.herokuapp.com/api/videos', {
-      method: 'post',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        title,
-        description,
-        category,
-        url: cloudinary,
-        thumbnail,
-      }),
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        if (res) {
-          console.log('successfully added to DB 😄');
-        } else {
-          console.log('error');
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    const data = {
+      title,
+      description,
+      category,
+      url: cloudinary,
+      thumbnail,
+    };
+    await axios.post('https://tuvideo-backend.herokuapp.com/api/videos', data);
+    setTimeout(() => {
+      navigate('/');
+    }, 3000);
   }
-
   return (
     <div>
       {
         cloudinary
           && (
-            <form className="upload-form" onSubmit={handlePublish}>
-              <div>
-                <label htmlFor="select-category">
-                  What category suits your video better
-                  <select id="select-category" name="category" onChange={handleChange}>
-                    <option value="select">Select</option>
-                    <option value="fun">Fun</option>
-                    <option value="music">Music</option>
-                    <option value="terror">Terror</option>
-                  </select>
-                </label>
-              </div>
-              <div>
-                <label htmlFor="video-title-name">What title you want for your video</label>
-                <input type="text" id="video-title-name" name="title" placeholder="Write a meaningfull title" onChange={handleChange} />
-              </div>
-              <div>
-                <label htmlFor="video-desc-name">What description you want for your video</label>
-                <textarea type="text" id="video-desc-name" name="description" rows="7" onChange={handleChange} />
-              </div>
-              <div className="upload__button">
-                <button type="submit">PUBLISH VIDEO</button>
-              </div>
-            </form>
+            <>
+              {
+              setShowFileInput(false)
+            }
+              <h2>Video Uploaded. please, continue to publish:</h2>
+              <form className="upload-form" onSubmit={handlePublish}>
+                <div>
+                  <label htmlFor="select-category">
+                    What category suits your video better
+                    <select id="select-category" name="category" onChange={handleChange} required>
+                      <option value="select">Select</option>
+                      <option value="fun">Fun</option>
+                      <option value="music">Music</option>
+                      <option value="terror">Terror</option>
+                    </select>
+                  </label>
+                </div>
+                <div>
+                  <label htmlFor="video-title-name">What title you want for your video</label>
+                  <input type="text" id="video-title-name" name="title" placeholder="Write a meaningfull title" onChange={handleChange} required />
+                </div>
+                <div>
+                  <label htmlFor="video-desc-name">What description you want for your video</label>
+                  <textarea type="text" id="video-desc-name" name="description" rows="7" onChange={handleChange} required />
+                </div>
+                <div className="upload__button">
+                  <button type="submit">PUBLISH VIDEO</button>
+                </div>
+              </form>
+            </>
+
           )
       }
       {
-        isSent && <h2 style={{ textAlign: 'center', fontSize: '22px' }}>Video successfully published.</h2>
+        isSent && (
+        <>
+          <UploadingSpinner />
+          <h2 style={{ textAlign: 'center', fontSize: '22px' }}>Publishing... you will be redirected once video is published.</h2>
+        </>
+        )
       }
     </div>
   );

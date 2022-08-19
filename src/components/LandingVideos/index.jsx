@@ -3,9 +3,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../Landing/styles.css';
+import setTime from '../../services/toLocalString';
+import UploadingSpinner from '../UploadingSpinner';
 
 function LandingVideos() {
   const [allVideos, setAllVideos] = useState({});
+  const [showSpinner, setShowSpinner] = useState(false);
 
   useEffect(() => {
     fetch('https://tuvideo-backend.herokuapp.com/api/videos/')
@@ -13,7 +16,7 @@ function LandingVideos() {
       .then((res) => {
         if (res) {
           setAllVideos(res);
-          console.log(res);
+          setShowSpinner(true);
         } else {
           console.log('error');
         }
@@ -23,13 +26,16 @@ function LandingVideos() {
       });
   }, []);
   return (
-    <>
-      {
+    showSpinner
+      ? (
+        <>
+
+          {
     Object.entries(allVideos).map((singleVideo) => (singleVideo[1]
       && (
       <div className="card__videos" key={singleVideo[1]._id}>
 
-        <video width="320" src={singleVideo[1].url} />
+        <video width="320" height="180px" src={singleVideo[1].url} />
         <div className="card__info">
           <div className="card__info__title">
             <div className="ch-info-container__avatar">
@@ -39,7 +45,11 @@ function LandingVideos() {
           </div>
           <div className="card__info__channel">
             <p className="more-videos-container__ch-name">Channel</p>
-            <p className="more-videos-container__views">206 visualizaciones • 7 ago 2022</p>
+            <p className="more-videos-container__views">
+              206 visualizaciones •
+              {' '}
+              {setTime(singleVideo[1].createdAt)}
+            </p>
           </div>
         </div>
       </div>
@@ -49,7 +59,9 @@ function LandingVideos() {
 
     }
 
-    </>
+        </>
+      )
+      : <UploadingSpinner />
   );
 }
 
