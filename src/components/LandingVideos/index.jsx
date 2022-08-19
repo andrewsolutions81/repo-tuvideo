@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../Landing/styles.css';
+import setTime from '../../services/toLocalString';
 
 function LandingVideos() {
   const [allVideos, setAllVideos] = useState({});
@@ -13,7 +14,6 @@ function LandingVideos() {
       .then((res) => {
         if (res) {
           setAllVideos(res);
-          console.log(res);
         } else {
           console.log('error');
         }
@@ -39,7 +39,11 @@ function LandingVideos() {
           </div>
           <div className="card__info__channel">
             <p className="more-videos-container__ch-name">Channel</p>
-            <p className="more-videos-container__views">206 visualizaciones • 7 ago 2022</p>
+            <p className="more-videos-container__views">
+              206 visualizaciones •
+              {' '}
+              {setTime(singleVideo[1].createdAt)}
+            </p>
           </div>
         </div>
       </div>

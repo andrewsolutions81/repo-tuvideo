@@ -42,7 +42,7 @@ function UploadForm(props) {
       url: cloudinary,
       thumbnail,
     };
-    await axios.post('http://localhost:3001/api/videos', data);
+    await axios.post('https://tuvideo-backend.herokuapp.com/api/videos', data);
     setTimeout(() => {
       navigate('/');
     }, 3000);
