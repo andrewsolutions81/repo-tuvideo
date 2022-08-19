@@ -18,7 +18,7 @@ function VideoBox(props) {
     <div>
       {
         <div key={video.id}>
-          <video className="video-box" width="100%" src={video.url} poster={video.url} controls />
+          <video className="video-box" width="100%" src={video.url} poster={video.thumbnail} controls />
           <div className="video-options">
             <h1 className="video-options__title">{video.title}</h1>
             <div className="video-options__container">

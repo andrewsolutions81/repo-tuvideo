@@ -29,7 +29,7 @@ function MoreVideos(props) {
         && (
           <div className="more-videos-container" key={singleVideo[1]._id}>
             <div className="more-videos-container__video">
-              <video width="320" src={singleVideo[1].url} />
+              <video width="320" height="95px" src={singleVideo[1].url} />
               <div>
                 <Link to={`/api/videos/${singleVideo[1]._id}`} className="more-videos-container__title">{singleVideo[1].title}</Link>
                 <p className="more-videos-container__ch-name">Channel</p>
