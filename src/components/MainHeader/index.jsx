@@ -4,6 +4,7 @@
 import './styles.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Search from '../Search';
 
 function MainHeader() {
   const [open, setOpen] = useState();
@@ -25,12 +26,7 @@ function MainHeader() {
         </div>
       </div>
       <div className="header__search-bar">
-        <form action="">
-          <input type="text" placeholder="Search.." />
-          <div className="header__search-bar__icon">
-            <img src="/media/icons/Search.png" alt="Busca" />
-          </div>
-        </form>
+        <Search />
         <div className="header__search-bar__mic">
           <img src="/media/icons/Mic.png" alt="Voz" />
         </div>

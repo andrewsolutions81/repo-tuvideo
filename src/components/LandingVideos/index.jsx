@@ -4,9 +4,11 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../Landing/styles.css';
 import setTime from '../../services/toLocalString';
+import UploadingSpinner from '../UploadingSpinner';
 
 function LandingVideos() {
   const [allVideos, setAllVideos] = useState({});
+  const [showSpinner, setShowSpinner] = useState(false);
 
   useEffect(() => {
     fetch('https://tuvideo-backend.herokuapp.com/api/videos/')
@@ -14,6 +16,7 @@ function LandingVideos() {
       .then((res) => {
         if (res) {
           setAllVideos(res);
+          setShowSpinner(true);
         } else {
           console.log('error');
         }
@@ -23,8 +26,11 @@ function LandingVideos() {
       });
   }, []);
   return (
-    <>
-      {
+    showSpinner
+      ? (
+        <>
+
+          {
     Object.entries(allVideos).map((singleVideo) => (singleVideo[1]
       && (
       <div className="card__videos" key={singleVideo[1]._id}>
@@ -53,7 +59,9 @@ function LandingVideos() {
 
     }
 
-    </>
+        </>
+      )
+      : <UploadingSpinner />
   );
 }
 
