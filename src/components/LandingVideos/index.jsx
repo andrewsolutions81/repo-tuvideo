@@ -29,7 +29,7 @@ function LandingVideos() {
       && (
       <div className="card__videos" key={singleVideo[1]._id}>
 
-        <video width="320" src={singleVideo[1].url} />
+        <video width="320" height="180px" src={singleVideo[1].url} />
         <div className="card__info">
           <div className="card__info__title">
             <div className="ch-info-container__avatar">
