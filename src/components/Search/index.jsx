@@ -18,7 +18,7 @@ function Search() {
 
   useEffect(() => {
     const fetchVideos = async () => {
-      const res = await axios.get(`http://localhost:3001/api/search/?q=${query}`);
+      const res = await axios.get(`https://tuvideo-backend.herokuapp.com/api/search/?q=${query}`);
       setAllVideos(res.data);
     };
     fetchVideos();
