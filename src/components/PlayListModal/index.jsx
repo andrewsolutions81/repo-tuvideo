@@ -1,35 +1,42 @@
 import './styles.scss';
+import Modal from '../Modal';
 
-function PlayListModal({ modAddList }) {
+function PlayListModal({ handleModal }) {
   return (
-    <div className="modal-container">
-      <div className="modal-header">
-        Guardar en...
-        <button type="button">X</button>
-      </div>
-      <div className="playlist-container">
-        <div className="playlist-item">
-          <input type="checkbox" name="" id="" />
-          <div className="playlist-name">Ver mas tarde</div>
+    <Modal>
+      <div className="modal-container">
+        <div className="modal-header">
+          Guardar en...
+          <button className="close-modal" type="button" onClick={handleModal}>X</button>
         </div>
-      </div>
-      {
-        modAddList ? (
-          <div>
-            Nombre
-            <input type="text" placeholder="Escribe el nombre de la lista" />
-            <button type="button">Guardar</button>
-          </div>
-        ) : (
-          <div className="playlist-add">
-            <span>+</span>
+        <div className="playlist-container">
+          <PlaylistItem name="Ver más tarde" />
+          <PlaylistItem name="Programacion" />
+          <PlaylistItem name="Diseño" />
+          <PlaylistItem name="Gameplays" />
+          <PlaylistItem name="Pintar" />
+          <PlaylistItem name="Bootcamp" />
+          <PlaylistItem name="Importante" />
+        </div>
+        <div />
+        <button type="button" className="playlist-add">
+          <p className="cross">+</p>
+          <p>
             Nueva lista de reproducción
-          </div>
-        )
-      }
-
-    </div>
+          </p>
+        </button>
+      </div>
+    </Modal>
   );
 }
 
 export default PlayListModal;
+
+function PlaylistItem({ name }) {
+  return (
+    <div className="playlist-item">
+      <input className="check" type="checkbox" name="" id="" />
+      <div className="playlist-name">{name}</div>
+    </div>
+  );
+}

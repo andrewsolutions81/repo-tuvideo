@@ -6,7 +6,7 @@ function ChannelMoreInfo() {
   return (
     <div>
       <ChannelManager>
-        <h1>{channel.description}</h1>
+        <h2>{channel.description}</h2>
       </ChannelManager>
     </div>
   );

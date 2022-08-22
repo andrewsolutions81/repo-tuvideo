@@ -1,11 +1,15 @@
 import './styles.scss';
+import { useState } from 'react';
 import { useChannel } from '../../channelContext';
+import CreateChannelModal from '../CreateChannelModal';
 
 function ChannelHeader() {
   const {
     channel, modEdit, style, handleEditChannel,
   } = useChannel();
-
+  // eslint-disable-next-line no-unused-vars
+  const [logged, setLogged] = useState(false);
+  const [activeModal, setActiveModal] = useState(false);
   return (
     <div id="container" className="container-header">
       <div className="logo">
@@ -35,25 +39,33 @@ function ChannelHeader() {
               {`${channel?.subscribers} suscriptores`}
             </div>
           </div>
-          <div className="channel-buttons">
-            {
-              modEdit ? (
-                <div className="buttons-edit">
-                  <button className="button-green" type="button" onClick={handleEditChannel}>GUARDAR CAMBIOS</button>
-                  <button className="button-red" type="button" onClick={handleEditChannel}>CANCELAR CAMBIOS</button>
-                </div>
-
-              )
-                : (
-                  <button className="button-blue" type="button" onClick={handleEditChannel}>PERSONALIZAR CANAL</button>
-                )
-            }
-          </div>
           {
-            modEdit ? <div /> : <button className="button-blue" type="button">ADMINISTRAR VIDEOS</button>
+            logged ? (
+              <div>
+                <div className="channel-buttons">
+                  {
+                    modEdit ? (
+                      <div className="buttons-edit">
+                        <button className="button-green" type="button" onClick={handleEditChannel}>GUARDAR CAMBIOS</button>
+                        <button className="button-red" type="button" onClick={handleEditChannel}>CANCELAR CAMBIOS</button>
+                      </div>
+
+                    )
+                      : (
+                        <button className="button-blue" type="button" onClick={handleEditChannel}>PERSONALIZAR CANAL</button>
+                      )
+                  }
+                </div>
+              </div>
+            ) : <button type="button" className="button-red" onClick={() => setActiveModal(true)}>SUSCRIBIRSE</button>
+
           }
+
         </div>
       </div>
+      {
+        activeModal && <CreateChannelModal setActiveModal={setActiveModal} />
+      }
     </div>
   );
 }
