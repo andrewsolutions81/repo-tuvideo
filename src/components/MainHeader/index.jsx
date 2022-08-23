@@ -5,6 +5,7 @@ import './styles.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Search from '../Search';
+import VoiceRecognition from '../VoiceRecognition';
 
 function MainHeader() {
   const [open, setOpen] = useState();
@@ -27,9 +28,7 @@ function MainHeader() {
       </div>
       <div className="header__search-bar">
         <Search />
-        <div className="header__search-bar__mic">
-          <img src="/media/icons/Mic.png" alt="Voz" />
-        </div>
+        <VoiceRecognition />
       </div>
       <div className="header__user">
         <div className="header__user__apps">

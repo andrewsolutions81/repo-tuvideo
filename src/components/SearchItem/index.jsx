@@ -1,27 +1,27 @@
+/* eslint-disable eqeqeq */
+/* eslint-disable max-len */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable array-callback-return */
 /* eslint-disable consistent-return */
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function SearchItem(props) {
-  const { allVideos, query } = props;
+  const {
+    allVideos, query, setClose, close,
+  } = props;
+
   return (
-    <div>
+    <div className="search-results">
       {
-        allVideos
-  && Object.entries(allVideos).filter((video) => {
-    if (query === '') {
-      return video[1];
-    } if (video[1].title.toLowerCase().includes(query.toLowerCase())) {
-      return video[1];
-    }
-  }).map((video) => (
-    <div className="box" key={video[1]._id}>
-      <p>{video[1].title}</p>
-    </div>
-  ))
+       query
+         ? allVideos.map((video) => video
+        && <Link to={`api/videos/${video._id}`} onClick={() => { setClose(!close); }}>{video.title}</Link>)
+
+         : null
 }
     </div>
+
   );
 }
 
