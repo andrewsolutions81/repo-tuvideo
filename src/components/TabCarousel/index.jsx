@@ -6,35 +6,32 @@ import { useChannel } from '../../channelContext';
 function TabCarousel() {
   const { id } = useChannel();
   const [currentPath, setCurrentPath] = useState('');
-
+  const links = ['featured', 'videos', 'playlist', 'channels', 'about'];
   useEffect(() => {
-    const path = window.location.pathname;
-    setCurrentPath(path);
-  });
+    const currentLink = links.filter((link) => window.location.pathname.includes(link));
+    setCurrentPath(currentLink[0]);
+  }, []);
 
-  function setSelected(name) {
-    if (currentPath.includes(name)) {
-      return 'tab-selected';
-    }
-    return 'tab-unselected';
-  }
+  const handleSelect = (name) => {
+    setCurrentPath(name);
+  };
   return (
     <div className="carousel">
       <div className="arrow-left" />
       <div className="tabsContainer">
-        <Link to={`/channel/${id}/featured`} className={setSelected('featured')}>
+        <Link to={`/channel/${id}/featured`} onClick={() => handleSelect('featured')} className={currentPath === 'featured' ? 'tab-selected' : 'tab-unselected'}>
           PÁGINA PRINCIPAL
         </Link>
-        <Link to={`/channel/${id}/videos`} className={setSelected('videos')}>
+        <Link to={`/channel/${id}/videos`} onClick={() => handleSelect('videos')} className={currentPath === 'videos' ? 'tab-selected' : 'tab-unselected'}>
           VIDEOS
         </Link>
-        <Link to={`/channel/${id}/playlist`} className={setSelected('playlist')}>
+        <Link to={`/channel/${id}/playlist`} onClick={() => handleSelect('playlist')} className={currentPath === 'playlist' ? 'tab-selected' : 'tab-unselected'}>
           LISTAS DE REPRODUCCIÓN
         </Link>
-        <Link to={`/channel/${id}/channels`} className={setSelected('channels')}>
+        <Link to={`/channel/${id}/channels`} onClick={() => handleSelect('channels')} className={currentPath === 'channels' ? 'tab-selected' : 'tab-unselected'}>
           CANALES
         </Link>
-        <Link to={`/channel/${id}/about`} className={setSelected('about')}>
+        <Link to={`/channel/${id}/about`} onClick={() => handleSelect('about')} className={currentPath === 'about' ? 'tab-selected' : 'tab-unselected'}>
           MAS INFORMACIÓN
         </Link>
       </div>

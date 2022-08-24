@@ -3,8 +3,8 @@ import './styles.scss';
 import { useChannel } from '../../channelContext';
 
 function About() {
-  const { channel } = useChannel();
-  const date = new Date(channel?.createdAt);
+  const { user } = useChannel();
+  const date = new Date(user?.createdAt);
   const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December',
   ];
@@ -13,7 +13,7 @@ function About() {
       <div>
         <div>
           <p className="about-subtitle">Descripción</p>
-          <p className="about-description">{channel?.description}</p>
+          <p className="about-description">{user?.description}</p>
         </div>
         <div className="about-links">
           <p>Vínculos</p>

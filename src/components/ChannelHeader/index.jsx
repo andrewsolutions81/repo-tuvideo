@@ -1,18 +1,20 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 import './styles.scss';
 import { useState } from 'react';
+import { Outlet } from 'react-router-dom';
 import { useChannel } from '../../channelContext';
 
-function ChannelHeader() {
+function ChannelHeader({ children }) {
   const {
-    channel, modEdit, style,
+    user, modEdit, style,
   } = useChannel();
-  // eslint-disable-next-line no-unused-vars
   const [subscribed, setSubscribed] = useState(false);
+
   return (
     <div id="container" className="container-header">
       <div className="logo">
-        <img className="logo-img" src={channel?.logo} alt="" style={style} />
+        <img className="logo-img" src={user?.logo} alt="" style={style} />
         {
           modEdit && (
             <div className="input-file">
@@ -31,11 +33,11 @@ function ChannelHeader() {
           <div className="channel-description">
             <div className="channel-title">
               {
-                modEdit ? <input className="input-edit" type="text" placeholder={channel?.name} /> : channel?.name
+                modEdit ? <input className="input-edit" type="text" placeholder={user?.username} /> : user?.username
               }
             </div>
             <div className="channel-stadistics">
-              {`${channel?.subscribers} suscriptores`}
+              {`${user?.subscribers ? user.subscribers : 'Sin'} suscriptores`}
             </div>
           </div>
           {/*           {
@@ -59,8 +61,19 @@ function ChannelHeader() {
             )
           } */}
           {
-            subscribed ? <button type="button" className="button-gray">SUSCRITO</button>
-              : <button type="button" className="button-red">SUSCRIBIRSE</button>
+            modEdit ? (
+              <div className="buttons-edit">
+                <button className="button-green" type="button">GUARDAR CAMBIOS</button>
+                <button className="button-red" type="button">CANCELAR CAMBIOS</button>
+              </div>
+            ) : (
+              <div>
+                {
+                  subscribed ? <button type="button" className="button-gray">SUSCRITO</button>
+                    : <button type="button" className="button-red">SUSCRIBIRSE</button>
+                }
+              </div>
+            )
           }
         </div>
       </div>
