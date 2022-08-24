@@ -1,0 +1,46 @@
+.about-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-size: 1.6rem;
+  min-height: 400px;
+  margin: 20px 10px;
+
+  ul {
+    list-style: none;
+    padding: 0px;
+  }
+
+  li {
+    margin-bottom: 10px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.about-description {
+  margin-right: 30px;
+  text-align: justify;
+}
+
+.about-subtitle {
+  margin-bottom: 35px;
+}
+
+.about-links {
+  margin-top: 50px;
+}
+
+@media screen and (min-width: 560px) {
+  .about-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .about-statistics {
+    min-width: 30%;
+    margin-left: 50px;
+  }
+}

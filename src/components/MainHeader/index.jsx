@@ -64,8 +64,8 @@ function MainHeader() {
                 {' '}
                 Home
               </Link>
-              <Link to="/channel" className="main-sidebar__category">
-                <img src="/media/icons/trending-icon.png" alt="Trending-icon" />
+              <Link to="/channel/62f89b533f295cad34533d94/featured" className="main-sidebar__category">
+                <img src="/media/icons/trending.png" alt="Trending-icon" />
                 {' '}
                 Trending
               </Link>
@@ -74,10 +74,10 @@ function MainHeader() {
                 {' '}
                 Explore
               </Link>
-              <Link to="/upload" className="main-sidebar__category">
-                <img src="/media/icons/upload.png" alt="Subcriptions-icon" />
+              <Link to="/" className="main-sidebar__category">
+                <img src="/media/icons/Subscriptions.png" alt="Subcriptions-icon" />
                 {' '}
-                Upload Video
+                Subscriptions
               </Link>
               <Link to="/" className="main-sidebar__category">
                 <img src="/media/icons/Subscriptions.png" alt="Subcriptions-icon" />

@@ -51,14 +51,6 @@ html {
   }
 }
 
-.input-upload {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #065fd4;
-}
-
 .input-file {
   display: flex;
   position: absolute;
@@ -120,6 +112,11 @@ html {
 
 .button-red {
   @include button-color(#d01818);
+}
+
+.button-gray {
+  @include button-color(#ececec);
+  color: #606060;
 }
 
 .buttons-edit {

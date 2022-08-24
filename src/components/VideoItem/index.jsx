@@ -1,13 +1,17 @@
 import './styles.scss';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import PlayListModal from '../PlayListModal';
 
 function VideoItem(props) {
   const { video } = props;
   const [display, setDisplay] = useState(false);
-
+  const [modalOpen, setModalOpen] = useState(false);
   const HandleToggle = () => {
     setDisplay(!display);
+  };
+  const handleModal = () => {
+    setModalOpen(!modalOpen);
   };
   return (
 
@@ -38,9 +42,9 @@ function VideoItem(props) {
                     <div>
                       Guardar en Ver más tarde
                     </div>
-                    <div>
+                    <button type="button" onClick={handleModal}>
                       Guardar en una lista de reproducción
-                    </div>
+                    </button>
                   </div>
                 )
               }
@@ -49,6 +53,9 @@ function VideoItem(props) {
 
         </div>
       </div>
+      {
+        modalOpen && <PlayListModal handleModal={handleModal} />
+      }
     </div>
 
   );
