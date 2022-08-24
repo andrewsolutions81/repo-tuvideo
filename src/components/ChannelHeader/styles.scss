@@ -114,6 +114,11 @@ html {
   @include button-color(#d01818);
 }
 
+.button-gray {
+  @include button-color(#ececec);
+  color: #606060;
+}
+
 .buttons-edit {
   display: flex;
   flex-direction: column;

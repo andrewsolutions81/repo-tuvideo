@@ -12,7 +12,7 @@ function ChannelManager({ children }) {
 
   useEffect(() => {
     setId(id);
-  }, []);
+  }, [id]);
 
   return (
     <div className="manager">
