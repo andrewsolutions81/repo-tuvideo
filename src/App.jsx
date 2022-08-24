@@ -1,5 +1,7 @@
 import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import {
+  BrowserRouter, Routes, Route, Outlet,
+} from 'react-router-dom';
 import Home from './pages/Home';
 import Channel from './pages/Channel';
 import SingleVideo from './pages/SingleVideo';
@@ -11,6 +13,8 @@ import ChannelVideos from './pages/ChannelVideos';
 import ChannelPlayList from './pages/ChannelPlayList';
 import ChannelSubChannels from './pages/ChannelSubChannels';
 import ChannelMoreInfo from './pages/ChannelMoreInfo';
+import ChannelHeader from './components/ChannelHeader';
+import TabCarousel from './components/TabCarousel';
 import { ChannelProvider } from './channelContext';
 
 function App() {
@@ -22,15 +26,25 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/upload" element={<UploadVideo />} />
-            <Route path="/channel/:id/featured" element={<Channel />} />
-            <Route path="/channel/:id/videos" element={<ChannelVideos />} />
-            <Route path="/channel/:id/playlist" element={<ChannelPlayList />} />
-            <Route path="/channel/:id/channels" element={<ChannelSubChannels />} />
-            <Route path="/channel/:id/about" element={<ChannelMoreInfo />} />
             <Route path="/:id" element={<SingleVideo />} />
             <Route path="/api/videos/:id" element={<SingleVideo />} />
             <Route path="/login-register" element={<LoginRegister />} />
             <Route path="/add-video-to-json" element={<AddVideoToJson />} />
+            <Route element={(
+              <>
+                <ChannelHeader />
+                {' '}
+                <TabCarousel />
+                <Outlet />
+              </>
+            )}
+            >
+              <Route path="/channel/:id/featured" element={<Channel />} />
+              <Route path="/channel/:id/videos" element={<ChannelVideos />} />
+              <Route path="/channel/:id/playlist" element={<ChannelPlayList />} />
+              <Route path="/channel/:id/channels" element={<ChannelSubChannels />} />
+              <Route path="/channel/:id/about" element={<ChannelMoreInfo />} />
+            </Route>
           </Routes>
         </BrowserRouter>
       </ChannelProvider>
