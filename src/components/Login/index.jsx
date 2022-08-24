@@ -1,12 +1,8 @@
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable no-shadow */
-/* eslint-disable consistent-return */
-/* eslint-disable no-underscore-dangle */
-/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable */
 import React, { useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import Form from 'react-validation/build/form';
+// import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
 import CheckButton from 'react-validation/build/button';
 import { login } from '../../actions/auth';
@@ -38,6 +34,8 @@ function Login(props) {
     setPassword(password);
   };
   const handleLogin = (e) => {
+    // Pasar username y password . Input para username y password, boton
+    // Input para el submit, cada boton con onchange
     e.preventDefault();
     setLoading(true);
     form.current.validateAll();
@@ -65,7 +63,7 @@ function Login(props) {
           alt="profile-img"
           className="profile-img-card"
         />
-        <Form onSubmit={handleLogin} ref={form}>
+        {/* <form onSubmit={handleLogin} ref={form}>
           <div className="form-group">
             <label htmlFor="username">Username</label>
             <Input
@@ -104,7 +102,7 @@ function Login(props) {
             </div>
           )}
           <CheckButton style={{ display: 'none' }} ref={checkBtn} />
-        </Form>
+        </form> */}
       </div>
     </div>
   );

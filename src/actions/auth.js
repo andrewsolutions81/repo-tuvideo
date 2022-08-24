@@ -39,14 +39,14 @@ export function register(username, email, password) {
 }
 export function login(username, password) {
   return (dispatch) => AuthService.login(username, password).then(
-    (data) => {
+    (data) => { // Try - llamar al AuthService login con el await
       dispatch({
         type: LOGIN_SUCCESS,
         payload: { user: data },
       });
-      return Promise.resolve();
+      return Promise.resolve(); // Borrar resolve
     },
-    (error) => {
+    (error) => { // Catch
       const message = (error.response
         && error.response.data
         && error.response.data.message)
@@ -59,7 +59,7 @@ export function login(username, password) {
         type: SET_MESSAGE,
         payload: message,
       });
-      return Promise.reject();
+      return Promise.reject(); // Borrar reject
     },
   );
 }

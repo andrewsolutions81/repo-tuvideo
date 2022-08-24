@@ -1,3 +1,4 @@
+/* eslint-disable func-names */
 /* eslint-disable default-param-last */
 import {
   REGISTER_SUCCESS,
