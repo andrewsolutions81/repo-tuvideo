@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable array-callback-return */
 /* eslint-disable consistent-return */
 /* eslint-disable no-underscore-dangle */
@@ -5,6 +6,7 @@ import React, { useState, useEffect } from 'react';
 import './styles.scss';
 import axios from 'axios';
 import SearchItem from '../SearchItem';
+import useDebounce from '../../hooks/useDebounce';
 
 function Search() {
   const [allVideos, setAllVideos] = useState([]);
@@ -16,13 +18,15 @@ function Search() {
     setClose(false);
   };
 
+  const debounceSearch = useDebounce(query, 500);
+
   useEffect(() => {
     const fetchVideos = async () => {
-      const res = await axios.get(`https://tuvideo-backend.herokuapp.com/api/search/?q=${query}`);
+      const res = await axios.get(`https://tuvideo-backend.herokuapp.com/api/search/?q=${debounceSearch}`);
       setAllVideos(res.data);
     };
-    fetchVideos();
-  }, [query]);
+    if (debounceSearch) fetchVideos();
+  }, [debounceSearch]);
   return (
     <div>
       <form action="" className="search-form">
@@ -32,10 +36,10 @@ function Search() {
         </div>
       </form>
       {
-        query.length > 0
+        debounceSearch
           ? (
             <div className={close ? 'search-container active' : 'search-container'}>
-              <SearchItem allVideos={allVideos} query={query} setClose={setClose} close={close} />
+              <SearchItem allVideos={allVideos} debounceSearch={debounceSearch} setClose={setClose} close={close} />
             </div>
           ) : null
       }
