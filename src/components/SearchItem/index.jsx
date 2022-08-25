@@ -8,13 +8,13 @@ import { Link } from 'react-router-dom';
 
 function SearchItem(props) {
   const {
-    allVideos, query, setClose, close,
+    allVideos, debounceSearch, setClose, close,
   } = props;
 
   return (
     <div className="search-results">
       {
-       query
+       debounceSearch
          ? allVideos.map((video) => video
         && <Link to={`api/videos/${video._id}`} onClick={() => { setClose(!close); }}>{video.title}</Link>)
 
