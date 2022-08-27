@@ -6,7 +6,7 @@
 /* eslint-disable consistent-return */
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { SpeechRecognition } from 'react-speech-recognition';
+import SpeechRecognition from 'react-speech-recognition';
 import { SearchContext } from '../../searchContext/SearchContext';
 
 function SearchItem(props) {
