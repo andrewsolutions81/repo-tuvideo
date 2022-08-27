@@ -12,7 +12,10 @@ video{
 .container{
   background-color: #F9F9F9;
 }
-
+.video-full-section{
+  padding-top:25px;
+  width: 100%;
+}
 @media (min-width:950px){
   .video-full-section{
     display: flex;
@@ -23,12 +26,16 @@ video{
     & main {
       flex: 3 1 auto;
     }
+
+    & aside{
+      margin-left:10px;
+      padding:10px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
   
   }
 }
-.video-full-section{
-  width: 100%;
-}
+
 .video-box{
   height:400px;
 }

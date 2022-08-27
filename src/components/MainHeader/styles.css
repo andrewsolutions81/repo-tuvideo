@@ -246,3 +246,11 @@ align-items: center;
 padding: 12px 25px;
 block-size: 48px;
 }
+
+.toggle-listening{
+  background: red;
+}
+
+.toggle-listening:hover{
+  background: red;
+}

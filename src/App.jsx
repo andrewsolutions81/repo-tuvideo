@@ -16,13 +16,16 @@ import ChannelMoreInfo from './pages/ChannelMoreInfo';
 import ChannelHeader from './components/ChannelHeader';
 import TabCarousel from './components/TabCarousel';
 import { ChannelProvider } from './channelContext';
+import { SearchProvider } from './searchContext/SearchContext';
 
 function App() {
   return (
     <div className="App">
       <ChannelProvider>
         <BrowserRouter>
-          <MainHeader />
+          <SearchProvider>
+            <MainHeader />
+          </SearchProvider>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/upload" element={<UploadVideo />} />
