@@ -1,0 +1,40 @@
+/* The Modal (background) */
+.modal-quantity {
+  padding:30px;
+  background-color: #fefefe;
+  margin: 20% auto;
+  border: 1px solid #888;
+  width: 90%; 
+}
+@media (min-width:768px){
+  .modal-quantity{
+    width: 30%; 
+  }
+}
+.modal-quantity-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .quantity-cointainer{
+    display: flex;
+    flex-direction: column;
+
+    & label{
+      font-size:20px;
+      margin-bottom: 20px;
+    }
+  }
+  .donate-btn button{
+    background-color:#CC0000;
+    color:white;
+    margin-top:20px;
+    margin-left: auto;
+    padding:10px 16px;
+    text-transform: uppercase;
+  }
+  .modal-social{
+    text-align: center;
+  }
+}

@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import './styles.css';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Search from '../Search';
 import VoiceRecognition from '../VoiceRecognition';
@@ -32,17 +32,17 @@ function MainHeader() {
       </div>
       <div className="header__user">
         <div className="header__user__apps">
-          <img src="/media/icons/Apps.png" alt="Apps" />
+          <img src="/media/icons/upload.png" alt="Apps" />
         </div>
-        <div className="header__user__settings">
+        {/*        <div className="header__user__settings">
           <img src="/media/icons/Options.png" alt="Settings" />
-        </div>
+        </div> */}
         <div className="header__user__sign-in">
           <div className="header__user__sign-in__icon">
             <img src="/media/icons/User.png" alt="Sign In" />
           </div>
           <div className="header__user__sign-in__text">
-            <Link to="/login-register"><p className="header__user__sign-in__text--center">Sign In</p></Link>
+            <Link to="/login"><p className="header__user__sign-in__text--center">Sign In</p></Link>
           </div>
         </div>
       </div>
@@ -53,7 +53,7 @@ function MainHeader() {
             <img src="/media/icons/Burger.png" alt="Menu" onClick={handleMenu} />
           </div>
           <div className="header__logo__logo">
-            <img src="/media/icons/LogoYoutube.png" alt="Menu" />
+            <Link to="/"><img src="/media/icons/LogoYoutube.png" alt="Menu" /></Link>
           </div>
         </div>
         <div className="main-sidebar">

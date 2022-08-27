@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
+import store from './store';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -8,9 +10,11 @@ import { ChannelProvider } from './channelContext';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ChannelProvider>
-      <App />
-    </ChannelProvider>
+    <Provider store={store}>
+      <ChannelProvider>
+        <App />
+      </ChannelProvider>
+    </Provider>
   </React.StrictMode>,
 );
 
