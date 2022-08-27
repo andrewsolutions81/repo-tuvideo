@@ -3,32 +3,32 @@
 import './styles.scss';
 import { useEffect, useState } from 'react';
 import { useChannel } from '../../channelContext';
+import CreateChannelModal from '../CreateChannelModal';
 
-function ChannelHeader({ children }) {
+function ChannelHeader() {
   const {
-    user, modEdit, style,
+    user, modEdit, setModEdit, style, tempLogo, setTempLogo, setTempUsername, updateUser,
   } = useChannel();
   const [subscribed, setSubscribed] = useState(false);
-  const [tempLogo, setTempLogo] = useState('');
-
+  const [open, setOpen] = useState(false);
+  const [previewLogo, setPreviewLogo] = useState('');
   useEffect(() => {
-    setTempLogo(user?.logo);
-  }, []);
-
+    setPreviewLogo(tempLogo);
+  }, [tempLogo]);
   return (
     <div id="container" className="container-header">
       {
         modEdit ? (
           <div id="temp-logo" className="logo">
-            <img className="logo-img" src={tempLogo} alt="" style={style} />
+            <img className="logo-img" src={previewLogo} alt="" />
             <div className="input-file">
               <input
                 type="file"
                 className="input-upload-image"
                 onChange={(e) => {
-                  const [file] = e.target.files;
-                  if (file) {
-                    setTempLogo(URL.createObjectURL(file));
+                  setTempLogo(e.target.files[0]);
+                  if (e.target.files.length !== 0) {
+                    setPreviewLogo(URL.createObjectURL(e.target.files[0]));
                   }
                 }}
               />
@@ -50,38 +50,37 @@ function ChannelHeader({ children }) {
           <div className="channel-description">
             <div className="channel-title">
               {
-                modEdit ? <input className="input-edit" type="text" placeholder={user?.username} /> : user?.username
+                modEdit ? (
+                  <input
+                    className="input-edit"
+                    type="text"
+                    placeholder={user?.username}
+                    onChange={(e) => {
+                      setTempUsername(e.target.value);
+                    }}
+                  />
+                ) : user?.username
               }
             </div>
             <div className="channel-stadistics">
               {`${user?.subscribers ? user.subscribers : 'Sin'} suscriptores`}
             </div>
           </div>
-          {/*           {
-            logged && (
-              <div>
-                <div className="channel-buttons">
-                  {
-                    modEdit ? (
-                      <div className="buttons-edit">
-                        <button className="button-green" type="button" onClick={handleEditChannel}>GUARDAR CAMBIOS</button>
-                        <button className="button-red" type="button" onClick={handleEditChannel}>CANCELAR CAMBIOS</button>
-                      </div>
-
-                    )
-                      : (
-                        <button className="button-blue" type="button" onClick={handleEditChannel}>PERSONALIZAR CANAL</button>
-                      )
-                  }
-                </div>
-              </div>
-            )
-          } */}
           {
             modEdit ? (
               <div className="buttons-edit">
-                <button className="button-green" type="button">GUARDAR CAMBIOS</button>
-                <button className="button-red" type="button">CANCELAR CAMBIOS</button>
+                <button className="button-blue" type="button" onClick={() => setOpen(true)}>AÑADIR ELEMENTOS</button>
+                <button
+                  className="button-green"
+                  type="button"
+                  onClick={() => {
+                    updateUser();
+                  }}
+                >
+                  GUARDAR CAMBIOS
+
+                </button>
+                <button className="button-red" type="button" onClick={() => { setModEdit(false); }}>CANCELAR CAMBIOS</button>
               </div>
             ) : (
               <div>
@@ -94,6 +93,7 @@ function ChannelHeader({ children }) {
           }
         </div>
       </div>
+      <CreateChannelModal open={open} setOpen={setOpen} />
     </div>
   );
 }
