@@ -42,7 +42,7 @@ function MainHeader() {
             <img src="/media/icons/User.png" alt="Sign In" />
           </div>
           <div className="header__user__sign-in__text">
-            <Link to="/login-register"><p className="header__user__sign-in__text--center">Sign In</p></Link>
+            <Link to="/login"><p className="header__user__sign-in__text--center">Sign In</p></Link>
           </div>
         </div>
       </div>
