@@ -22,6 +22,7 @@ function SearchItem(props) {
     if (state.toggle) {
       SpeechRecognition.stopListening();
       dispatch({ type: 'toggleButton' });
+      setClose(close);
     }
     dispatch({ type: 'clearTyping' });
   };
