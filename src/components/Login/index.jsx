@@ -1,60 +1,39 @@
-/* eslint-disable */
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Navigate } from 'react-router-dom';
-// import Form from 'react-validation/build/form';
-import Input from 'react-validation/build/input';
-import CheckButton from 'react-validation/build/button';
+import { useNavigate } from 'react-router-dom';
+
 import { login } from '../../actions/auth';
 
-const required = (value) => {
-  if (!value) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        This field is required!
-      </div>
-    );
-  }
-};
-function Login(props) {
-  const form = useRef();
-  const checkBtn = useRef();
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+function Login() {
+  const [form, setForm] = useState({});
   const [loading, setLoading] = useState(false);
   const { isLoggedIn } = useSelector((state) => state.auth);
   const { message } = useSelector((state) => state.message);
   const dispatch = useDispatch();
-  const onChangeUsername = (e) => {
-    const username = e.target.value;
-    setUsername(username);
+  const navigate = useNavigate();
+
+  const onHandleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
   };
-  const onChangePassword = (e) => {
-    const password = e.target.value;
-    setPassword(password);
-  };
+
   const handleLogin = (e) => {
-    // Pasar username y password . Input para username y password, boton
-    // Input para el submit, cada boton con onchange
     e.preventDefault();
+    const { username, password } = form;
     setLoading(true);
-    form.current.validateAll();
-    if (checkBtn.current.context._errors.length === 0) {
-      dispatch(login(username, password))
-        .then(() => {
-          props.history.push('/profile');
-          window.location.reload();
-        })
-        .catch(() => {
-          setLoading(false);
-        });
-    } else {
-      setLoading(false);
-    }
+
+    dispatch(login(username, password));
+    // No se hace nada mas, porq el dispatch cambia todo en el reducer
+    // entocnes en el componente se va a volver a renderizar
+    // y tendra el estado de redux actulizado con isLoggedIn = true
   };
+
   if (isLoggedIn) {
-    return <Navigate to="/" />;
+    navigate('/');
   }
+
   return (
     <div className="col-md-12">
       <div className="card card-container">
@@ -63,28 +42,30 @@ function Login(props) {
           alt="profile-img"
           className="profile-img-card"
         />
-        {/* <form onSubmit={handleLogin} ref={form}>
+        <form onSubmit={handleLogin}>
           <div className="form-group">
-            <label htmlFor="username">Username</label>
-            <Input
-              type="text"
-              className="form-control"
-              name="username"
-              value={username}
-              onChange={onChangeUsername}
-              validations={[required]}
-            />
+            <label htmlFor="username">
+              Username
+              <input
+                type="text"
+                className="form-control"
+                name="username"
+                id="username"
+                onChange={onHandleChange}
+              />
+            </label>
           </div>
           <div className="form-group">
-            <label htmlFor="password">Password</label>
-            <Input
-              type="password"
-              className="form-control"
-              name="password"
-              value={password}
-              onChange={onChangePassword}
-              validations={[required]}
-            />
+            <label htmlFor="password">
+              Password
+              <input
+                type="password"
+                className="form-control"
+                name="password"
+                id="password"
+                onChange={onHandleChange}
+              />
+            </label>
           </div>
           <div className="form-group">
             <button type="submit" className="btn btn-primary btn-block" disabled={loading}>
@@ -101,10 +82,11 @@ function Login(props) {
               </div>
             </div>
           )}
-          <CheckButton style={{ display: 'none' }} ref={checkBtn} />
-        </form> */}
+          <input type="checkbox" name="remember" id="remember" />
+        </form>
       </div>
     </div>
   );
 }
+
 export default Login;
