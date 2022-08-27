@@ -30,10 +30,7 @@ function Search() {
   return (
     <div>
       <form action="" className="search-form">
-        <input type="search" placeholder="Search..." onChange={handleChange} value={query} />
-        <div className="header__search-bar__icon">
-          <img src="/media/icons/Search.png" alt="Busca" />
-        </div>
+        <input type="search" placeholder="Type something..." onChange={handleChange} value={query} />
       </form>
       {
         debounceSearch
