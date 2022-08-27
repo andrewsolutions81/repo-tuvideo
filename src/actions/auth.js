@@ -38,15 +38,14 @@ export function register(username, email, password) {
   );
 }
 export function login(username, password) {
-  return (dispatch) => AuthService.login(username, password).then(
-    (data) => { // Try - llamar al AuthService login con el await
+  return async (dispatch) => {
+    try {
+      const data = await AuthService.login(username, password);
       dispatch({
         type: LOGIN_SUCCESS,
         payload: { user: data },
       });
-      return Promise.resolve(); // Borrar resolve
-    },
-    (error) => { // Catch
+    } catch (error) {
       const message = (error.response
         && error.response.data
         && error.response.data.message)
@@ -59,10 +58,10 @@ export function login(username, password) {
         type: SET_MESSAGE,
         payload: message,
       });
-      return Promise.reject(); // Borrar reject
-    },
-  );
+    }
+  };
 }
+
 export const logout = () => (dispatch) => {
   AuthService.logout();
   dispatch({
