@@ -8,6 +8,7 @@ import MoreVideos from '../MoreVideos';
 import './styles.scss';
 import CommentsApp from '../Comments';
 import SocialShareModal from '../SocialShareModal';
+import DonationModal from '../DonationModal';
 
 function VideoBox(props) {
   const [isActive, setIsActive] = useState(true);
@@ -32,10 +33,7 @@ function VideoBox(props) {
                     <img src="/media/icons/dislike.png" alt="dislike" />
                     Don`t like it
                   </button>
-                  <button type="button" className="video-options__donation-btn">
-                    <img src="/media/icons/donation.png" alt="donation" />
-                    Thank you!
-                  </button>
+                  <DonationModal />
                   <SocialShareModal videoId={video} />
                 </div>
               </div>
