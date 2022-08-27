@@ -5,6 +5,7 @@ import './styles.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Search from '../Search';
+import VoiceRecognition from '../VoiceRecognition';
 
 function MainHeader() {
   const [open, setOpen] = useState();
@@ -27,9 +28,7 @@ function MainHeader() {
       </div>
       <div className="header__search-bar">
         <Search />
-        <div className="header__search-bar__mic">
-          <img src="/media/icons/Mic.png" alt="Voz" />
-        </div>
+        <VoiceRecognition />
       </div>
       <div className="header__user">
         <div className="header__user__apps">
@@ -65,7 +64,7 @@ function MainHeader() {
                 {' '}
                 Home
               </Link>
-              <Link to="/channel" className="main-sidebar__category">
+              <Link to="/channel/63016ff9484699fbdf470210/featured" className="main-sidebar__category">
                 <img src="/media/icons/trending-icon.png" alt="Trending-icon" />
                 {' '}
                 Trending
@@ -78,7 +77,7 @@ function MainHeader() {
               <Link to="/upload" className="main-sidebar__category">
                 <img src="/media/icons/upload.png" alt="Subcriptions-icon" />
                 {' '}
-                Upload Video
+                Upload
               </Link>
               <Link to="/" className="main-sidebar__category">
                 <img src="/media/icons/Subscriptions.png" alt="Subcriptions-icon" />

@@ -1,13 +1,16 @@
 .modal-container {
-  height: 100vh;
-  width: auto;
+  height: 70vh;
+  width: 250px;
   background-color: white;
-  position: fixed;
-  z-index: 90;
+  margin: 60px auto;
+  position: relative;
+  font-size: 1.6rem;
 }
 
 .modal-header {
-  font-size: 16px;
+  font-size: 1.6rem;
+  padding: 20px;
+  border-bottom: 2px solid #f1f1f1;
 }
 
 .playlist-container {
@@ -15,5 +18,31 @@
 }
 
 .playlist-add {
-  font-size: 14px;
+  font-size: 1.6rem;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  white-space: nowrap;
+  justify-content: center;
+  width: 100%;
+  border-top: 2px solid #f1f1f1;
+}
+
+.playlist-item {
+  display: flex;
+  font-size: 1.6rem;
+  margin: 10px auto;
+  width: 80%;
+  text-align: left;
+}
+
+.close-modal {
+  position: absolute;
+  right: 10px;
+}
+
+.cross {
+  font-size: 3rem;
+  margin: auto 0px;
+  padding: 0px 10px;
 }

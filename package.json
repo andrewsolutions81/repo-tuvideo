@@ -17,6 +17,7 @@
     "react-redux": "^8.0.2",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "react-speech-recognition": "^3.9.1",
     "react-spinners": "^0.13.4",
     "react-validation": "^3.0.7",
     "react-video-upload-preview": "^1.0.1",

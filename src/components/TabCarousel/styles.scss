@@ -6,11 +6,17 @@ $textSelected: #030303;
   height: 48px;
   display: flex;
   background-color: #f9f9f9;
-  overflow: hidden;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  -ms-overflow-style: none;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 1;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
 }
 
 .arrow-left {

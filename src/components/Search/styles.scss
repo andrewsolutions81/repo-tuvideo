@@ -1,7 +1,6 @@
 
 
 .search-container{
-  display: none;
   box-sizing: border-box;
   position: absolute;
   top:80px;
@@ -10,4 +9,27 @@
   width:573px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
   padding:50px;
+  z-index: 1;
+}
+
+.search-results{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  & a{
+    font-size:18px;
+    margin-bottom: 10px;
+
+  &:link{
+    color:blue;
+  }
+  &:focus{
+    color:black;
+  }
+  }
+  
+}
+.active{
+  display: none;
 }

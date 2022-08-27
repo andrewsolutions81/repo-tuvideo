@@ -7,7 +7,7 @@ import { getVideos } from '../services/videos';
 const channelContext = createContext();
 
 export function ChannelProvider(props) {
-  const [channel, setChannel] = useState();
+  const [user, setUser] = useState();
   const [videos, setVideos] = useState([]);
   const [modEdit, setModEdit] = useState(false);
   const [style, setStyle] = useState({ border: '' });
@@ -27,9 +27,9 @@ export function ChannelProvider(props) {
   useEffect(() => {
     const fetchData = async () => {
       if (id) {
-        const result = await fetch(`https://tuvideo-backend.herokuapp.com/api/channel/${id}`);
+        const result = await fetch(`https://tuvideo-backend.herokuapp.com/api/users/${id}`);
         const resultJson = await result.json();
-        setChannel(resultJson);
+        setUser(resultJson);
       }
     };
 
@@ -43,12 +43,12 @@ export function ChannelProvider(props) {
   const value = useMemo(() => ({
     id,
     setId,
-    channel,
+    user,
     videos,
     modEdit,
     style,
     handleEditChannel,
-  }), [id, channel, modEdit]);
+  }), [id, user, modEdit]);
 
   // eslint-disable-next-line react/jsx-props-no-spreading
   return <channelContext.Provider value={value} {...props} />;
