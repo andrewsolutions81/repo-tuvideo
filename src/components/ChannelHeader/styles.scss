@@ -43,12 +43,24 @@ html {
   align-items: center;
   justify-content: center;
 
-  img {
-    background-color: #606060;
+  .logo-img {
+    background-color: #d01818;
     width: 100%;
     height: 100%;
     border-radius: 50%;
+    font-size: 4rem;
+    text-transform: uppercase;
+    color: white;
+    position: relative;
   }
+}
+
+.letter-logo {
+  text-align: center;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .input-file {

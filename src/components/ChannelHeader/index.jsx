@@ -20,7 +20,10 @@ function ChannelHeader() {
       {
         modEdit ? (
           <div id="temp-logo" className="logo">
-            <img className="logo-img" src={previewLogo} alt="" />
+            {
+              user?.logo ? (<img className="logo-img" src={previewLogo} alt="" />)
+                : (<div className="logo-img"><div className="letter-logo">{user?.username[0]}</div></div>)
+            }
             <div className="input-file">
               <input
                 type="file"
@@ -41,7 +44,10 @@ function ChannelHeader() {
           </div>
         ) : (
           <div className="logo">
-            <img className="logo-img" src={user?.logo} alt="" style={style} />
+            {
+              user?.logo ? (<img className="logo-img" src={previewLogo} alt="" />)
+                : (<div className="logo-img"><div className="letter-logo">{user?.username[0]}</div></div>)
+            }
           </div>
         )
       }
