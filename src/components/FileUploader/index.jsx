@@ -26,11 +26,11 @@ function VideoUploader() {
     formData.append('filename', file.name);
 
     try {
-      const data = await axios.post('https://tuvideo-backend.herokuapp.com/api/upload/file', formData);
+      const data = await axios.post('http://localhost:3001/api/upload/file', formData);
       setVideoUrl(data.data.secure_url);
       setLoading(false);
     } catch (error) {
-      console.error(error);
+      console.error('something happened', error);
     }
   };
 

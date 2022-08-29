@@ -1,14 +1,14 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8080/api/auth/';
-const register = (username, email, password) => axios.post(`${API_URL}signup`, {
+const BACK_DEV_BASE_URL = 'http://localhost:3031/api/';
+const register = (username, email, password) => axios.post(`${BACK_DEV_BASE_URL}auth/register`, {
   username,
   email,
   password,
 });
-const login = (username, password) => axios
-  .post(`${API_URL}signin`, {
-    username,
+const login = (email, password) => axios
+  .post(`${BACK_DEV_BASE_URL}auth/login`, {
+    email,
     password,
   })
   .then((response) => {
@@ -20,6 +20,12 @@ const login = (username, password) => axios
 const logout = () => {
   localStorage.removeItem('user');
 };
+
+export async function verify(token) {
+  const response = await fetch(`${BACK_DEV_BASE_URL}auth/verify-account/${token}`);
+  return response.json();
+}
+
 export default {
   register,
   login,

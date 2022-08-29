@@ -20,6 +20,7 @@ import ChannelHeader from './components/ChannelHeader';
 import TabCarousel from './components/TabCarousel';
 import Banner from './components/Banner';
 import { SearchProvider } from './searchContext/SearchContext';
+import Verify from './pages/Verify';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route path="/login-register" element={<LoginRegister />} />
           <Route path="/login" element={<LoginSite />} />
           <Route path="/register" element={<RegisterSite />} />
+          <Route path="/verify" element={<Verify />} />
           <Route path="/add-video-to-json" element={<AddVideoToJson />} />
           <Route element={(
             <>
