@@ -8,6 +8,7 @@ import Search from '../Search';
 import VoiceRecognition from '../VoiceRecognition';
 
 function MainHeader() {
+  const profile = JSON.parse(localStorage.getItem('profile'));
   const [open, setOpen] = useState();
 
   const handleMenu = () => {
@@ -41,9 +42,19 @@ function MainHeader() {
           <div className="header__user__sign-in__icon">
             <img src="/media/icons/User.png" alt="Sign In" />
           </div>
-          <div className="header__user__sign-in__text">
-            <Link to="/login"><p className="header__user__sign-in__text--center">Sign In</p></Link>
-          </div>
+          {
+            profile
+              ? (
+                <div className="header__user__sign-in__text">
+                  <Link to="/login"><p className="header__user__sign-in__text--center">{profile.username}</p></Link>
+                </div>
+              )
+              : (
+                <div className="header__user__sign-in__text">
+                  <Link to="/login"><p className="header__user__sign-in__text--center">Sign In</p></Link>
+                </div>
+              )
+          }
         </div>
       </div>
 

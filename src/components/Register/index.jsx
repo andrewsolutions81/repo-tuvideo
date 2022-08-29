@@ -4,11 +4,11 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { isEmail } from 'validator';
+// import { isEmail } from 'validator';
 import { Link } from 'react-router-dom';
 import { register } from '../../actions/auth';
 
-const required = (value) => {
+/* const required = (value) => {
   if (!value) {
     return (
       <div className="alert alert-danger" role="alert">
@@ -43,7 +43,7 @@ const vpassword = (value) => {
       </div>
     );
   }
-};
+}; */
 function Register() {
   const [form, setForm] = useState({});
   const dispatch = useDispatch();
@@ -57,8 +57,8 @@ function Register() {
 
   const handleRegister = (e) => {
     e.preventDefault();
-    const { username, password, email } = form;
-    dispatch(register(username, password, email));
+    const { username, email, password } = form;
+    dispatch(register(username, email, password));
   };
 
   return (
@@ -78,21 +78,17 @@ function Register() {
                   type="text"
                   className="form-control"
                   name="username"
-                  id={vusername}
                   onChange={onHandleChange}
-                  validations={[required, vusername]}
                 />
               </label>
             </div>
             <div className="form-group">
               <label htmlFor="email">Email</label>
               <input
-                type="text"
+                type="email"
                 className="form-control"
                 name="email"
-                id={validEmail}
                 onChange={onHandleChange}
-                validations={[required, validEmail]}
               />
             </div>
             <div className="form-group">
@@ -101,9 +97,7 @@ function Register() {
                 type="password"
                 className="form-control"
                 name="password"
-                id={validEmail}
                 onChange={onHandleChange}
-                validations={[required, vpassword]}
               />
             </div>
             <div className="form-group">

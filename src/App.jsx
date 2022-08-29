@@ -38,6 +38,7 @@ function App() {
           <Route path="/login" element={<LoginSite />} />
           <Route path="/register" element={<RegisterSite />} />
           <Route path="/verify" element={<Verify />} />
+          <Route path="/verify/:token" element={<Verify />} />
           <Route path="/add-video-to-json" element={<AddVideoToJson />} />
           <Route element={(
             <>
