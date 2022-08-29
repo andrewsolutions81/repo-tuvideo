@@ -1,23 +1,29 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
-import Modal from '@mui/material/Modal';
+import { SearchContext } from '../../searchContext/SearchContext';
 
 function VoiceRecognition() {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => {
-    setOpen(false);
-    SpeechRecognition.stopListening();
-  };
+  const { dispatch, state } = useContext(SearchContext);
 
-  const handleSpeech = () => {
-    handleOpen();
-    SpeechRecognition.startListening();
-  };
   const {
     transcript,
+    resetTranscript,
     browserSupportsSpeechRecognition,
   } = useSpeechRecognition();
+
+  const handleSpeech = () => {
+    dispatch({ type: 'toggleButton' });
+
+    if (!state.toggle) {
+      SpeechRecognition.startListening({ continuous: true });
+    }
+    SpeechRecognition.stopListening();
+    resetTranscript();
+  };
+
+  useEffect(() => {
+    dispatch({ type: 'typing', payload: transcript.toLowerCase() });
+  }, [transcript]);
 
   if (!browserSupportsSpeechRecognition) {
     return <span>Browser doesnt support speech recognition.</span>;
@@ -26,19 +32,9 @@ function VoiceRecognition() {
   return (
     <div>
       <button type="button" className="header__search-bar__mic" onClick={handleSpeech}>
-        <img src="/media/icons/Mic.png" alt="Voz" />
+        <img src={`${state.toggle ? '/media/icons/stop.png' : '/media/icons/Mic.png'}`} alt="Voz" />
       </button>
-
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <div className="modal">
-          <h2>{transcript}</h2>
-        </div>
-      </Modal>
+      <p>{state.toggle ? 'Click to stop' : 'Click to speak'}</p>
     </div>
   );
 }

@@ -1,45 +1,57 @@
 import './styles.scss';
-import { useState } from 'react';
-import Modal from '../Modal';
+import Modal from '@mui/material/Modal';
+import { useChannel } from '../../channelContext';
 
-function CreateChannelModal({ setActiveModal }) {
-  const [logoTemp, setLogoTemp] = useState('https://res.cloudinary.com/royhuamanavila/image/upload/v1660888009/image832_ec9r7e.png');
+function CreateChannelModal({ open, setOpen }) {
+  const { setTempBanner } = useChannel();
+
   return (
-    <Modal>
+    <Modal open={open} onClose={() => setOpen(false)}>
       <div className="channel-modal-container">
         <div className="header-channel-modal">
-          Cómo te veran los demás
+          Añade nuevos elementos a tu canal
         </div>
-        <div className="image-perfil">
-          <img src={logoTemp} alt="perfil" />
+        <div className="element-item">
+          <div className="element-title">
+            Video destacado para los suscriptores
+          </div>
+          <div className="element-description">
+            <div>
+              Destaca un video para que lo miren tus suscriptores.
+              El video no estará visible en la parte superior de la página
+              para aquellos que ya lo miraron.
+            </div>
+            <div className="button-add">
+              AGREGAR
+            </div>
+          </div>
         </div>
-        <div className="upload-image-perfil">
-          <p className="text-button">
-            SUBIR IMAGEN
-          </p>
-          <input
-            type="file"
-            accept=".jpg, .png"
-            className="input-upload"
-            onChange={(e) => {
-              const [file] = e.target.files;
-              if (file) {
-                setLogoTemp(URL.createObjectURL(file));
-              }
-            }}
-          />
-        </div>
-        <div className="input-channel-name">
-          <label htmlFor="channel-name">
-            Nombre
-            {' '}
-            <br />
-            <input className="input-text" type="text" />
-          </label>
-        </div>
-        <div className="options-buttons">
-          <button className="button-cancel" type="button" onClick={() => setActiveModal(false)}>CANCELAR</button>
-          <button className="button-create-channel" type="button">CREAR CANAL</button>
+        <div className="element-item">
+          <div className="element-title">
+            Imagen del banner
+          </div>
+          <div className="element-description">
+            <div>
+              Esta imagen aparecerá en la parte superior de tu canal.
+              {' '}
+              <br />
+              Para obtener los mejores resultados en todos los dispositivos,
+              usa una imagen de 2048 × 1152 píxeles como mínimo y 6 MB como máximo.
+            </div>
+            <div className="button-add">
+              AGREGAR
+              <input
+                type="file"
+                className="input-upload-image"
+                onChange={(e) => {
+                  const [file] = e.target.files;
+                  if (file) {
+                    setTempBanner(URL.createObjectURL(file));
+                  }
+                }}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </Modal>

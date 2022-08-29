@@ -79,14 +79,20 @@ padding-left: 21px;
   height: 40px;
   background: #F9F9F9;
   border-radius: 100px;
+  margin:5px 0 0 10px;
   display: flex;
   justify-content: center;
+  transition: all 0.45s;
 }
 
 .header__search-bar__mic img{
   width: 20px;
   height: 22px;
   transform: translate(0%, 40%);
+}
+.header__search-bar__mic:hover{
+  background: #cccbcb;
+
 }
 
 .header__user{
@@ -217,6 +223,9 @@ display:flex;
 .main-sidebar__category{
 padding:10px;
 }
+.main-sidebar__category:active, .main-sidebar__category:link{
+  color:black
+  }
 
 .main-sidebar__category img{
 margin-right: 10px;
@@ -236,4 +245,12 @@ display: flex;
 align-items: center;
 padding: 12px 25px;
 block-size: 48px;
+}
+
+.toggle-listening{
+  background: red;
+}
+
+.toggle-listening:hover{
+  background: red;
 }

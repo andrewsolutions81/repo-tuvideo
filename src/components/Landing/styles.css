@@ -25,7 +25,11 @@
   overflow-y: scroll;
 }
 .card__videos{
+  max-width: 320px;
   padding: 10px;
+}
+.card__videos video{
+  object-fit: fill;
 }
 .card__info{
   display: flex;
@@ -34,7 +38,10 @@
 .card__info__title{
   align-items: flex-start;
   margin-top:5px;
+  margin-bottom: 20px;
   display: flex;
+  inline-size: 250px;
+  overflow-wrap: break-word;
 }
 .card__info__channel{
   margin-top:-20px;
