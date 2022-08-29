@@ -5,6 +5,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { isEmail } from 'validator';
+import { Link } from 'react-router-dom';
 import { register } from '../../actions/auth';
 
 const required = (value) => {
@@ -111,6 +112,14 @@ function Register() {
           </div>
           <input type="checkbox" name="remember" id="remember" />
         </form>
+        <p>
+          Do you have an account?
+          <Link to="/login" className="card-container-url">
+            <p>
+              Log in
+            </p>
+          </Link>
+        </p>
       </div>
     </div>
   );
