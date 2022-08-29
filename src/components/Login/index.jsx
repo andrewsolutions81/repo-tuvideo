@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-
+import { useNavigate, Link } from 'react-router-dom';
 import { login } from '../../actions/auth';
 
 function Login() {
@@ -21,10 +20,10 @@ function Login() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    const { username, password } = form;
+    const { email, password } = form;
     setLoading(true);
 
-    dispatch(login(username, password));
+    dispatch(login(email, password));
     // No se hace nada mas, porq el dispatch cambia todo en el reducer
     // entocnes en el componente se va a volver a renderizar
     // y tendra el estado de redux actulizado con isLoggedIn = true
@@ -44,13 +43,13 @@ function Login() {
         />
         <form onSubmit={handleLogin}>
           <div className="form-group">
-            <label htmlFor="username">
-              Username
+            <label htmlFor="email">
+              Email
               <input
                 type="text"
                 className="form-control"
-                name="username"
-                id="username"
+                name="email"
+                id="email"
                 onChange={onHandleChange}
               />
             </label>
@@ -84,6 +83,14 @@ function Login() {
           )}
           <input type="checkbox" name="remember" id="remember" />
         </form>
+        <p>
+          Don&apos;t have an account?
+          <Link to="/register" className="card-container-url">
+            <p>
+              Register
+            </p>
+          </Link>
+        </p>
       </div>
     </div>
   );
