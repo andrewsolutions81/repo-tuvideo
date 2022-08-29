@@ -37,10 +37,10 @@ export function register(username, email, password) {
   };
 }
 
-export function login(username, password) {
+export function login(email, password) {
   return async (dispatch) => {
     try {
-      const data = await AuthService.login(username, password);
+      const data = await AuthService.login(email, password);
       dispatch({
         type: LOGIN_SUCCESS,
         payload: { user: data },
