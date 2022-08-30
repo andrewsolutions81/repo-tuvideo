@@ -42,7 +42,7 @@ function UploadForm(props) {
       url: cloudinary,
       thumbnail,
     };
-    await axios.post(`${process.env.BACK_DEV_BASE_URL}/api/videos`, data);
+    await axios.post(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/videos`, data);
     setTimeout(() => {
       setOpenModal(false);
       window.location.reload();
