@@ -1,26 +1,70 @@
+/* eslint-disable no-nested-ternary */
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 import './styles.scss';
+import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 import { useChannel } from '../../channelContext';
 import CreateChannelModal from '../CreateChannelModal';
 
 function ChannelHeader() {
+  const { id } = useParams();
   const {
     user, modEdit, setModEdit, style, tempLogo, setTempLogo, setTempUsername, updateUser,
   } = useChannel();
   const [subscribed, setSubscribed] = useState(false);
   const [open, setOpen] = useState(false);
   const [previewLogo, setPreviewLogo] = useState('');
+  const [isMyChannel, setIsMyChannel] = useState(false);
+  const BASE_URL = 'http://localhost:8080/api/';
+
   useEffect(() => {
     setPreviewLogo(tempLogo);
   }, [tempLogo]);
+
+  useEffect(() => {
+    const { profile } = JSON.parse(localStorage.getItem('user'));
+    const { _id } = profile;
+
+    const fetchData = async () => {
+      const result = await fetch(`${BASE_URL}users/${_id}`);
+      const resultJson = await result.json();
+      const isSubscribed = resultJson.subscribedChannels.includes(id);
+      console.log(isSubscribed);
+      if (isSubscribed) {
+        setSubscribed(true);
+      } else {
+        setSubscribed(false);
+      }
+
+      if (resultJson._id === id) {
+        setIsMyChannel(true);
+      } else {
+        setIsMyChannel(false);
+      }
+    };
+
+    fetchData();
+  }, [id]);
+
+  const subscribeHandler = () => {
+    const { profile } = JSON.parse(localStorage.getItem('user'));
+    const { _id } = profile;
+    const axiosData = axios.put(`${BASE_URL}users/addSubscribe/${_id}`, { userToSubscribe: id });
+    setSubscribed(true);
+  };
+
   return (
     <div id="container" className="container-header">
       {
         modEdit ? (
           <div id="temp-logo" className="logo">
-            <img className="logo-img" src={previewLogo} alt="" />
+            {
+              user?.logo ? (<img className="logo-img" src={previewLogo} alt="" />)
+                : (<div className="logo-img"><div className="letter-logo">{user?.username[0]}</div></div>)
+            }
             <div className="input-file">
               <input
                 type="file"
@@ -41,7 +85,10 @@ function ChannelHeader() {
           </div>
         ) : (
           <div className="logo">
-            <img className="logo-img" src={user?.logo} alt="" style={style} />
+            {
+              user?.logo ? (<img className="logo-img" src={previewLogo} alt="" />)
+                : (<div className="logo-img"><div className="letter-logo">{user?.username[0]}</div></div>)
+            }
           </div>
         )
       }
@@ -85,8 +132,11 @@ function ChannelHeader() {
             ) : (
               <div>
                 {
-                  subscribed ? <button type="button" className="button-gray">SUSCRITO</button>
-                    : <button type="button" className="button-red">SUSCRIBIRSE</button>
+                  isMyChannel ? (<button type="button" className="button-blue">PERSONALIZAR CANAL</button>) : (
+                    subscribed ? <button type="button" className="button-gray">SUSCRITO</button>
+                      : <button type="button" className="button-red" onClick={subscribeHandler}>SUSCRIBIRSE</button>
+                  )
+
                 }
               </div>
             )

@@ -9,18 +9,18 @@ import {
 import AuthService from '../services/auth.service';
 
 export function register(username, email, password) {
-  return (dispatch) => AuthService.register(username, email, password).then(
-    (response) => {
+  return async (dispatch) => {
+    try {
+      await AuthService.register(username, email, password);
       dispatch({
         type: REGISTER_SUCCESS,
       });
       dispatch({
         type: SET_MESSAGE,
+        // eslint-disable-next-line no-undef
         payload: response.data.message,
       });
-      return Promise.resolve();
-    },
-    (error) => {
+    } catch (error) {
       const message = (error.response
         && error.response.data
         && error.response.data.message)
@@ -33,14 +33,14 @@ export function register(username, email, password) {
         type: SET_MESSAGE,
         payload: message,
       });
-      return Promise.reject();
-    },
-  );
+    }
+  };
 }
-export function login(username, password) {
+
+export function login(email, password) {
   return async (dispatch) => {
     try {
-      const data = await AuthService.login(username, password);
+      const data = await AuthService.login(email, password);
       dispatch({
         type: LOGIN_SUCCESS,
         payload: { user: data },

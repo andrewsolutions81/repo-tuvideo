@@ -20,7 +20,7 @@ function Banner() {
           tempBanner
           && (
             <div>
-              <div className="banner-visible-area" style={{ backgroundImage: `url(${previewBanner})`, border: style.border }}>
+              <div className="banner-visible-area" style={{ backgroundImage: `url(${previewBanner || URL.createObjectURL(tempBanner)})`, border: style.border }}>
                 <div className="banner-editor" />
                 <div className="input-file">
                   <input
