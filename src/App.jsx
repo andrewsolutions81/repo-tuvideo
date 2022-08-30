@@ -10,7 +10,6 @@ import MainHeader from './components/MainHeader';
 import LoginRegister from './pages/LoginRegister';
 import LoginSite from './pages/Login';
 import RegisterSite from './pages/Register';
-import UploadVideo from './components/UploadVideo';
 import AddVideoToJson from './components/AddVideoToJson';
 import ChannelVideos from './pages/ChannelVideos';
 import ChannelPlayList from './pages/ChannelPlayList';
@@ -31,7 +30,6 @@ function App() {
         </SearchProvider>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/upload" element={<UploadVideo />} />
           <Route path="/:id" element={<SingleVideo />} />
           <Route path="/api/videos/:id" element={<SingleVideo />} />
           <Route path="/login-register" element={<LoginRegister />} />
