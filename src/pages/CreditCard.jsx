@@ -16,4 +16,3 @@ function CreditCard() {
 }
 
 export default CreditCard;
-console.log('for commit');
