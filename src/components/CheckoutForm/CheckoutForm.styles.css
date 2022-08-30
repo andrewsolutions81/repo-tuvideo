@@ -1,0 +1,16 @@
+.CheckoutForm{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: rgb(185, 185, 185);
+}
+.credit-card-button{
+  background-color: antiquewhite;
+}
+
+form {
+  width: 400px;
+}
