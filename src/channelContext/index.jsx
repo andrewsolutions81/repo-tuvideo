@@ -41,7 +41,7 @@ export function ChannelProvider(props) {
       // eslint-disable-next-line no-unused-vars
       const response = await axios({
         method: 'post',
-        url: `https://tuvideo-backend.herokuapp.com/api/users/${id}`,
+        url: 'http://localhost:8080/api/users/6305913541f4f299c2d6ad66',
         data: formData,
         headers: { 'Content-Type': 'multipart/form-data' },
       });
@@ -53,7 +53,7 @@ export function ChannelProvider(props) {
   useEffect(() => {
     const fetchData = async () => {
       if (id) {
-        const result = await fetch(`https://tuvideo-backend.herokuapp.com/api/users/${id}`);
+        const result = await fetch('http://localhost:8080/api/users/6305913541f4f299c2d6ad66');
         const resultJson = await result.json();
         setUser(resultJson);
         setTempLogo(resultJson.logo);
