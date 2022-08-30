@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import UploadingSpinner from '../UploadingSpinner';
 
 function UploadForm(props) {
-  const { cloudinary, setShowFileInput } = props;
+  const { cloudinary, setShowFileInput, setOpenModal } = props;
   const [dataForm, setDataForm] = useState({});
   const [saveForm, setSaveForm] = useState({});
   const [isSent, setIsSent] = useState(false);
@@ -44,7 +44,9 @@ function UploadForm(props) {
     };
     await axios.post('http://localhost:8080/api/videos', data);
     setTimeout(() => {
-      navigate('/');
+      setOpenModal(false);
+      window.location.reload();
+      alert('Video Uploaded successfully!');
     }, 3000);
   }
   return (
