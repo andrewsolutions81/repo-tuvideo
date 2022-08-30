@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
@@ -121,7 +122,7 @@ function MainHeader() {
                 {' '}
                 Home
               </Link>
-              <Link to="/channel/630d68f83efb171abcf39813/featured" className="main-sidebar__category">
+              <Link to={`/channel/${profile._id}/featured`} className="main-sidebar__category">
                 <img src="/media/icons/trending-icon.png" alt="Trending-icon" />
                 {' '}
                 Trending
