@@ -12,7 +12,7 @@ const login = (email, password) => axios
     password,
   })
   .then((response) => {
-    if (response.data.accessToken) {
+    if (response) {
       localStorage.setItem('user', JSON.stringify(response.data));
     }
     return response.data;

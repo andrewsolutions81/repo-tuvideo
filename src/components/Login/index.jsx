@@ -22,7 +22,6 @@ function Login() {
     e.preventDefault();
     const { email, password } = form;
     setLoading(true);
-
     dispatch(login(email, password));
     // No se hace nada mas, porq el dispatch cambia todo en el reducer
     // entocnes en el componente se va a volver a renderizar
