@@ -1,8 +1,11 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable no-underscore-dangle */
+/* eslint-disable no-nested-ternary */
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 import './styles.scss';
+import { useParams } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -12,6 +15,7 @@ import CreateChannelModal from '../CreateChannelModal';
 
 function ChannelHeader() {
   const { id } = useParams();
+  const { id } = useParams();
   const {
     user, modEdit, setModEdit, style, tempLogo, setTempLogo, setTempUsername, updateUser,
   } = useChannel();
@@ -19,6 +23,9 @@ function ChannelHeader() {
   const [subscribed, setSubscribed] = useState(false);
   const [open, setOpen] = useState(false);
   const [previewLogo, setPreviewLogo] = useState('');
+  const [isMyChannel, setIsMyChannel] = useState(false);
+  const BASE_URL = 'http://localhost:8080/api/';
+
   const [isMyChannel, setIsMyChannel] = useState(false);
   const BASE_URL = 'http://localhost:8080/api/';
 
@@ -58,8 +65,11 @@ function ChannelHeader() {
         modEdit ? (
           <div id="temp-logo" className="logo">
             {
-              user?.logo ? (<img className="logo-img" src={previewLogo} alt="" />)
+              user?.logo ? ({
+                user?.logo ? (<img className="logo-img" src={previewLogo} alt="" />)
                 : (<div className="logo-img"><div className="letter-logo">{user?.username[0]}</div></div>)
+            })
+            : (<div className="logo-img"><div className="letter-logo">{user?.username[0]}</div></div>)
             }
             <div className="input-file">
               <input
