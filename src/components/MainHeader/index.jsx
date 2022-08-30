@@ -58,12 +58,12 @@ function MainHeader() {
       </div>
       <div className="header__user">
         {
-      profile && (
-        <div className="header__user__apps">
-          <button type="button" onClick={handleOpen}><img src="/media/icons/Addvideo.png" alt="Apps" /></button>
-        </div>
-      )
-    }
+          profile && (
+            <div className="header__user__apps">
+              <button type="button" onClick={handleOpen}><img src="/media/icons/Addvideo.png" alt="Apps" /></button>
+            </div>
+          )
+        }
         <div className="header__user__sign-in">
           <div className="header__user__sign-in__icon">
             <img src="/media/icons/User.png" alt="Sign In" />
@@ -121,7 +121,7 @@ function MainHeader() {
                 {' '}
                 Home
               </Link>
-              <Link to="/channel/6302d3e389d7243255f5f8a0/featured" className="main-sidebar__category">
+              <Link to="/channel/630d68f83efb171abcf39813/featured" className="main-sidebar__category">
                 <img src="/media/icons/trending-icon.png" alt="Trending-icon" />
                 {' '}
                 Trending
