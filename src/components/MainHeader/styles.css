@@ -29,6 +29,8 @@ padding-left: 21px;
 }
 
 .header__search-bar{
+  margin-top: 15px;
+  padding-top: 15px;
   display: flex;
 }
 
@@ -144,10 +146,38 @@ padding-left: 21px;
   flex-grow: 0;
 }
 
+.header__user__sign-in__text--toggle{
+  background-color: white !important;
+  background: white !important;
+  border: white !important;
+}
+
+.dropdown-item {
+  font-size: 14px;
+  color: black !important;
+}
+
+.dropdown-item a {
+  font-size: 14px;
+  color: black !important;
+  text-decoration: none;
+}
+
+.btn-primary-logout {
+  background-color: white !important;
+  background: white !important;
+  border: white !important;
+}
+
+.btn-primary-logout span {
+  color: black !important;
+  font-size: 14px !important;
+}
+
 .header__user__sign-in__text--center{
   width: 107px;
   height: 16px;
-  
+
   font-family: 'Roboto';
   font-style: normal;
   font-weight: bold;
@@ -176,13 +206,13 @@ width:250px !important;
 
 .sidebar {
 background-color:white;
-height: 100%; 
+height: 100%;
 width: 0;
 position: fixed;
 z-index: 9;
 top:0;
 left: 0;
-overflow-x: hidden; 
+overflow-x: hidden;
 padding-top: 40px;
 transition: width 0.1s 0s ease-in-out;
 box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
