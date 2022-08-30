@@ -1,13 +1,12 @@
 import axios from 'axios';
 
-const BACK_DEV_BASE_URL = 'http://localhost:8080/api/';
-const register = (username, email, password) => axios.post(`${BACK_DEV_BASE_URL}auth/register`, {
+const register = (username, email, password) => axios.post(`${process.env.BACK_DEV_BASE_URL}auth/register`, {
   username,
   email,
   password,
 });
 const login = (email, password) => axios
-  .post(`${BACK_DEV_BASE_URL}auth/login`, {
+  .post(`${process.env.BACK_DEV_BASE_URL}auth/login`, {
     email,
     password,
   })
@@ -22,7 +21,7 @@ const logout = () => {
 };
 
 export async function verify(token) {
-  const response = await fetch(`${BACK_DEV_BASE_URL}auth/verify-account/${token}`);
+  const response = await fetch(`${process.env.BACK_DEV_BASE_URL}auth/verify-account/${token}`);
   return response.json();
 }
 

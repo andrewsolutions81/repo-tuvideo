@@ -4,12 +4,13 @@
 import Modal from '@mui/material/Modal';
 import './styles.css';
 import { useState, useRef } from 'react';
-import UploadVideo from '../UploadVideo';
-import { Link, useNavigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
 import {
   Dropdown, DropdownItem, DropdownMenu, DropdownToggle,
 } from 'reactstrap';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import UploadVideo from '../UploadVideo';
+
 import Search from '../Search';
 import VoiceRecognition from '../VoiceRecognition';
 import 'bootstrap/dist/css/bootstrap.min.css';
