@@ -40,8 +40,8 @@ export function ChannelProvider(props) {
     try {
       // eslint-disable-next-line no-unused-vars
       const response = await axios({
-        method: 'post',
-        url: 'http://localhost:8080/api/users/6305913541f4f299c2d6ad66',
+        method: 'POST',
+        url: `http://localhost:8080/api/users/${id}`,
         data: formData,
         headers: { 'Content-Type': 'multipart/form-data' },
       });
@@ -53,7 +53,7 @@ export function ChannelProvider(props) {
   useEffect(() => {
     const fetchData = async () => {
       if (id) {
-        const result = await fetch('http://localhost:8080/api/users/6305913541f4f299c2d6ad66');
+        const result = await fetch(`http://localhost:8080/api/users/${id}`);
         const resultJson = await result.json();
         setUser(resultJson);
         setTempLogo(resultJson.logo);
