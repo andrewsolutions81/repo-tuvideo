@@ -42,7 +42,7 @@ function UploadForm(props) {
       url: cloudinary,
       thumbnail,
     };
-    await axios.post('https://tuvideo-backend.herokuapp.com/api/videos', data);
+    await axios.post('http://localhost:8080/api/videos', data);
     setTimeout(() => {
       navigate('/');
     }, 3000);
@@ -51,46 +51,46 @@ function UploadForm(props) {
     <div>
       {
         cloudinary
-          && (
-            <>
-              {
+        && (
+          <>
+            {
               setShowFileInput(false)
             }
-              <h2>Video Uploaded. please, continue to publish:</h2>
-              <form className="upload-form" onSubmit={handlePublish}>
-                <div>
-                  <label htmlFor="select-category">
-                    What category suits your video better
-                    <select id="select-category" name="category" onChange={handleChange} required>
-                      <option value="select">Select</option>
-                      <option value="fun">Fun</option>
-                      <option value="music">Music</option>
-                      <option value="terror">Terror</option>
-                    </select>
-                  </label>
-                </div>
-                <div>
-                  <label htmlFor="video-title-name">What title you want for your video</label>
-                  <input type="text" id="video-title-name" name="title" placeholder="Write a meaningfull title" onChange={handleChange} required />
-                </div>
-                <div>
-                  <label htmlFor="video-desc-name">What description you want for your video</label>
-                  <textarea type="text" id="video-desc-name" name="description" rows="7" onChange={handleChange} required />
-                </div>
-                <div className="upload__button">
-                  <button type="submit">PUBLISH VIDEO</button>
-                </div>
-              </form>
-            </>
+            <h2>Video Uploaded. please, continue to publish:</h2>
+            <form className="upload-form" onSubmit={handlePublish}>
+              <div>
+                <label htmlFor="select-category">
+                  What category suits your video better
+                  <select id="select-category" name="category" onChange={handleChange} required>
+                    <option value="select">Select</option>
+                    <option value="fun">Fun</option>
+                    <option value="music">Music</option>
+                    <option value="terror">Terror</option>
+                  </select>
+                </label>
+              </div>
+              <div>
+                <label htmlFor="video-title-name">What title you want for your video</label>
+                <input type="text" id="video-title-name" name="title" placeholder="Write a meaningfull title" onChange={handleChange} required />
+              </div>
+              <div>
+                <label htmlFor="video-desc-name">What description you want for your video</label>
+                <textarea type="text" id="video-desc-name" name="description" rows="7" onChange={handleChange} required />
+              </div>
+              <div className="upload__button">
+                <button type="submit">PUBLISH VIDEO</button>
+              </div>
+            </form>
+          </>
 
-          )
+        )
       }
       {
         isSent && (
-        <>
-          <UploadingSpinner />
-          <h2 style={{ textAlign: 'center', fontSize: '22px' }}>Publishing... you will be redirected once video is published.</h2>
-        </>
+          <>
+            <UploadingSpinner />
+            <h2 style={{ textAlign: 'center', fontSize: '22px' }}>Publishing... you will be redirected once video is published.</h2>
+          </>
         )
       }
     </div>

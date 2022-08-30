@@ -26,7 +26,7 @@ function VideoUploader() {
     formData.append('filename', file.name);
 
     try {
-      const data = await axios.post('http://localhost:3001/api/upload/file', formData);
+      const data = await axios.post('http://localhost:8080/api/upload/file', formData);
       setVideoUrl(data.data.secure_url);
       setLoading(false);
     } catch (error) {
@@ -37,28 +37,28 @@ function VideoUploader() {
   return (
     <>
       {
-      showFileInput
-        ? (
-          <div>
-            <div className="file-input">
-              <img src="/media/icons/uploading.png" alt="" />
-              <label htmlFor="myfile">Select a video:</label>
-              <p>{file ? `File name: ${file.name} ` : 'no files uploaded yet'}</p>
-              <input type="file" accept="video/*" id="myfile" style={{ opacity: '0' }} onChange={handleChange} />
-              {
-          file && <button type="button" onClick={handleUploadFile}>Upload</button>
-        }
+        showFileInput
+          ? (
+            <div>
+              <div className="file-input">
+                <img src="/media/icons/uploading.png" alt="" />
+                <label htmlFor="myfile">Select a video:</label>
+                <p>{file ? `File name: ${file.name} ` : 'no files uploaded yet'}</p>
+                <input type="file" accept="video/*" id="myfile" style={{ opacity: '0' }} onChange={handleChange} />
+                {
+                  file && <button type="button" onClick={handleUploadFile}>Upload</button>
+                }
+              </div>
+              {loading ? (
+                <>
+                  <UploadingSpinner />
+                  {' '}
+                  <h2>Uploading Video...</h2>
+                </>
+              ) : null}
             </div>
-            {loading ? (
-              <>
-                <UploadingSpinner />
-                {' '}
-                <h2>Uploading Video...</h2>
-              </>
-            ) : null}
-          </div>
-        ) : null
-    }
+          ) : null
+      }
       <UploadForm cloudinary={videoUrl} setShowFileInput={setShowFileInput} />
     </>
   );

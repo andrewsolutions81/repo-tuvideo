@@ -3,7 +3,7 @@ import Modal from '@mui/material/Modal';
 import { useChannel } from '../../channelContext';
 
 function CreateChannelModal({ open, setOpen }) {
-  const { setTempBanner } = useChannel();
+  const { setTempBanner, tempBanner } = useChannel();
 
   return (
     <Modal open={open} onClose={() => setOpen(false)}>
@@ -38,19 +38,24 @@ function CreateChannelModal({ open, setOpen }) {
               Para obtener los mejores resultados en todos los dispositivos,
               usa una imagen de 2048 × 1152 píxeles como mínimo y 6 MB como máximo.
             </div>
-            <div className="button-add">
-              AGREGAR
-              <input
-                type="file"
-                className="input-upload-image"
-                onChange={(e) => {
-                  const [file] = e.target.files;
-                  if (file) {
-                    setTempBanner(URL.createObjectURL(file));
-                  }
-                }}
-              />
-            </div>
+            {
+              tempBanner ? (
+                <div className="button-added">
+                  AGREGADO
+                </div>
+              ) : (
+                <div className="button-add">
+                  AGREGAR
+                  <input
+                    type="file"
+                    className="input-upload-image"
+                    onChange={(e) => {
+                      setTempBanner(e.target.files[0]);
+                    }}
+                  />
+                </div>
+              )
+            }
           </div>
         </div>
       </div>
