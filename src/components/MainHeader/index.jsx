@@ -4,10 +4,13 @@
 import './styles.css';
 import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Search from '../Search';
 import VoiceRecognition from '../VoiceRecognition';
 
 function MainHeader() {
+  // const profile = JSON.parse(localStorage.getItem('user'));
+  const profile = useSelector((state) => state.auth?.user?.profile);
   const [open, setOpen] = useState();
 
   const handleMenu = () => {
@@ -31,19 +34,30 @@ function MainHeader() {
         <VoiceRecognition />
       </div>
       <div className="header__user">
+        {
+      profile && (
         <div className="header__user__apps">
           <img src="/media/icons/upload.png" alt="Apps" />
         </div>
-        {/*        <div className="header__user__settings">
-          <img src="/media/icons/Options.png" alt="Settings" />
-        </div> */}
+      )
+    }
         <div className="header__user__sign-in">
           <div className="header__user__sign-in__icon">
             <img src="/media/icons/User.png" alt="Sign In" />
           </div>
-          <div className="header__user__sign-in__text">
-            <Link to="/login"><p className="header__user__sign-in__text--center">Sign In</p></Link>
-          </div>
+          {
+            profile
+              ? (
+                <div className="header__user__sign-in__text">
+                  <Link to="/login"><p className="header__user__sign-in__text--center">{profile.username}</p></Link>
+                </div>
+              )
+              : (
+                <div className="header__user__sign-in__text">
+                  <Link to="/login"><p className="header__user__sign-in__text--center">Sign In</p></Link>
+                </div>
+              )
+          }
         </div>
       </div>
 
