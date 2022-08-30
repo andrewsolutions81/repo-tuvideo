@@ -80,7 +80,6 @@ function Login() {
               </div>
             </div>
           )}
-          <input type="checkbox" name="remember" id="remember" />
         </form>
         <p>
           Don&apos;t have an account?
