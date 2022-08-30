@@ -35,7 +35,7 @@ function App() {
           <Route path="/upload" element={<UploadVideo />} />
           <Route path="/:id" element={<SingleVideo />} />
           <Route path="/api/videos/:id" element={<SingleVideo />} />
-          <Route path="creditcard" element={<CreditCard />} />
+          <Route path="/creditcard" element={<CreditCard />} />
           <Route path="/login-register" element={<LoginRegister />} />
           <Route path="/login" element={<LoginSite />} />
           <Route path="/register" element={<RegisterSite />} />

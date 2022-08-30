@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 // CheckoutForm component index.jsx
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import './CheckoutForm.styles.css';
