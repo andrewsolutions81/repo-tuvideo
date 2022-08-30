@@ -6,6 +6,7 @@ import './styles.scss';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 import { useChannel } from '../../channelContext';
 import CreateChannelModal from '../CreateChannelModal';
 
@@ -14,6 +15,7 @@ function ChannelHeader() {
   const {
     user, modEdit, setModEdit, style, tempLogo, setTempLogo, setTempUsername, updateUser,
   } = useChannel();
+  const userLogged = useSelector((state) => state.auth.user.profile);
   const [subscribed, setSubscribed] = useState(false);
   const [open, setOpen] = useState(false);
   const [previewLogo, setPreviewLogo] = useState('');
@@ -25,14 +27,10 @@ function ChannelHeader() {
   }, [tempLogo]);
 
   useEffect(() => {
-    const { profile } = JSON.parse(localStorage.getItem('user'));
-    const { _id } = profile;
-
     const fetchData = async () => {
-      const result = await fetch(`${BASE_URL}users/${_id}`);
+      const result = await fetch(`${BASE_URL}users/${userLogged._id}`);
       const resultJson = await result.json();
       const isSubscribed = resultJson.subscribedChannels.includes(id);
-      console.log(isSubscribed);
       if (isSubscribed) {
         setSubscribed(true);
       } else {
@@ -50,9 +48,7 @@ function ChannelHeader() {
   }, [id]);
 
   const subscribeHandler = () => {
-    const { profile } = JSON.parse(localStorage.getItem('user'));
-    const { _id } = profile;
-    const axiosData = axios.put(`${BASE_URL}users/addSubscribe/${_id}`, { userToSubscribe: id });
+    const axiosData = axios.put(`${BASE_URL}users/addSubscribe/${userLogged._id}`, { userToSubscribe: id });
     setSubscribed(true);
   };
 
@@ -132,7 +128,7 @@ function ChannelHeader() {
             ) : (
               <div>
                 {
-                  isMyChannel ? (<button type="button" className="button-blue">PERSONALIZAR CANAL</button>) : (
+                  isMyChannel ? (<button type="button" className="button-blue" onClick={() => setModEdit(true)}>PERSONALIZAR CANAL</button>) : (
                     subscribed ? <button type="button" className="button-gray">SUSCRITO</button>
                       : <button type="button" className="button-red" onClick={subscribeHandler}>SUSCRIBIRSE</button>
                   )

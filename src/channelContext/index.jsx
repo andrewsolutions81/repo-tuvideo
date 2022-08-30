@@ -3,11 +3,12 @@ import {
   createContext, useState, useEffect, useMemo, useContext,
 } from 'react';
 import axios from 'axios';
-import { getVideos } from '../services/videos';
+import { useSelector } from 'react-redux';
 
 const channelContext = createContext();
 
 export function ChannelProvider(props) {
+  const userLogged = useSelector((state) => state.auth.user.profile);
   const [user, setUser] = useState();
   const [videos, setVideos] = useState([]);
 
@@ -53,22 +54,19 @@ export function ChannelProvider(props) {
   useEffect(() => {
     const fetchData = async () => {
       if (id) {
-        const result = await fetch(`http://localhost:8080/api/users/${id}`);
+        // eslint-disable-next-line no-underscore-dangle
+        const result = await fetch(`http://localhost:8080/api/users/${userLogged._id}`);
         const resultJson = await result.json();
         setUser(resultJson);
         setTempLogo(resultJson.logo);
         setTempBanner(resultJson.banner);
         setTempUsername(resultJson.username);
+        setVideos(resultJson.video);
       }
     };
 
     fetchData();
-  }, [id]);
-
-  useEffect(() => {
-    const result = getVideos();
-    setVideos(result);
-  }, []);
+  }, [id, window.location.href]);
 
   const value = useMemo(() => ({
     id,
@@ -86,7 +84,7 @@ export function ChannelProvider(props) {
     setTempLogo,
     handleEditChannel,
     updateUser,
-  }), [id, user, modEdit, tempBanner, tempLogo, tempUsername]);
+  }), [id, user, modEdit, tempBanner, tempLogo, tempUsername, videos]);
 
   // eslint-disable-next-line react/jsx-props-no-spreading
   return <channelContext.Provider value={value} {...props} />;
