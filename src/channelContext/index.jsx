@@ -11,9 +11,6 @@ export function ChannelProvider(props) {
   const userLogged = useSelector((state) => state.auth?.user?.profile);
   const [user, setUser] = useState();
   const [videos, setVideos] = useState([]);
-  const [username, setUsername] = useState('');
-  const [logo, setLogo] = useState('');
-  const [banner, setBanner] = useState('');
 
   const [modEdit, setModEdit] = useState(false);
   const [style, setStyle] = useState({ border: '' });
