@@ -85,7 +85,7 @@ function MainHeader() {
                 {' '}
                 Home
               </Link>
-              <Link to="/channel/63016ff9484699fbdf470210/featured" className="main-sidebar__category">
+              <Link to="/channel/630d68f83efb171abcf39813/featured" className="main-sidebar__category">
                 <img src="/media/icons/trending-icon.png" alt="Trending-icon" />
                 {' '}
                 Trending
