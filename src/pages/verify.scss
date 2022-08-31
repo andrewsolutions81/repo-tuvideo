@@ -1,0 +1,27 @@
+.account-active{
+  height:200px;
+  width:400px;
+  padding:20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10% auto;
+  border-radius: 10px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+  .back-to-home-btn{
+    margin-top:20px;
+  }
+
+  & a{
+
+    background-color:#CC0000;
+    color:white;
+    font-size: 14px;
+    padding:10px 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+  }
+}
