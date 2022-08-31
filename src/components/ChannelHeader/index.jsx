@@ -1,7 +1,5 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable no-underscore-dangle */
-/* eslint-disable no-nested-ternary */
-/* eslint-disable no-underscore-dangle */
 /* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 import './styles.scss';
@@ -22,7 +20,6 @@ function ChannelHeader() {
   const [open, setOpen] = useState(false);
   const [previewLogo, setPreviewLogo] = useState('');
   const [isMyChannel, setIsMyChannel] = useState(false);
-  const BASE_URL = 'http://localhost:8080/api/';
 
   useEffect(() => {
     setPreviewLogo(tempLogo);
@@ -30,7 +27,8 @@ function ChannelHeader() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await fetch(`${BASE_URL}users/${userLogged._id}`);
+      console.log(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/users/${userLogged._id}`);
+      const result = await fetch(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/users/${userLogged._id}`);
       const resultJson = await result.json();
       const isSubscribed = resultJson.subscribedChannels.includes(id);
       if (isSubscribed) {
@@ -50,7 +48,7 @@ function ChannelHeader() {
   }, [id]);
 
   const subscribeHandler = () => {
-    const axiosData = axios.put(`${BASE_URL}users/addSubscribe/${userLogged._id}`, { userToSubscribe: id });
+    const axiosData = axios.put(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/users/addSubscribe/${userLogged._id}`, { userToSubscribe: id });
     setSubscribed(true);
   };
 

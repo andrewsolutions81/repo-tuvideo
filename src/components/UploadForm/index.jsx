@@ -7,12 +7,10 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import UploadingSpinner from '../UploadingSpinner';
 
-const userLogged = useSelector((state) => state.auth.user.profile._id);
 function UploadForm(props) {
-  const { cloudinary, setShowFileInput, setOpenModal } = props;
+  const { cloudinary, setShowFileInput } = props;
   const [dataForm, setDataForm] = useState({});
   const [saveForm, setSaveForm] = useState({});
   const [isSent, setIsSent] = useState(false);
@@ -24,6 +22,10 @@ function UploadForm(props) {
 
   async function handlePublish(e) {
     const thumbnail = cloudinary.replace('.mp4', '.jpg');
+    const { profile } = JSON.parse(localStorage.getItem('user'));
+    const { _id } = profile;
+    const user = _id;
+
     e.preventDefault();
     const list = {
       ...dataForm,
@@ -37,18 +39,16 @@ function UploadForm(props) {
       title, description, category,
     } = list;
     const data = {
-      userLogged,
+      user,
       title,
       description,
       category,
       url: cloudinary,
       thumbnail,
     };
-    await axios.post(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/videos`, data);
+    await axios.post('http://localhost:8080/api/videos', data);
     setTimeout(() => {
-      setOpenModal(false);
-      window.location.reload();
-      alert('Video Uploaded successfully!');
+      navigate('/');
     }, 3000);
   }
   return (

@@ -104,6 +104,7 @@ function Register() {
               <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
             </div>
           </div>
+          <input type="checkbox" name="remember" id="remember" />
         </form>
         <p>
           Do you have an account?

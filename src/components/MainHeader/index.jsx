@@ -2,34 +2,17 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import Modal from '@mui/material/Modal';
 import './styles.css';
 import { useState, useRef } from 'react';
-import {
-  Dropdown, DropdownItem, DropdownMenu, DropdownToggle,
-} from 'reactstrap';
-import { Link, useNavigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import UploadVideo from '../UploadVideo';
-
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Search from '../Search';
 import VoiceRecognition from '../VoiceRecognition';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { logout } from '../../actions/auth';
 
 function MainHeader() {
-  const [openModal, setOpenModal] = useState(false);
-  const handleOpen = () => setOpenModal(true);
-
+  // const profile = JSON.parse(localStorage.getItem('user'));
   const profile = useSelector((state) => state.auth?.user?.profile);
   const [open, setOpen] = useState();
-  const [dropdown, setDropdown] = useState(false);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  const dropdownToggles = () => {
-    setDropdown(!dropdown);
-  };
 
   const handleMenu = () => {
     const sidebar = document.querySelector('.sidebar');
@@ -37,12 +20,6 @@ function MainHeader() {
     setOpen(sidebar.classList.toggle('sidebar-open'));
     setOpen(body.classList.toggle('sidebar-open--main'));
   };
-
-  const handleLogout = (e) => {
-    e.preventDefault();
-    dispatch(logout());
-  };
-
   return (
     <div className="header__container">
       <div className="header__logo">
@@ -61,7 +38,7 @@ function MainHeader() {
         {
           profile && (
             <div className="header__user__apps">
-              <button type="button" onClick={handleOpen}><img src="/media/icons/Addvideo.png" alt="Apps" /></button>
+              <img src="/media/icons/upload.png" alt="Apps" />
             </div>
           )
         }
@@ -69,31 +46,11 @@ function MainHeader() {
           <div className="header__user__sign-in__icon">
             <img src="/media/icons/User.png" alt="Sign In" />
           </div>
-
-          <UploadVideo setOpenModal={setOpenModal} openModal={openModal} />
-
           {
             profile
               ? (
                 <div className="header__user__sign-in__text">
-                  <Dropdown isOpen={dropdown} toggle={dropdownToggles}>
-                    <DropdownToggle className="header__user__sign-in__text--toggle">
-                      <p className="header__user__sign-in__text--center">{profile.username}</p>
-                    </DropdownToggle>
-                    <DropdownMenu>
-                      <div>
-                        <DropdownItem className="dropdown-items"><Link to="/login">Mi canal</Link></DropdownItem>
-                        <DropdownItem className="dropdown-items">
-                          <div className="form-group">
-                            <button onClick={handleLogout} type="button" className="btn-primary-logout">
-                              <span>Logout</span>
-                            </button>
-                          </div>
-                        </DropdownItem>
-                      </div>
-                    </DropdownMenu>
-                  </Dropdown>
-
+                  <Link to="/login"><p className="header__user__sign-in__text--center">{profile.username}</p></Link>
                 </div>
               )
               : (
@@ -131,6 +88,11 @@ function MainHeader() {
                 <img src="/media/icons/Compass.png" alt="Compass-explore-icon" />
                 {' '}
                 Explore
+              </Link>
+              <Link to="/upload" className="main-sidebar__category">
+                <img src="/media/icons/upload.png" alt="Subcriptions-icon" />
+                {' '}
+                Upload
               </Link>
               <Link to="/" className="main-sidebar__category">
                 <img src="/media/icons/Subscriptions.png" alt="Subcriptions-icon" />
