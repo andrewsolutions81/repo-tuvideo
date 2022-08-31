@@ -11,7 +11,7 @@ function LandingVideos() {
   const [showSpinner, setShowSpinner] = useState(false);
 
   useEffect(() => {
-    fetch('https://tuvideo-backend.herokuapp.com/api/videos/')
+    fetch(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/videos`)
       .then((res) => res.json())
       .then((res) => {
         if (res) {

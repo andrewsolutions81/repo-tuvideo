@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable object-shorthand */
 /* eslint-disable no-shadow */
 /* eslint-disable jsx-a11y/media-has-caption */
@@ -8,7 +9,7 @@ import UploadForm from '../UploadForm';
 import '../UploadVideo/styles.scss';
 import UploadingSpinner from '../UploadingSpinner';
 
-function VideoUploader() {
+function VideoUploader({ setOpenModal }) {
   const [file, setFile] = useState('');
   const [videoUrl, setVideoUrl] = useState('');
   const [loading, setLoading] = useState(false);
@@ -59,7 +60,7 @@ function VideoUploader() {
           </div>
         ) : null
     }
-      <UploadForm cloudinary={videoUrl} setShowFileInput={setShowFileInput} />
+      <UploadForm cloudinary={videoUrl} setShowFileInput={setShowFileInput} setOpenModal={setOpenModal} />
     </>
   );
 }

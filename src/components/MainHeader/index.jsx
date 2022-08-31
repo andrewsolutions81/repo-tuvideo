@@ -1,20 +1,25 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+import Modal from '@mui/material/Modal';
 import './styles.css';
 import { useState, useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
 import {
   Dropdown, DropdownItem, DropdownMenu, DropdownToggle,
 } from 'reactstrap';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import UploadVideo from '../UploadVideo';
+
 import Search from '../Search';
 import VoiceRecognition from '../VoiceRecognition';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { logout } from '../../actions/auth';
 
 function MainHeader() {
-  // const profile = JSON.parse(localStorage.getItem('user'));
+  const [openModal, setOpenModal] = useState(false);
+  const handleOpen = () => setOpenModal(true);
+
   const profile = useSelector((state) => state.auth?.user?.profile);
   const [open, setOpen] = useState();
   const [dropdown, setDropdown] = useState(false);
@@ -55,7 +60,7 @@ function MainHeader() {
         {
       profile && (
         <div className="header__user__apps">
-          <img src="/media/icons/upload.png" alt="Apps" />
+          <button type="button" onClick={handleOpen}><img src="/media/icons/Addvideo.png" alt="Apps" /></button>
         </div>
       )
     }
@@ -63,6 +68,9 @@ function MainHeader() {
           <div className="header__user__sign-in__icon">
             <img src="/media/icons/User.png" alt="Sign In" />
           </div>
+
+          <UploadVideo setOpenModal={setOpenModal} openModal={openModal} />
+
           {
             profile
               ? (
@@ -122,11 +130,6 @@ function MainHeader() {
                 <img src="/media/icons/Compass.png" alt="Compass-explore-icon" />
                 {' '}
                 Explore
-              </Link>
-              <Link to="/upload" className="main-sidebar__category">
-                <img src="/media/icons/upload.png" alt="Subcriptions-icon" />
-                {' '}
-                Upload
               </Link>
               <Link to="/" className="main-sidebar__category">
                 <img src="/media/icons/Subscriptions.png" alt="Subcriptions-icon" />

@@ -8,7 +8,7 @@ const register = (username, email, password) => axios
     password,
   });
 const login = (email, password) => axios
-  .post(`${BACK_DEV_BASE_URL}auth/login`, {
+  .post(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/auth/login`, {
     email,
     password,
   })
@@ -23,7 +23,7 @@ const logout = () => {
 };
 
 export async function verify(token) {
-  const response = await fetch(`${BACK_DEV_BASE_URL}auth/verify-account/${token}`);
+  const response = await fetch(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/auth/verify-account/${token}`);
   return response.json();
 }
 
