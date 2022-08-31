@@ -6,11 +6,11 @@ import {
   copyToClipboardUrl, copyToClipboardEmbed, showTooltipUrl, showTooltipEmbed,
 } from '../../services/copyToClipboard';
 
-function SocialShareModal(props) {
-  const { videoId } = props;
+function SocialShareModal({ videoId }) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
   const videoUrl = `https://tuvideo-frontend-ten.vercel.app/api/videos/${videoId._id}`;
   return (
     <>
@@ -24,7 +24,7 @@ function SocialShareModal(props) {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <div className="modal">
+        <div className="modal-box">
           <h2>SHARE</h2>
           <div className="modal-content">
             <div className="modal-social">

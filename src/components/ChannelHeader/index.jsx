@@ -15,7 +15,7 @@ function ChannelHeader() {
   const {
     user, modEdit, setModEdit, style, tempLogo, setTempLogo, setTempUsername, updateUser,
   } = useChannel();
-  const userLogged = useSelector((state) => state.auth.user.profile);
+  const userLogged = useSelector((state) => state.auth?.user?.profile);
   const [subscribed, setSubscribed] = useState(false);
   const [open, setOpen] = useState(false);
   const [previewLogo, setPreviewLogo] = useState('');
@@ -53,6 +53,7 @@ function ChannelHeader() {
   };
 
   return (
+
     <div id="container" className="container-header">
       {
         modEdit ? (
@@ -141,6 +142,7 @@ function ChannelHeader() {
       </div>
       <CreateChannelModal open={open} setOpen={setOpen} />
     </div>
+
   );
 }
 

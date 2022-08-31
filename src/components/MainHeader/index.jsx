@@ -82,7 +82,7 @@ function MainHeader() {
                     </DropdownToggle>
                     <DropdownMenu>
                       <div>
-                        <DropdownItem className="dropdown-items"><Link to={`/channel/${profile._id}/featured`}>Mi canal</Link></DropdownItem>
+                        <DropdownItem className="dropdown-items"><Link to={`/channel/${profile?._id}/featured`}>Mi canal</Link></DropdownItem>
                         <DropdownItem className="dropdown-items">
                           <div>
                             <button onClick={handleLogout} type="button" className="btn-primary-logout">
@@ -122,17 +122,12 @@ function MainHeader() {
                 {' '}
                 Home
               </Link>
-              <Link to={`/channel/${profile._id}/featured`} className="main-sidebar__category">
-                <img src="/media/icons/trending-icon.png" alt="Trending-icon" />
-                {' '}
-                Trending
-              </Link>
-              <Link to="/singlevideo" className="main-sidebar__category">
+              <Link to="/" className="main-sidebar__category">
                 <img src="/media/icons/Compass.png" alt="Compass-explore-icon" />
                 {' '}
                 Explore
               </Link>
-              <Link to="/upload" className="main-sidebar__category">
+              <Link to="/" className="main-sidebar__category">
                 <img src="/media/icons/upload.png" alt="Subcriptions-icon" />
                 {' '}
                 Subscriptions

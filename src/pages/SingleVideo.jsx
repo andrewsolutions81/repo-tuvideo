@@ -8,7 +8,7 @@ function SingleVideo() {
   const video = useFetch('https://tuvideo-backend.herokuapp.com/api/videos/', id);
 
   return (
-    <div className="container">
+    <div className="container-videito">
       <VideoBox id={id} video={video} />
     </div>
   );
