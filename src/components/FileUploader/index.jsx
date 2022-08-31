@@ -27,7 +27,7 @@ function VideoUploader({ setOpenModal }) {
     formData.append('filename', file.name);
 
     try {
-      const data = await axios.post('http://localhost:8080/api/upload/file', formData);
+      const data = await axios.post(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/upload/file`, formData);
       setVideoUrl(data.data.secure_url);
       setLoading(false);
     } catch (error) {

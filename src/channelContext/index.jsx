@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 const channelContext = createContext();
 
 export function ChannelProvider(props) {
-  const userLogged = useSelector((state) => state.auth.user.profile);
+  const userLogged = useSelector((state) => state.auth?.user?.profile);
   const [user, setUser] = useState();
   const [videos, setVideos] = useState([]);
 
@@ -46,6 +46,7 @@ export function ChannelProvider(props) {
         data: formData,
         headers: { 'Content-Type': 'multipart/form-data' },
       });
+      window.location.reload();
     } catch (error) {
       console.log(error);
     }
