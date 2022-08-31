@@ -1,10 +1,9 @@
 import './styles.scss';
 import Modal from '@mui/material/Modal';
-import { useChannel } from '../../channelContext';
 
-function CreateChannelModal({ open, setOpen }) {
-  const { setBanner, banner } = useChannel();
-
+function CreateChannelModal({
+  open, setOpen, banner, setBanner,
+}) {
   return (
     <Modal open={open} onClose={() => setOpen(false)}>
       <div className="channel-modal-container">

@@ -16,9 +16,9 @@ import ChannelVideos from './pages/ChannelVideos';
 import ChannelPlayList from './pages/ChannelPlayList';
 import ChannelSubChannels from './pages/ChannelSubChannels';
 import ChannelMoreInfo from './pages/ChannelMoreInfo';
+import ChannelSubscribed from './pages/ChannelsSubscribed';
 import ChannelHeader from './components/ChannelHeader';
 import TabCarousel from './components/TabCarousel';
-import Banner from './components/Banner';
 import { SearchProvider } from './searchContext/SearchContext';
 import Verify from './pages/Verify';
 
@@ -40,9 +40,9 @@ function App() {
           <Route path="/verify" element={<Verify />} />
           <Route path="/verify/:token" element={<Verify />} />
           <Route path="/add-video-to-json" element={<AddVideoToJson />} />
+          <Route path="/subcribes" element={<ChannelSubscribed />} />
           <Route element={(
             <>
-              <Banner />
               <ChannelHeader />
               <TabCarousel />
               <Outlet />
