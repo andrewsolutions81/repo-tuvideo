@@ -1,34 +1,28 @@
 /* eslint-disable react/jsx-no-useless-fragment */
 import './styles.scss';
-import { useEffect, useState } from 'react';
 import { useChannel } from '../../channelContext';
 
 function Banner() {
   const {
-    user, modEdit, style, tempBanner, setTempBanner,
+    user, modEdit, style, banner, setBanner,
   } = useChannel();
-  const [previewBanner, setPreviewBanner] = useState('');
-
-  useEffect(() => {
-    setPreviewBanner(tempBanner);
-  }, [tempBanner]);
 
   return (
     <>
       {
         modEdit ? (
-          tempBanner
+          banner
           && (
             <div>
-              <div className="banner-visible-area" style={{ backgroundImage: `url(${previewBanner || URL.createObjectURL(tempBanner)})`, border: style.border }}>
+              <div className="banner-visible-area" style={{ backgroundImage: `url(${banner || URL.createObjectURL(banner)})`, border: style.border }}>
                 <div className="banner-editor" />
                 <div className="input-file">
                   <input
                     type="file"
                     className="input-upload-image"
                     onChange={(e) => {
-                      setTempBanner(e.target.files[0]);
-                      setPreviewBanner(URL.createObjectURL(e.target.files[0]));
+                      setBanner(e.target.files[0]);
+                      setBanner(URL.createObjectURL(e.target.files[0]));
                     }}
                   />
                   <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" className="camera-icon">

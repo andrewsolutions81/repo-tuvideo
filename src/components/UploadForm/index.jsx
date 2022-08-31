@@ -46,7 +46,7 @@ function UploadForm(props) {
       url: cloudinary,
       thumbnail,
     };
-    await axios.post('http://localhost:8080/api/videos', data);
+    await axios.post(`${process.env.REACT_APP_BACK_PROD_BASE_URL}/api/videos`, data);
     setTimeout(() => {
       navigate('/');
     }, 3000);

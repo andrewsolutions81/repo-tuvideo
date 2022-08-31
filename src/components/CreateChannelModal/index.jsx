@@ -3,54 +3,54 @@ import Modal from '@mui/material/Modal';
 import { useChannel } from '../../channelContext';
 
 function CreateChannelModal({ open, setOpen }) {
-  const { setTempBanner, tempBanner } = useChannel();
+  const { setBanner, banner } = useChannel();
 
   return (
     <Modal open={open} onClose={() => setOpen(false)}>
       <div className="channel-modal-container">
         <div className="header-channel-modal">
-          Añade nuevos elementos a tu canal
+          Add new elements to your channel
         </div>
         <div className="element-item">
           <div className="element-title">
-            Video destacado para los suscriptores
+            Featured Video for subscribers
           </div>
           <div className="element-description">
             <div>
-              Destaca un video para que lo miren tus suscriptores.
-              El video no estará visible en la parte superior de la página
-              para aquellos que ya lo miraron.
+              Star a video for your subscribers to watch.
+              The video will not be visible at the top of the page
+              For those who already watched it.
             </div>
             <div className="button-add">
-              AGREGAR
+              ADD
             </div>
           </div>
         </div>
         <div className="element-item">
           <div className="element-title">
-            Imagen del banner
+            Banner Image
           </div>
           <div className="element-description">
             <div>
-              Esta imagen aparecerá en la parte superior de tu canal.
+              This image will appear at the top of your channel.
               {' '}
               <br />
-              Para obtener los mejores resultados en todos los dispositivos,
-              usa una imagen de 2048 × 1152 píxeles como mínimo y 6 MB como máximo.
+              For best results on all devices,
+              use an image that is 2048 × 1152 pixels minimum and 6 MB maximum.
             </div>
             {
-              tempBanner ? (
+              banner ? (
                 <div className="button-added">
-                  AGREGADO
+                  ADDED
                 </div>
               ) : (
                 <div className="button-add">
-                  AGREGAR
+                  ADD
                   <input
                     type="file"
                     className="input-upload-image"
                     onChange={(e) => {
-                      setTempBanner(e.target.files[0]);
+                      setBanner(e.target.files[0]);
                     }}
                   />
                 </div>
