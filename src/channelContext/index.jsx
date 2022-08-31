@@ -42,7 +42,7 @@ export function ChannelProvider(props) {
       // eslint-disable-next-line no-unused-vars
       const response = await axios({
         method: 'POST',
-        url: `http://localhost:8080/api/users/${id}`,
+        url: `${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/users/${id}`,
         data: formData,
         headers: { 'Content-Type': 'multipart/form-data' },
       });
@@ -55,7 +55,7 @@ export function ChannelProvider(props) {
     const fetchData = async () => {
       if (id) {
         // eslint-disable-next-line no-underscore-dangle
-        const result = await fetch(`http://localhost:8080/api/users/${userLogged._id}`);
+        const result = await fetch(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/users/${userLogged._id}`);
         const resultJson = await result.json();
         setUser(resultJson);
         setTempLogo(resultJson.logo);
