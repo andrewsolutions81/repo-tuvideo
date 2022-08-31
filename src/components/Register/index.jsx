@@ -5,8 +5,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 // import { isEmail } from 'validator';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { register } from '../../actions/auth';
+import './styles.css';
 
 /* const required = (value) => {
   if (!value) {
@@ -46,7 +47,9 @@ const vpassword = (value) => {
 }; */
 function Register() {
   const [form, setForm] = useState({});
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const onHandleChange = (e) => {
     setForm({
@@ -58,7 +61,11 @@ function Register() {
   const handleRegister = (e) => {
     e.preventDefault();
     const { username, email, password } = form;
+    setLoading(true);
     dispatch(register(username, email, password));
+    setTimeout(() => {
+      navigate('/verify');
+    }, 1500);
   };
 
   return (
@@ -74,13 +81,13 @@ function Register() {
             <div className="form-group">
               <label htmlFor="username">
                 Username
-                <input
-                  type="text"
-                  className="form-control"
-                  name="username"
-                  onChange={onHandleChange}
-                />
               </label>
+              <input
+                type="text"
+                className="form-control"
+                name="username"
+                onChange={onHandleChange}
+              />
             </div>
             <div className="form-group">
               <label htmlFor="email">Email</label>
@@ -101,7 +108,12 @@ function Register() {
               />
             </div>
             <div className="form-group">
-              <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
+              <button type="submit" className="btn btn-primary btn-block" disabled={loading}>
+                {loading && (
+                <span className="spinner-border spinner-border-sm" />
+                )}
+                <span className="loginRegisterButton">Register</span>
+              </button>
             </div>
           </div>
           <input type="checkbox" name="remember" id="remember" />

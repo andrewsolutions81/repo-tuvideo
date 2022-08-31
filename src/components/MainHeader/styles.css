@@ -1,9 +1,8 @@
-
 .header__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 56px;
+  height: 92px;
   padding: 15px;
   font-family: 'Roboto', sans-serif;
 }
@@ -12,10 +11,11 @@
   display: flex;
   align-items: center;
 }
-.header__logo--active{
-display: flex;
-align-items: center;
-padding-left: 21px;
+
+.header__logo--active {
+  display: flex;
+  align-items: center;
+  padding-left: 21px;
 }
 
 .header__logo__burger {
@@ -28,21 +28,22 @@ padding-left: 21px;
   height: auto;
 }
 
-.header__search-bar{
+.header__search-bar {
   display: flex;
 }
 
-.header__search-bar form{
+.header__search-bar form {
   display: flex;
   border: 1px solid #ddd;
   height: 45px;
 }
+
 .header__search-bar input:focus {
   border: 1px solid #ddd;
   outline: none;
 }
 
-.header__search-bar form input{
+.header__search-bar form input {
   box-sizing: border-box;
   width: 572px;
   height: 100%;
@@ -51,13 +52,13 @@ padding-left: 21px;
   background-color: white;
   padding: 12px 20px 12px 40px;
   border-radius: 2px 0 0 2px;
-  padding:10px;
+  padding: 10px;
   border: 0;
   height: 100%;
 
 }
 
-.header__search-bar__icon{
+.header__search-bar__icon {
   box-sizing: border-box;
   width: 64px;
   height: 100%;
@@ -67,35 +68,36 @@ padding-left: 21px;
   justify-content: center;
 }
 
-.header__search-bar__icon img{
+.header__search-bar__icon img {
   height: 22px;
   width: 22px;
   transform: translate(0%, 30%);
   border: none;
 }
 
-.header__search-bar__mic{
+.header__search-bar__mic {
   width: 40px;
   height: 40px;
   background: #F9F9F9;
   border-radius: 100px;
-  margin:5px 0 0 10px;
+  margin: 0px 0 0 10px;
   display: flex;
   justify-content: center;
   transition: all 0.45s;
 }
 
-.header__search-bar__mic img{
+.header__search-bar__mic img {
   width: 20px;
   height: 22px;
   transform: translate(0%, 40%);
 }
-.header__search-bar__mic:hover{
+
+.header__search-bar__mic:hover {
   background: #cccbcb;
 
 }
 
-.header__user{
+.header__user {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -106,19 +108,19 @@ padding-left: 21px;
   padding: 0 7px;
 }
 
-.header__user__apps{
+.header__user__apps {
   width: 24px;
   height: 24px;
   cursor: pointer;
 }
 
-.header__user__settings{
+.header__user__settings {
   width: 24px;
   height: 24px;
   cursor: pointer;
 }
 
-.header__user__sign-in{
+.header__user__sign-in {
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
@@ -136,7 +138,7 @@ padding-left: 21px;
   cursor: pointer;
 }
 
-.header__user__sign-in__icon{
+.header__user__sign-in__icon {
   width: 24px;
   height: 24px;
   flex: none;
@@ -144,10 +146,41 @@ padding-left: 21px;
   flex-grow: 0;
 }
 
-.header__user__sign-in__text--center{
+.header__user__sign-in__text--toggle {
+  background-color: white !important;
+  background: white !important;
+  border: white !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
+.dropdown-item {
+  font-size: 14px;
+  color: black !important;
+}
+
+.dropdown-item a {
+  font-size: 14px;
+  color: black !important;
+  text-decoration: none;
+}
+
+.btn-primary-logout {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: transparent !important;
+  box-shadow: none !important;
+}
+
+.btn-primary-logout span {
+  color: black !important;
+  font-size: 14px !important;
+}
+
+.header__user__sign-in__text--center {
   width: 107px;
   height: 16px;
-  
+
   font-family: 'Roboto';
   font-style: normal;
   font-weight: bold;
@@ -161,96 +194,105 @@ padding-left: 21px;
 
 @media (max-width: 768px) {
   .card__sidebar {
-      display: none;
+    display: none;
   }
+
   .header__search-bar {
-      display: none;
+    display: none;
   }
 }
 
 
-.sidebar-open{
-width:250px !important;
+.sidebar-open {
+  width: 250px !important;
 }
 
 
 .sidebar {
-background-color:white;
-height: 100%; 
-width: 0;
-position: fixed;
-z-index: 9;
-top:0;
-left: 0;
-overflow-x: hidden; 
-padding-top: 40px;
-transition: width 0.1s 0s ease-in-out;
-box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-font-size: 'Roboto';
+  background-color: white;
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 9;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 40px;
+  transition: width 0.1s 0s ease-in-out;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  font-size: 'Roboto';
 }
 
-.sidebar a{
-font-size:15px;
-text-decoration: none;
-}
-@media (min-width:768px){
-.sidebar a{
-  font-size:18px;
-}
+.sidebar a {
+  font-size: 15px;
+  text-decoration: none;
 }
 
-.sidebar a:visited{
-color:black;
-}
-.sidebar a:active{
-color:red;
-}
-
-.main-sidebar hr{
-padding-left:0px;
-margin-left: -20px;
-}
-.main-sidebar ul{
-padding: 0 20px;
-margin:0;
-}
-.main-sidebar__categories{
-padding-top:20px;
-}
-.main-sidebar__categories ul .main-sidebar__category{
-display:flex;
-}
-.main-sidebar__category{
-padding:10px;
-}
-.main-sidebar__category:active, .main-sidebar__category:link{
-  color:black
+@media (min-width:768px) {
+  .sidebar a {
+    font-size: 18px;
   }
+}
 
-.main-sidebar__category img{
-margin-right: 10px;
+.sidebar a:visited {
+  color: black;
+}
+
+.sidebar a:active {
+  color: red;
+}
+
+.main-sidebar hr {
+  padding-left: 0px;
+  margin-left: -20px;
+}
+
+.main-sidebar ul {
+  padding: 0 20px;
+  margin: 0;
+}
+
+.main-sidebar__categories {
+  padding-top: 20px;
+}
+
+.main-sidebar__categories ul .main-sidebar__category {
+  display: flex;
+}
+
+.main-sidebar__category {
+  padding: 10px;
+}
+
+.main-sidebar__category:active,
+.main-sidebar__category:link {
+  color: black
+}
+
+.main-sidebar__category img {
+  margin-right: 10px;
 }
 
 
 .sidebar__categories {
-width: 100%;
-display: flex;
-flex-direction:row;
-margin-bottom: 15px;
-margin-top: 15px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+  margin-top: 15px;
 }
 
 .sidebar__category {
-display: flex;
-align-items: center;
-padding: 12px 25px;
-block-size: 48px;
+  display: flex;
+  align-items: center;
+  padding: 12px 25px;
+  block-size: 48px;
 }
 
-.toggle-listening{
+.toggle-listening {
   background: red;
 }
 
-.toggle-listening:hover{
+.toggle-listening:hover {
   background: red;
 }
