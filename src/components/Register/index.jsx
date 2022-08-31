@@ -84,7 +84,7 @@ function Register() {
               </label>
               <input
                 type="text"
-                className="form-control"
+                className="form-control register-form"
                 name="username"
                 onChange={onHandleChange}
               />
@@ -93,7 +93,7 @@ function Register() {
               <label htmlFor="email">Email</label>
               <input
                 type="email"
-                className="form-control"
+                className="form-control register-form"
                 name="email"
                 onChange={onHandleChange}
               />
@@ -102,7 +102,7 @@ function Register() {
               <label htmlFor="password">Password</label>
               <input
                 type="password"
-                className="form-control"
+                className="form-control register-form"
                 name="password"
                 onChange={onHandleChange}
               />
