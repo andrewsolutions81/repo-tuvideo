@@ -116,6 +116,7 @@ function Register() {
               </button>
             </div>
           </div>
+          <input type="checkbox" name="remember" id="remember" />
         </form>
         <p>
           Do you have an account?

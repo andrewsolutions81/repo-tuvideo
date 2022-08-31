@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
@@ -58,12 +59,12 @@ function MainHeader() {
       </div>
       <div className="header__user">
         {
-      profile && (
-        <div className="header__user__apps">
-          <button type="button" onClick={handleOpen}><img src="/media/icons/Addvideo.png" alt="Apps" /></button>
-        </div>
-      )
-    }
+          profile && (
+            <div className="header__user__apps">
+              <button type="button" onClick={handleOpen}><img src="/media/icons/Addvideo.png" alt="Apps" /></button>
+            </div>
+          )
+        }
         <div className="header__user__sign-in">
           <div className="header__user__sign-in__icon">
             <img src="/media/icons/User.png" alt="Sign In" />
@@ -81,7 +82,7 @@ function MainHeader() {
                     </DropdownToggle>
                     <DropdownMenu>
                       <div>
-                        <DropdownItem className="dropdown-items"><Link to="/login">Mi canal</Link></DropdownItem>
+                        <DropdownItem className="dropdown-items"><Link to={`/channel/${profile._id}/featured`}>Mi canal</Link></DropdownItem>
                         <DropdownItem className="dropdown-items">
                           <div>
                             <button onClick={handleLogout} type="button" className="btn-primary-logout">
@@ -121,7 +122,7 @@ function MainHeader() {
                 {' '}
                 Home
               </Link>
-              <Link to="/channel/63016ff9484699fbdf470210/featured" className="main-sidebar__category">
+              <Link to={`/channel/${profile._id}/featured`} className="main-sidebar__category">
                 <img src="/media/icons/trending-icon.png" alt="Trending-icon" />
                 {' '}
                 Trending
@@ -131,8 +132,8 @@ function MainHeader() {
                 {' '}
                 Explore
               </Link>
-              <Link to="/" className="main-sidebar__category">
-                <img src="/media/icons/Subscriptions.png" alt="Subcriptions-icon" />
+              <Link to="/upload" className="main-sidebar__category">
+                <img src="/media/icons/upload.png" alt="Subcriptions-icon" />
                 {' '}
                 Subscriptions
               </Link>

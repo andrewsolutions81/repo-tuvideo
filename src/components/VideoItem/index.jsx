@@ -1,33 +1,47 @@
+/* eslint-disable no-underscore-dangle */
 import './styles.scss';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import PlayListModal from '../PlayListModal';
 
-function VideoItem(props) {
-  const { video } = props;
+function VideoItem({ videoID }) {
   const [display, setDisplay] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const [video, setVideo] = useState('');
   const HandleToggle = () => {
     setDisplay(!display);
   };
   const handleModal = () => {
     setModalOpen(!modalOpen);
   };
+
+  useEffect(() => {
+    const axiosData = async () => {
+      const result = await axios.get(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/videos/${videoID}`);
+      const { data } = result;
+      // eslint-disable-next-line no-unused-vars
+      setVideo(data);
+    };
+
+    axiosData();
+  }, [videoID]);
+
   return (
 
     <div className="items-container">
-      <Link to={`/${video}`} className="link">
+      <Link to={`/${video?._id}`} className="link">
         <div className="video-thumbnail">
-          <img src={video.thumb} alt="" />
+          <img src={video?.thumbnail} alt="" />
         </div>
       </Link>
       <div className="info-container">
         <div>
           <div className="title-video">
-            {video.title}
+            {video?.title}
           </div>
           <div className="channel-name">
-            Mi canal
+            {video?.user?.username}
           </div>
           <div className="statistics">
             15 K vistas - hace 18 horas
