@@ -1,0 +1,26 @@
+.logo-item {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #d01818;
+  font-size: 5rem;
+  text-transform: uppercase;
+  color: white;
+  position: relative;
+}
+
+.username-item {
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+.channelItem-container {
+  width: max-content;
+  margin-right: 15px;
+}
+
+.subscribes-container {
+  width: 80%;
+  margin: 0px auto;
+  display: flex;
+}
