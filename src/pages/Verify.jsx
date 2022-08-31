@@ -13,7 +13,6 @@ function AccountVerfication() {
       if (jwtoken) {
         localStorage.setItem('token', jwtoken);
         localStorage.setItem('profile', JSON.stringify(profile));
-
         setTimeout(() => {
           navigate('/');
         }, 800);

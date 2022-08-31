@@ -83,7 +83,7 @@ function MainHeader() {
                       <div>
                         <DropdownItem className="dropdown-items"><Link to="/login">Mi canal</Link></DropdownItem>
                         <DropdownItem className="dropdown-items">
-                          <div className="form-group">
+                          <div>
                             <button onClick={handleLogout} type="button" className="btn-primary-logout">
                               <span>Logout</span>
                             </button>

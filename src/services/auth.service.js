@@ -1,10 +1,12 @@
 import axios from 'axios';
 
-const register = (username, email, password) => axios.post(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/auth/register`, {
-  username,
-  email,
-  password,
-});
+const BACK_DEV_BASE_URL = 'http://localhost:3001/api/';
+const register = (username, email, password) => axios
+  .post(`${BACK_DEV_BASE_URL}auth/register`, {
+    username,
+    email,
+    password,
+  });
 const login = (email, password) => axios
   .post(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/auth/login`, {
     email,
