@@ -11,27 +11,10 @@ export function ChannelProvider(props) {
   const userLogged = useSelector((state) => state.auth?.user?.profile);
   const [user, setUser] = useState();
   const [videos, setVideos] = useState([]);
-
   const [modEdit, setModEdit] = useState(false);
-  const [style, setStyle] = useState({ border: '' });
-
   const [id, setId] = useState();
-  const handleEditChannel = () => {
-    setModEdit((prevModEdit) => !prevModEdit);
-    setModEdit((prevModEdit) => {
-      if (prevModEdit) {
-        setStyle({ border: '3px solid #14ad73' });
-      } else {
-        setStyle({ border: '' });
-      }
-      return prevModEdit;
-    });
-  };
-  const updateUser = async () => {
-    const formData = new FormData();
-    formData.append('username', username);
-    formData.append('logo', logo);
-    formData.append('banner', banner);
+
+  const updateUser = async (formData) => {
     try {
       const response = await axios({
         method: 'POST',
@@ -47,10 +30,11 @@ export function ChannelProvider(props) {
       setModEdit(false);
     }
   };
+
   useEffect(() => {
     const fetchData = async () => {
       if (id) {
-        const result = await fetch(`${process.env.REACT_APP_BACK_PROD_BASE_URL}/api/users/${userLogged._id}`);
+        const result = await fetch(`${process.env.REACT_APP_BACK_PROD_BASE_URL}/api/users/${id}`);
         const resultJson = await result.json();
         setUser(resultJson);
         setVideos(resultJson.video);
@@ -58,7 +42,7 @@ export function ChannelProvider(props) {
     };
 
     fetchData();
-  }, [id, window.location.href]);
+  }, [id]);
 
   const value = useMemo(() => ({
     id,
@@ -67,16 +51,8 @@ export function ChannelProvider(props) {
     videos,
     modEdit,
     setModEdit,
-    style,
-    username,
-    setUsername,
-    logo,
-    setLogo,
-    banner,
-    setBanner,
-    handleEditChannel,
     updateUser,
-  }), [id, user, modEdit, videos, username, banner, logo]);
+  }), [id, user, modEdit, videos]);
 
   return <channelContext.Provider value={value} {...props} />;
 }

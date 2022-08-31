@@ -162,6 +162,17 @@ html {
   cursor: pointer;
 }
 
+.banner-visible-area {
+  height: calc(16.1290322581vw - 1px);
+  width: 100%;
+  background-position: 0 center;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media screen and (max-width: 700px) {
   .details-container {
     align-items: flex-start;

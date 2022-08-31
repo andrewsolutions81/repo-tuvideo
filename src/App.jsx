@@ -18,7 +18,6 @@ import ChannelSubChannels from './pages/ChannelSubChannels';
 import ChannelMoreInfo from './pages/ChannelMoreInfo';
 import ChannelHeader from './components/ChannelHeader';
 import TabCarousel from './components/TabCarousel';
-import Banner from './components/Banner';
 import { SearchProvider } from './searchContext/SearchContext';
 import Verify from './pages/Verify';
 
@@ -42,7 +41,6 @@ function App() {
           <Route path="/add-video-to-json" element={<AddVideoToJson />} />
           <Route element={(
             <>
-              <Banner />
               <ChannelHeader />
               <TabCarousel />
               <Outlet />
