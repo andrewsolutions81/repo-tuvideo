@@ -38,9 +38,9 @@ function MainHeader() {
     setOpen(body.classList.toggle('sidebar-open--main'));
   };
 
-  const handleLogout = (e) => {
-    e.preventDefault();
+  const handleLogout = () => {
     dispatch(logout());
+    navigate('/', { replace: true });
   };
 
   return (

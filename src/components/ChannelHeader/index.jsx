@@ -13,22 +13,20 @@ import CreateChannelModal from '../CreateChannelModal';
 function ChannelHeader() {
   const { id } = useParams();
   const {
-    user, modEdit, setModEdit, style, tempLogo, setTempLogo, setTempUsername, updateUser,
+    user, modEdit, setModEdit, updateUser, logo, banner, username, setLogo, setUsername,
   } = useChannel();
   const userLogged = useSelector((state) => state.auth?.user?.profile);
   const [subscribed, setSubscribed] = useState(false);
   const [open, setOpen] = useState(false);
-  const [previewLogo, setPreviewLogo] = useState('');
   const [isMyChannel, setIsMyChannel] = useState(false);
 
-  useEffect(() => {
+  /*   useEffect(() => {
     setPreviewLogo(tempLogo);
-  }, [tempLogo]);
+  }, [tempLogo]); */
 
   useEffect(() => {
     const fetchData = async () => {
-      console.log(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/users/${userLogged._id}`);
-      const result = await fetch(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/users/${userLogged._id}`);
+      const result = await fetch(`${process.env.REACT_APP_BACK_PROD_BASE_URL}/api/users/${userLogged._id}`);
       const resultJson = await result.json();
       const isSubscribed = resultJson.subscribedChannels.includes(id);
       if (isSubscribed) {
@@ -48,10 +46,22 @@ function ChannelHeader() {
   }, [id]);
 
   const subscribeHandler = () => {
-    const axiosData = axios.put(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/users/addSubscribe/${userLogged._id}`, { userToSubscribe: id });
+    const axiosData = axios.put(`${process.env.REACT_APP_BACK_PROD_BASE_URL}/users/addSubscribe/${userLogged._id}`, { userToSubscribe: id });
     setSubscribed(true);
   };
+  const avatar = () => {
+    if (!logo) {
+      return user.logo;
+    }
+    return URL.createObjectURL(logo);
+  };
+  const usernameInput = () => {
+    if (!username) {
+      return user?.username;
+    }
 
+    return username;
+  };
   return (
 
     <div id="container" className="container-header">
@@ -59,18 +69,15 @@ function ChannelHeader() {
         modEdit ? (
           <div id="temp-logo" className="logo">
             {
-              user?.logo ? (<img className="logo-img" src={previewLogo} alt="" />)
-                : (<div className="logo-img"><div className="letter-logo">{user?.username[0]}</div></div>)
+              user.logo ? (<img className="logo-img" src={avatar()} alt="" />)
+                : <div className="logo-img"><div className="letter-logo">{user?.username[0]}</div></div>
             }
             <div className="input-file">
               <input
                 type="file"
                 className="input-upload-image"
                 onChange={(e) => {
-                  setTempLogo(e.target.files[0]);
-                  if (e.target.files.length !== 0) {
-                    setPreviewLogo(URL.createObjectURL(e.target.files[0]));
-                  }
+                  setLogo(e.target.files[0]);
                 }}
               />
               <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" className="camera-icon">
@@ -83,7 +90,7 @@ function ChannelHeader() {
         ) : (
           <div className="logo">
             {
-              user?.logo ? (<img className="logo-img" src={previewLogo} alt="" />)
+              user?.logo ? (<img className="logo-img" src={avatar()} alt="" />)
                 : (<div className="logo-img"><div className="letter-logo">{user?.username[0]}</div></div>)
             }
           </div>
@@ -94,16 +101,16 @@ function ChannelHeader() {
           <div className="channel-description">
             <div className="channel-title">
               {
-                modEdit ? (
+                modEdit && user?.username ? (
                   <input
                     className="input-edit"
                     type="text"
-                    placeholder={user?.username}
+                    placeholder={usernameInput()}
                     onChange={(e) => {
-                      setTempUsername(e.target.value);
+                      setUsername(e.target.value);
                     }}
                   />
-                ) : user?.username
+                ) : usernameInput()
               }
             </div>
             <div className="channel-stadistics">
@@ -113,7 +120,7 @@ function ChannelHeader() {
           {
             modEdit ? (
               <div className="buttons-edit">
-                <button className="button-blue" type="button" onClick={() => setOpen(true)}>AÑADIR ELEMENTOS</button>
+                <button className="button-blue" type="button" onClick={() => setOpen(true)}>ADD ELEMENT</button>
                 <button
                   className="button-green"
                   type="button"
@@ -121,17 +128,17 @@ function ChannelHeader() {
                     updateUser();
                   }}
                 >
-                  GUARDAR CAMBIOS
+                  SAVE CHANGES
 
                 </button>
-                <button className="button-red" type="button" onClick={() => { setModEdit(false); }}>CANCELAR CAMBIOS</button>
+                <button className="button-red" type="button" onClick={() => { setModEdit(false); }}>CANCEL CHANGES</button>
               </div>
             ) : (
               <div>
                 {
-                  isMyChannel ? (<button type="button" className="button-blue" onClick={() => setModEdit(true)}>PERSONALIZAR CANAL</button>) : (
-                    subscribed ? <button type="button" className="button-gray">SUSCRITO</button>
-                      : <button type="button" className="button-red" onClick={subscribeHandler}>SUSCRIBIRSE</button>
+                  isMyChannel ? (<button type="button" className="button-blue" onClick={() => setModEdit(true)}>CUSTOMIZE CHANNEL</button>) : (
+                    subscribed ? <button type="button" className="button-gray">SUBSCRIBED</button>
+                      : <button type="button" className="button-red" onClick={subscribeHandler}>SUBSCRIBE</button>
                   )
 
                 }
