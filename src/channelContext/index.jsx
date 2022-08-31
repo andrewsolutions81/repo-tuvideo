@@ -1,4 +1,4 @@
-/* eslint-disable import/prefer-default-export */
+/* eslint-disable */
 import {
   createContext, useState, useEffect, useMemo, useContext,
 } from 'react';
@@ -11,15 +11,12 @@ export function ChannelProvider(props) {
   const userLogged = useSelector((state) => state.auth?.user?.profile);
   const [user, setUser] = useState();
   const [videos, setVideos] = useState([]);
+  const [username, setUsername] = useState('');
+  const [logo, setLogo] = useState('');
+  const [banner, setBanner] = useState('');
 
   const [modEdit, setModEdit] = useState(false);
   const [style, setStyle] = useState({ border: '' });
-
-  // Temp data
-  const [tempBanner, setTempBanner] = useState('');
-  const [tempLogo, setTempLogo] = useState('');
-  const [tempUsername, setTempUsername] = useState('');
-  //
 
   const [id, setId] = useState();
   const handleEditChannel = () => {
@@ -35,33 +32,30 @@ export function ChannelProvider(props) {
   };
   const updateUser = async () => {
     const formData = new FormData();
-    formData.append('username', tempUsername);
-    formData.append('logo', tempLogo);
-    formData.append('banner', tempBanner);
+    formData.append('username', username);
+    formData.append('logo', logo);
+    formData.append('banner', banner);
     try {
-      // eslint-disable-next-line no-unused-vars
       const response = await axios({
         method: 'POST',
-        url: `${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/users/${id}`,
+        url: `${process.env.REACT_APP_BACK_PROD_BASE_URL}/api/users/${id}`,
         data: formData,
         headers: { 'Content-Type': 'multipart/form-data' },
       });
-      window.location.reload();
+      return response;
     } catch (error) {
       console.log(error);
+      return error;
+    } finally {
+      setModEdit(false);
     }
-    setModEdit(false);
   };
   useEffect(() => {
     const fetchData = async () => {
       if (id) {
-        // eslint-disable-next-line no-underscore-dangle
-        const result = await fetch(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/users/${userLogged._id}`);
+        const result = await fetch(`${process.env.REACT_APP_BACK_PROD_BASE_URL}/api/users/${userLogged._id}`);
         const resultJson = await result.json();
         setUser(resultJson);
-        setTempLogo(resultJson.logo);
-        setTempBanner(resultJson.banner);
-        setTempUsername(resultJson.username);
         setVideos(resultJson.video);
       }
     };
@@ -77,17 +71,16 @@ export function ChannelProvider(props) {
     modEdit,
     setModEdit,
     style,
-    tempBanner,
-    setTempBanner,
-    tempUsername,
-    setTempUsername,
-    tempLogo,
-    setTempLogo,
+    username,
+    setUsername,
+    logo,
+    setLogo,
+    banner,
+    setBanner,
     handleEditChannel,
     updateUser,
-  }), [id, user, modEdit, tempBanner, tempLogo, tempUsername, videos]);
+  }), [id, user, modEdit, videos, username, banner, logo]);
 
-  // eslint-disable-next-line react/jsx-props-no-spreading
   return <channelContext.Provider value={value} {...props} />;
 }
 

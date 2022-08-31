@@ -18,7 +18,7 @@ function VideoItem({ videoID }) {
 
   useEffect(() => {
     const axiosData = async () => {
-      const result = await axios.get(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/videos/${videoID}`);
+      const result = await axios.get(`${process.env.REACT_APP_BACK_PROD_BASE_URL}/api/videos/${videoID}`);
       const { data } = result;
       // eslint-disable-next-line no-unused-vars
       setVideo(data);

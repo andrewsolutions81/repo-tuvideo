@@ -1,5 +1,5 @@
 /* The Modal (background) */
-.modal-box {
+.social-modal-box {
   padding:30px;
   background-color: #fefefe;
   margin: 20% auto;
@@ -7,18 +7,18 @@
   width: 90%; 
 }
 @media (min-width:768px){
-  .modal-box{
+  .social-modal-box{
     width: 30%; 
   }
 }
-.modal-content{
+.social-modal-content{
   display: flex;
   justify-content: space-evenly;
-  .modal-social{
+  .social-modal-social{
     text-align: center;
   }
 }
-.modal-clipboard{
+.social-modal-clipboard{
   margin:20px 0;
   display: flex;
   justify-content: space-around;
@@ -27,7 +27,7 @@
     width: 60% !important;
   }
 }
-.tooltip {
+.social-tooltip {
   position: relative;
   display: inline-block;
 
@@ -38,7 +38,7 @@
   }
 }
 
-.tooltip .tooltiptext {
+.social-tooltip .social-tooltiptext {
   visibility: hidden;
   width: 140px;
   background-color: #555;
@@ -55,7 +55,7 @@
   transition: opacity 0.3s;
 }
 
-.tooltip .tooltiptext::after {
+.social-tooltip .social-tooltiptext::after {
   content: "";
   position: absolute;
   top: 100%;
@@ -66,7 +66,7 @@
   border-color: #555 transparent transparent transparent;
 }
 
-.tooltip:hover .tooltiptext {
+.social-tooltip:hover .social-tooltiptext {
   visibility: visible;
   opacity: 1
 }
