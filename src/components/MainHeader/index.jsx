@@ -82,7 +82,7 @@ function MainHeader() {
                     </DropdownToggle>
                     <DropdownMenu>
                       <div>
-                        <DropdownItem className="dropdown-items"><Link to="/login">Mi canal</Link></DropdownItem>
+                        <DropdownItem className="dropdown-items"><Link to={`/channel/${profile._id}/featured`}>Mi canal</Link></DropdownItem>
                         <DropdownItem className="dropdown-items">
                           <div>
                             <button onClick={handleLogout} type="button" className="btn-primary-logout">
