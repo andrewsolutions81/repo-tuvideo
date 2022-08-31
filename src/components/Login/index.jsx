@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import { login } from '../../actions/auth';
+import './styles.css';
 
 function Login() {
   const [form, setForm] = useState({});
@@ -70,7 +71,7 @@ function Login() {
               {loading && (
                 <span className="spinner-border spinner-border-sm" />
               )}
-              <span>Login</span>
+              <span className="loginRegisterButton">Login</span>
             </button>
           </div>
           {message && (

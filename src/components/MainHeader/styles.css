@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 56px;
+  height: 92px;
   padding: 15px;
   font-family: 'Roboto', sans-serif;
 }
@@ -81,7 +81,7 @@ padding-left: 21px;
   height: 40px;
   background: #F9F9F9;
   border-radius: 100px;
-  margin:5px 0 0 10px;
+  margin:0px 0 0 10px;
   display: flex;
   justify-content: center;
   transition: all 0.45s;
@@ -150,6 +150,8 @@ padding-left: 21px;
   background-color: white !important;
   background: white !important;
   border: white !important;
+  padding: 0 !important;
+  box-shadow: none !important;
 }
 
 .dropdown-item {
@@ -164,9 +166,10 @@ padding-left: 21px;
 }
 
 .btn-primary-logout {
-  background-color: white !important;
-  background: white !important;
-  border: white !important;
+  background-color: transparent !important;
+  background: transparent !important;
+  border: transparent !important;
+  box-shadow: none !important;
 }
 
 .btn-primary-logout span {

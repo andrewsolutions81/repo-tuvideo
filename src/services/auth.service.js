@@ -1,11 +1,12 @@
 import axios from 'axios';
 
 const BACK_DEV_BASE_URL = 'http://localhost:3001/api/';
-const register = (username, email, password) => axios.post(`${BACK_DEV_BASE_URL}auth/register`, {
-  username,
-  email,
-  password,
-});
+const register = (username, email, password) => axios
+  .post(`${BACK_DEV_BASE_URL}auth/register`, {
+    username,
+    email,
+    password,
+  });
 const login = (email, password) => axios
   .post(`${BACK_DEV_BASE_URL}auth/login`, {
     email,

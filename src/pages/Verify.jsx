@@ -1,7 +1,6 @@
 /* eslint-disable */
 import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-
 import { verify } from '../services/auth.service';
 
 const AccountVerfication = () => {
@@ -14,7 +13,6 @@ const AccountVerfication = () => {
       if (jwtoken) {
         localStorage.setItem('token', jwtoken);
         localStorage.setItem('profile', JSON.stringify(profile));
-
         setTimeout(() => {
           navigate('/');
         }, 800);
@@ -26,7 +24,7 @@ const AccountVerfication = () => {
 
   return (
     <div>
-      
+
         {
           token
             ? <h3>Your account is active!</h3>
