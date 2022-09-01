@@ -30,8 +30,8 @@ function CheckoutForm() {
         amount: 10_000, // cents -> $100
       }),
     };
-    const puertico = 3001;
-    const response = await fetch(`http://localhost:${puertico}/api/checkout`, options);
+
+    const response = await fetch(`${process.env.REACT_APP_BACK_PROD_BASE_URL}/api/checkout`, options);
     const body = await response.json();
     console.log('Fetching from api checkout:', body);
     // elements.getElement(CardElement).clear();

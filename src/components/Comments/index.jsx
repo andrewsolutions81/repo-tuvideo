@@ -1,21 +1,32 @@
-import React, { useState, useRef } from 'react';
+/* eslint-disable no-underscore-dangle */
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import './styles.css';
-import { v4 as uuidv4 } from 'uuid';
-import CommentsList from './CommentsList';
+import axios from 'axios';
+/* import CommentsList from './CommentsList'; */
 
-function CommentsApp() {
-  const [comments, setComments] = useState([]);
-  const imputCommentRef = useRef();
+const logedUser = useSelector((state) => state?.auth?.user?.profile);
 
-  function handleSubmit() {
-    const name = imputCommentRef.current.value;
-    if (name === '') return;
-    setComments((prevComments) => [...prevComments, {
-      id: uuidv4(),
-      name,
-    }]);
-    imputCommentRef.current.value = null;
-  }
+function CommentsApp({ video }) {
+  const [comment, setComment] = useState('');
+
+  const handleSubmit = async () => {
+    const formData = new FormData();
+    formData.append('user', logedUser._id);
+    formData.append('commentText', comment);
+    try {
+      const response = await axios({
+        method: 'POST',
+        url: `${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/comments/${video.id}`,
+        data: formData,
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
+      return response;
+    } catch (error) {
+      console.error(error, 'error in comment handle submit');
+      return error;
+    }
+  };
 
   return (
     <div className="comments">
@@ -25,7 +36,7 @@ function CommentsApp() {
           <div className="comments-imput">
             <div className="imput-container">
               <form>
-                <input ref={imputCommentRef} type="text" className="new-comment" name="new-comment" placeholder="Add a comment..." />
+                <input onChange={(e) => setComment(e.target.value)} type="text" className="new-comment" name="new-comment" placeholder="Add a comment..." />
               </form>
               <br className="comments-line" />
             </div>
@@ -38,7 +49,7 @@ function CommentsApp() {
         </div>
         <div className="comments-section-container">
           <div className="comments-comment-container">
-            <CommentsList comments={comments} />
+            {/* <CommentsList comments={comments} /> */}
           </div>
         </div>
       </div>
