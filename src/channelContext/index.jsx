@@ -1,74 +1,48 @@
-/* eslint-disable import/prefer-default-export */
+/* eslint-disable */
 import {
   createContext, useState, useEffect, useMemo, useContext,
 } from 'react';
 import axios from 'axios';
-import { getVideos } from '../services/videos';
+import { useSelector } from 'react-redux';
 
 const channelContext = createContext();
 
 export function ChannelProvider(props) {
+  const userLogged = useSelector((state) => state.auth?.user?.profile);
   const [user, setUser] = useState();
   const [videos, setVideos] = useState([]);
-
   const [modEdit, setModEdit] = useState(false);
-  const [style, setStyle] = useState({ border: '' });
-
-  // Temp data
-  const [tempBanner, setTempBanner] = useState('');
-  const [tempLogo, setTempLogo] = useState('');
-  const [tempUsername, setTempUsername] = useState('');
-  //
-
   const [id, setId] = useState();
-  const handleEditChannel = () => {
-    setModEdit((prevModEdit) => !prevModEdit);
-    setModEdit((prevModEdit) => {
-      if (prevModEdit) {
-        setStyle({ border: '3px solid #14ad73' });
-      } else {
-        setStyle({ border: '' });
-      }
-      return prevModEdit;
-    });
-  };
-  const updateUser = async () => {
-    const formData = new FormData();
-    formData.append('username', tempUsername);
-    formData.append('logo', tempLogo);
-    formData.append('banner', tempBanner);
+
+  const updateUser = async (formData) => {
     try {
-      // eslint-disable-next-line no-unused-vars
       const response = await axios({
         method: 'POST',
-        url: `http://localhost:8080/api/users/${id}`,
+        url: `${process.env.REACT_APP_BACK_PROD_BASE_URL}/api/users/${id}`,
         data: formData,
         headers: { 'Content-Type': 'multipart/form-data' },
       });
+      return response;
     } catch (error) {
       console.log(error);
+      return error;
+    } finally {
+      setModEdit(false);
     }
-    setModEdit(false);
   };
+
   useEffect(() => {
     const fetchData = async () => {
       if (id) {
-        const result = await fetch(`http://localhost:8080/api/users/${id}`);
+        const result = await fetch(`${process.env.REACT_APP_BACK_PROD_BASE_URL}/api/users/${id}`);
         const resultJson = await result.json();
         setUser(resultJson);
-        setTempLogo(resultJson.logo);
-        setTempBanner(resultJson.banner);
-        setTempUsername(resultJson.username);
+        setVideos(resultJson.video);
       }
     };
 
     fetchData();
   }, [id]);
-
-  useEffect(() => {
-    const result = getVideos();
-    setVideos(result);
-  }, []);
 
   const value = useMemo(() => ({
     id,
@@ -77,18 +51,9 @@ export function ChannelProvider(props) {
     videos,
     modEdit,
     setModEdit,
-    style,
-    tempBanner,
-    setTempBanner,
-    tempUsername,
-    setTempUsername,
-    tempLogo,
-    setTempLogo,
-    handleEditChannel,
     updateUser,
-  }), [id, user, modEdit, tempBanner, tempLogo, tempUsername]);
+  }), [id, user, modEdit, videos]);
 
-  // eslint-disable-next-line react/jsx-props-no-spreading
   return <channelContext.Provider value={value} {...props} />;
 }
 

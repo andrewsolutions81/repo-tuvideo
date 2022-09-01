@@ -7,3 +7,4 @@ export const SET_MESSAGE = 'SET_MESSAGE';
 export const CLEAR_MESSAGE = 'CLEAR_MESSAGE';
 export const INCREMENT = 'INCREMENT';
 export const DECREMENT = 'DECREMENT';
+export const VERIFY_SUCCESS = 'VERIFY_SUCCESS';

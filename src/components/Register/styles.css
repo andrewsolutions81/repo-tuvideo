@@ -1,0 +1,22 @@
+.card-container.card {
+  max-width: 350px !important;
+  padding: 40px 40px;
+  margin: 0 auto;
+}
+
+.form-control {
+  width: 100%;
+}
+
+.register-form {
+  width: 50%;
+}
+
+.btn-primary {
+  margin-top: 10px;
+}
+
+.loginRegisterButton {
+  color: black;
+  font-weight: 400;
+}

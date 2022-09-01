@@ -1,11 +1,10 @@
 import { useEffect } from 'react';
-import { useNavigate, useParams, Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import './verify.scss';
 import { verify } from '../services/auth.service';
 
 function AccountVerfication() {
   const { token } = useParams();
-  const navigate = useNavigate();
 
   useEffect(() => {
     const verifyAccount = async () => {
@@ -13,10 +12,6 @@ function AccountVerfication() {
       if (jwtoken) {
         localStorage.setItem('token', jwtoken);
         localStorage.setItem('profile', JSON.stringify(profile));
-
-        setTimeout(() => {
-          navigate('/');
-        }, 800);
       }
     };
 

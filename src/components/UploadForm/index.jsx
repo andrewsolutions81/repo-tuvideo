@@ -10,12 +10,11 @@ import { useNavigate } from 'react-router-dom';
 import UploadingSpinner from '../UploadingSpinner';
 
 function UploadForm(props) {
-  const { cloudinary, setShowFileInput, setOpenModal } = props;
+  const { cloudinary, setShowFileInput } = props;
   const [dataForm, setDataForm] = useState({});
   const [saveForm, setSaveForm] = useState({});
   const [isSent, setIsSent] = useState(false);
   const navigate = useNavigate();
-
   function handleChange(e) {
     const { name, value } = e.target;
     setDataForm({ ...dataForm, [name]: value });
@@ -23,6 +22,10 @@ function UploadForm(props) {
 
   async function handlePublish(e) {
     const thumbnail = cloudinary.replace('.mp4', '.jpg');
+    const { profile } = JSON.parse(localStorage.getItem('user'));
+    const { _id } = profile;
+    const user = _id;
+
     e.preventDefault();
     const list = {
       ...dataForm,
@@ -36,17 +39,16 @@ function UploadForm(props) {
       title, description, category,
     } = list;
     const data = {
+      user,
       title,
       description,
       category,
       url: cloudinary,
       thumbnail,
     };
-    await axios.post(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/videos`, data);
+    await axios.post(`${process.env.REACT_APP_BACK_PROD_BASE_URL}/api/videos`, data);
     setTimeout(() => {
-      setOpenModal(false);
-      window.location.reload();
-      alert('Video Uploaded successfully!');
+      navigate('/');
     }, 3000);
   }
   return (
