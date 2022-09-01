@@ -58,6 +58,9 @@ export function login(email, password) {
         type: SET_MESSAGE,
         payload: message,
       });
+      dispatch(setInterval(() => {
+        window.location.reload();
+      }, 800));
     }
   };
 }
