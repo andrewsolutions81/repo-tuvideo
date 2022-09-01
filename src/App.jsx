@@ -40,7 +40,7 @@ function App() {
           <Route path="/verify" element={<Verify />} />
           <Route path="/verify/:token" element={<Verify />} />
           <Route path="/add-video-to-json" element={<AddVideoToJson />} />
-          <Route path="/subcribes" element={<ChannelSubscribed />} />
+          <Route path="/subscribes" element={<ChannelSubscribed />} />
           <Route element={(
             <>
               <ChannelHeader />

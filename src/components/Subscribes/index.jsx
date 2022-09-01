@@ -14,7 +14,7 @@ function Subscribes() {
 
   useEffect(() => {
     const axiosData = async () => {
-      const { data } = await axios.get(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/users/${_id}`);
+      const { data } = await axios.get(`${process.env.REACT_APP_BACK_PROD_BASE_URL}/api/users/${_id}`);
       setChannels(data.subscribedChannels);
     };
 
@@ -36,12 +36,13 @@ function ChannelItem({ channel }) {
     <div className="channelItem-container">
       {
         channel?.logo ? <img className="logo-item" src={channel.logo} alt="logo" />
-          : <div className="logo-item"><div className="letter-logo">{channel.username[0]}</div></div>
+          : <div className="without-logo"><div className="letter-logo">{channel.username[0]}</div></div>
       }
       <div className="statisctics-item">
         <p className="username-item">{channel.username}</p>
-        <p>{`${channel.video.length} videos`}</p>
+        <p className="user-countsubs">{`${channel.video.length} videos`}</p>
       </div>
+      <button type="button" className="button-gray">SUBSCRIBED</button>
     </div>
   );
 }
