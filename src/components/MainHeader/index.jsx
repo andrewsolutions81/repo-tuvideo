@@ -127,11 +127,6 @@ function MainHeader() {
                 {' '}
                 Explore
               </Link>
-              <Link to="/subscribes" className="main-sidebar__category">
-                <img src="/media/icons/upload.png" alt="Subcriptions-icon" />
-                {' '}
-                Subscriptions
-              </Link>
             </ul>
           </div>
           <hr />

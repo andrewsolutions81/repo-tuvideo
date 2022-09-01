@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
@@ -5,11 +6,10 @@ import './styles.scss';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useChannel } from '../../channelContext';
 
 function Subscribes() {
-  // eslint-disable-next-line no-underscore-dangle
   const { _id } = useSelector((state) => state?.auth?.user?.profile);
-  // eslint-disable-next-line no-unused-vars
   const [channels, setChannels] = useState();
 
   useEffect(() => {
@@ -32,6 +32,7 @@ function Subscribes() {
 export default Subscribes;
 
 function ChannelItem({ channel }) {
+  const { buttonSubscribe } = useChannel();
   return (
     <div className="channelItem-container">
       {
@@ -42,7 +43,9 @@ function ChannelItem({ channel }) {
         <p className="username-item">{channel.username}</p>
         <p className="user-countsubs">{`${channel.video.length} videos`}</p>
       </div>
-      <button type="button" className="button-gray">SUBSCRIBED</button>
+      {
+        buttonSubscribe(channel._id)
+      }
     </div>
   );
 }
