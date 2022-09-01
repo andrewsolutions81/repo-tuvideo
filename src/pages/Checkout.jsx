@@ -5,7 +5,7 @@ import CheckoutForm from '../components/CheckoutForm';
 
 const stripePromise = loadStripe('pk_test_51KqGveB6sNWQgpFYla4y7jYcuXRnbRefsjEb7u6nDTQikw3V3RRe5Dm6cRptnxllcyau0BkurTtPRp76RpYFhoMc005UEwwZNV');
 
-function CreditCard() {
+function Checkout() {
   return (
     <div className="creditcard">
       <Elements stripe={stripePromise}>
@@ -15,4 +15,4 @@ function CreditCard() {
   );
 }
 
-export default CreditCard;
+export default Checkout;
