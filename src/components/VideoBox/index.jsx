@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-shadow */
 /* eslint-disable no-unused-vars */
@@ -53,11 +54,13 @@ function VideoBox(props) {
               </div>
             </div>
             <CommentsApp />
+            <div>
+              {video?.comments?.map((comment, index) => <p key={index}>{comment.commentText}</p>)}
+            </div>
           </main>
           <aside>
             <MoreVideos video={video} />
           </aside>
-
         </>
       }
     </div>
