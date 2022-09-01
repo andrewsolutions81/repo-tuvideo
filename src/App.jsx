@@ -15,7 +15,7 @@ import ChannelVideos from './pages/ChannelVideos';
 import ChannelPlayList from './pages/ChannelPlayList';
 import ChannelSubChannels from './pages/ChannelSubChannels';
 import ChannelMoreInfo from './pages/ChannelMoreInfo';
-import CreditCard from './pages/CreditCard';
+import Checkout from './pages/Checkout';
 import ChannelHeader from './components/ChannelHeader';
 import TabCarousel from './components/TabCarousel';
 import Banner from './components/Banner';
@@ -33,7 +33,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/:id" element={<SingleVideo />} />
           <Route path="/api/videos/:id" element={<SingleVideo />} />
-          <Route path="/creditcard" element={<CreditCard />} />
+          <Route path="/checkout" element={<Checkout />} />
           <Route path="/login-register" element={<LoginRegister />} />
           <Route path="/login" element={<LoginSite />} />
           <Route path="/register" element={<RegisterSite />} />
