@@ -5,17 +5,19 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable jsx-a11y/media-has-caption */
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import MoreVideos from '../MoreVideos';
 import './styles.scss';
 import CommentsApp from '../Comments';
 import SocialShareModal from '../SocialShareModal';
 import DonationModal from '../DonationModal';
+import { useChannel } from '../../channelContext';
 
 function VideoBox(props) {
   const [isActive, setIsActive] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const { video } = props;
-
+  const { buttonSubscribe } = useChannel();
   return (
     <div className="video-full-section">
       {
@@ -41,16 +43,18 @@ function VideoBox(props) {
             </div>
             {/* Channel info and video description */}
             <div className="ch-info-container">
-              <div className="ch-info-container__avatar">
-                <img src="/media/images/ch-avatar.jpeg" alt="avatar" />
-              </div>
+              <Link to={`/channel/${video?.user?._id}/featured`} className="ch-info-container__avatar">
+                <img src={video?.user?.logo} alt="avatar" />
+              </Link>
               <div className="ch-info-container__ch-info">
-                <h2 className="ch-info-container__name">Channel</h2>
+                <Link to={`/channel/${video?.user?._id}/featured`} className="ch-info-container__name">{video?.user?.username}</Link>
                 <p className="ch-info-container__subs">{`${new Intl.NumberFormat().format(Math.floor(Math.random() * 100000))} subscribers`}</p>
                 <p className="ch-info-container__desc">{video.description}</p>
               </div>
               <div className="ch-info-container__subs-btn">
-                <button type="button">Subscribe</button>
+                {
+                  buttonSubscribe(video?.user?._id)
+                }
               </div>
             </div>
             <CommentsApp />

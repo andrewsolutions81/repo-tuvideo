@@ -13,7 +13,7 @@ import CreateChannelModal from '../CreateChannelModal';
 function ChannelHeader() {
   const { id } = useParams();
   const {
-    user, modEdit, setModEdit, updateUser,
+    user, modEdit, setModEdit, updateUser, buttonSubscribe,
   } = useChannel();
 
   const [username, setUsername] = useState('');
@@ -21,35 +21,7 @@ function ChannelHeader() {
   const [banner, setBanner] = useState('');
 
   const userLogged = useSelector((state) => state.auth?.user?.profile);
-  const [subscribed, setSubscribed] = useState(false);
   const [open, setOpen] = useState(false);
-  const [isMyChannel, setIsMyChannel] = useState(false);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await fetch(`${process.env.REACT_APP_BACK_PROD_BASE_URL}/api/users/${userLogged._id}`);
-      const resultJson = await result.json();
-      const isSubscribed = resultJson.subscribedChannels.includes(id);
-      if (isSubscribed) {
-        setSubscribed(true);
-      } else {
-        setSubscribed(false);
-      }
-
-      if (resultJson._id === id) {
-        setIsMyChannel(true);
-      } else {
-        setIsMyChannel(false);
-      }
-    };
-
-    fetchData();
-  }, [id]);
-
-  const subscribeHandler = () => {
-    const axiosData = axios.put(`${process.env.REACT_APP_BACK_PROD_BASE_URL}/api/users/addSubscribe/${userLogged._id}`, { userToSubscribe: id });
-    setSubscribed(true);
-  };
 
   const avatar = () => {
     if (!logo) {
@@ -177,11 +149,11 @@ function ChannelHeader() {
               ) : (
                 <div>
                   {
-                    isMyChannel ? (<button type="button" className="button-blue" onClick={() => setModEdit(true)}>CUSTOMIZE CHANNEL</button>) : (
-                      subscribed ? <button type="button" className="button-gray">SUBSCRIBED</button>
-                        : <button type="button" className="button-red" onClick={subscribeHandler}>SUBSCRIBE</button>
+                    (userLogged._id === id) ? (
+                      <button type="button" className="button-blue" onClick={() => setModEdit(true)}>CUSTOMIZE CHANNEL</button>
+                    ) : (
+                      buttonSubscribe(id)
                     )
-
                   }
                 </div>
               )
