@@ -2,14 +2,15 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
-function MoreVideos(props) {
-  const { video } = props;
-  const videoCategory = video.category;
+function MoreVideos() {
   const [allVideos, setAllVideos] = useState({});
+  const currentVideo = useSelector((state) => state.video.currentVideo);
+  const videoCategory = currentVideo.category;
 
   useEffect(() => {
-    fetch('https://tuvideo-backend.herokuapp.com/api/videos/')
+    fetch(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/videos/`)
       .then((res) => res.json())
       .then((res) => {
         if (res) {
