@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import PlayListModal from '../PlayListModal';
+import setTime from '../../services/toLocalString';
 
 function VideoItem({ videoID }) {
   const [display, setDisplay] = useState(false);
@@ -18,7 +19,7 @@ function VideoItem({ videoID }) {
 
   useEffect(() => {
     const axiosData = async () => {
-      const result = await axios.get(`${process.env.REACT_APP_BACK_PROD_BASE_URL}/api/videos/${videoID}`);
+      const result = await axios.get(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/videos/${videoID}`);
       const { data } = result;
       // eslint-disable-next-line no-unused-vars
       setVideo(data);
@@ -30,21 +31,27 @@ function VideoItem({ videoID }) {
   return (
 
     <div className="items-container">
-      <Link to={`/${video?._id}`} className="link">
+      <Link to={`/api/videos/${video?._id}`} className="link">
         <div className="video-thumbnail">
           <img src={video?.thumbnail} alt="" />
         </div>
       </Link>
       <div className="info-container">
         <div>
-          <div className="title-video">
-            {video?.title}
-          </div>
+          <Link to={`/api/videos/${video?._id}`} className="link">
+            <div className="title-video">
+              {video?.title}
+            </div>
+          </Link>
           <div className="channel-name">
             {video?.user?.username}
           </div>
           <div className="statistics">
-            15 K vistas - hace 18 horas
+            {video?.views}
+            {' '}
+            views -
+            {' '}
+            {setTime(video?.createdAt)}
             <button type="button" className="options" onClick={HandleToggle}>
               <div className="button-content">
                 ⦙
@@ -54,10 +61,10 @@ function VideoItem({ videoID }) {
                 && (
                   <div className="container-display">
                     <div>
-                      Guardar en Ver más tarde
+                      Save in Watch later
                     </div>
                     <button type="button" onClick={handleModal}>
-                      Guardar en una lista de reproducción
+                      Save in a playlist
                     </button>
                   </div>
                 )

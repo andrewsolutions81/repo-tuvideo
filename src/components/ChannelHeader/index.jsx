@@ -123,7 +123,7 @@ function ChannelHeader() {
                 }
               </div>
               <div className="channel-stadistics">
-                {`${user?.subscribers ? user.subscribers : 'Sin'} suscriptores`}
+                {`${user?.subscribers ? user.subscribers : 'No'} subscribers`}
               </div>
             </div>
             {

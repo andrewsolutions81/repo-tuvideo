@@ -1,17 +1,19 @@
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
+import { useSelector } from 'react-redux';
 import './styles.scss';
 import Modal from '@mui/material/Modal';
 import {
   copyToClipboardUrl, copyToClipboardEmbed, showTooltipUrl, showTooltipEmbed,
 } from '../../services/copyToClipboard';
 
-function SocialShareModal({ videoId }) {
+function SocialShareModal() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const currentVideo = useSelector((state) => state.video.currentVideo);
 
-  const videoUrl = `https://tuvideo-frontend-ten.vercel.app/api/videos/${videoId._id}`;
+  const videoUrl = `https://tuvideo-frontend-ten.vercel.app/api/videos/${currentVideo._id}`;
   return (
     <>
       <button type="button" className="video-options__share-btn" onClick={handleOpen}>
@@ -66,7 +68,7 @@ function SocialShareModal({ videoId }) {
             </div>
           </div>
           <div className="social-modal-clipboard">
-            <input type="text" value={`<iframe title="embed-video" id="player" type="text/html" width="640" height="390" src=${videoId.url} />`} id="clipboardEmbed" />
+            <input type="text" value={`<iframe title="embed-video" id="player" type="text/html" width="640" height="390" src=${currentVideo.url} />`} id="clipboardEmbed" />
             <div className="social-tooltip">
               <button type="button" onClick={copyToClipboardEmbed} onMouseOut={showTooltipEmbed} onBlur={() => undefined}>
                 <span className="social-tooltiptext" id="tooltipEmbed">Copy to clipboard</span>
