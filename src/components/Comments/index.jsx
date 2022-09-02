@@ -5,14 +5,13 @@ import './styles.css';
 import axios from 'axios';
 /* import CommentsList from './CommentsList'; */
 
-const logedUser = useSelector((state) => state?.auth?.user?.profile);
-
 function CommentsApp({ video }) {
   const [comment, setComment] = useState('');
+  const logedUser = useSelector((state) => state?.auth?.user?.profile);
 
   const handleSubmit = async () => {
     const formData = new FormData();
-    formData.append('user', logedUser._id);
+    formData.append('user', logedUser?._id);
     formData.append('commentText', comment);
     try {
       const response = await axios({
