@@ -3,6 +3,7 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import axios from 'axios';
 
 function MoreVideos() {
   const [allVideos, setAllVideos] = useState({});
@@ -10,18 +11,15 @@ function MoreVideos() {
   const videoCategory = currentVideo.category;
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/videos/`)
-      .then((res) => res.json())
-      .then((res) => {
-        if (res) {
-          setAllVideos(res);
-        } else {
-          console.log('error');
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    const fetchMoreVideos = async () => {
+      try {
+        const videos = await axios.get(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/videos/`);
+        return setAllVideos(videos.data);
+      } catch (error) {
+        return error;
+      }
+    };
+    fetchMoreVideos();
   }, []);
   return (
     <div>
@@ -30,11 +28,19 @@ function MoreVideos() {
         && (
           <div className="more-videos-container" key={singleVideo[1]._id}>
             <div className="more-videos-container__video">
-              <video width="320" height="95px" src={singleVideo[1].url} />
+              <Link to={`/api/videos/${singleVideo[1]._id}`} className="title">
+                <video width="320" height="95px" src={singleVideo[1].url} poster={singleVideo[1].thumbnail} />
+              </Link>
               <div>
                 <Link to={`/api/videos/${singleVideo[1]._id}`} className="more-videos-container__title">{singleVideo[1].title}</Link>
-                <p className="more-videos-container__ch-name">Channel</p>
-                <p className="more-videos-container__views">100.000</p>
+                <Link to={`/channel/${singleVideo[1].user._id}/featured`} className="more-videos-container__ch-name">
+                  <p className="more-videos-container__ch-name">{singleVideo[1].user.username}</p>
+                </Link>
+                <p className="more-videos-container__views">
+                  {singleVideo[1].views}
+                  {' '}
+                  views
+                </p>
               </div>
             </div>
           </div>

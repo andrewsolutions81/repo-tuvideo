@@ -1,4 +1,4 @@
-/* eslint-disable react/no-array-index-key */
+/* eslint-disable  */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-shadow */
 /* eslint-disable no-unused-vars */
@@ -15,16 +15,12 @@ import SocialShareModal from '../SocialShareModal';
 import DonationModal from '../DonationModal';
 import { useChannel } from '../../channelContext';
 import { dislike, like } from '../../services/videoSlice';
+
 function VideoBox(props) {
-  const [isActive, setIsActive] = useState(true);
-  const [showModal, setShowModal] = useState(false);
   const { video } = props;
   const { buttonSubscribe } = useChannel();
-
-
-function VideoBox() {
   const dispatch = useDispatch();
-  const currentUser = useSelector((state) => state.auth?.user.profile);
+  const currentUser = useSelector((state) => state.auth?.user?.profile);
   const currentVideo = useSelector((state) => state.video.currentVideo);
 
   useEffect(() => {
@@ -88,23 +84,23 @@ function VideoBox() {
             </div>
             {/* Channel info and video description */}
             <div className="ch-info-container">
-              <Link to={`/channel/${video?.user?._id}/featured`} className="ch-info-container__avatar">
-                <img src={video?.user?.logo} alt="avatar" />
+              <Link to={`/channel/${currentVideo?.user?._id}/featured`} className="ch-info-container__avatar">
+                <img src={currentVideo?.user?.logo || '/media/icons/blank_profile.png'} alt="avatar" />
               </Link>
               <div className="ch-info-container__ch-info">
-                <Link to={`/channel/${video?.user?._id}/featured`} className="ch-info-container__name">{video?.user?.username}</Link>
-                <p className="ch-info-container__subs">{`${new Intl.NumberFormat().format(Math.floor(Math.random() * 100000))} subscribers`}</p>
+                <Link to={`/channel/${currentVideo?.user?._id}/featured`} className="ch-info-container__name">{currentVideo?.user?.username}</Link>
+                <p className="ch-info-container__subs"></p>
                 <p className="ch-info-container__desc">{currentVideo.description}</p>
               </div>
               <div className="ch-info-container__subs-btn">
                 {
-                  buttonSubscribe(video?.user?._id)
+                  buttonSubscribe(currentVideo?.user?._id)
                 }
               </div>
             </div>
             <CommentsApp />
             <div>
-              {video?.comments?.map((comment, index) => <p key={index}>{comment.commentText}</p>)}
+              {currentVideo?.comments?.map((comment, index) => <p key={index}>{comment.commentText}</p>)}
             </div>
           </main>
           <aside>
@@ -115,4 +111,5 @@ function VideoBox() {
     </div>
   );
 }
+
 export default VideoBox;

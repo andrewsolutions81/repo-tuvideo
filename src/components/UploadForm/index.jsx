@@ -46,7 +46,7 @@ function UploadForm(props) {
       url: cloudinary,
       thumbnail,
     };
-    await axios.post(`${process.env.REACT_APP_BACK_PROD_BASE_URL}/api/videos`, data);
+    await axios.post(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/videos`, data);
     setTimeout(() => {
       setOpenModal(false);
       window.location.reload();
@@ -77,11 +77,11 @@ function UploadForm(props) {
               </div>
               <div>
                 <label htmlFor="video-title-name">What title you want for your video</label>
-                <input type="text" id="video-title-name" name="title" placeholder="Write a meaningfull title" onChange={handleChange} required />
+                <input type="text" id="video-title-name" name="title" placeholder="Write a funny title" onChange={handleChange} required />
               </div>
               <div>
                 <label htmlFor="video-desc-name">What description you want for your video</label>
-                <textarea type="text" id="video-desc-name" name="description" rows="7" onChange={handleChange} required />
+                <textarea type="text" id="video-desc-name" name="description" rows="4" onChange={handleChange} required />
               </div>
               <div className="upload__button">
                 <button type="submit">PUBLISH VIDEO</button>
