@@ -1,10 +1,12 @@
 // CheckoutForm component index.jsx
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import { useSelector } from 'react-redux';
 import './CheckoutForm.styles.css';
 
 function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
+  const donation = useSelector((state) => state.donation);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,7 +28,8 @@ function CheckoutForm() {
       },
       body: JSON.stringify({
         paymentMethod,
-        amount: 10_000, // cents -> $100
+        amount: Number(donation.donationAmount) * 100, // cents -> $100
+        userId: donation.idUser,
       }),
     };
 
