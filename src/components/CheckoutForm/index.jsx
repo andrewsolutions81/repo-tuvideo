@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 // CheckoutForm component index.jsx
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import './CheckoutForm.styles.css';
@@ -31,7 +30,7 @@ function CheckoutForm() {
       }),
     };
 
-    const response = await fetch(`${process.env.REACT_APP_BACK_PROD_BASE_URL}/api/checkout`, options);
+    const response = await fetch(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/checkout`, options);
     const body = await response.json();
     console.log('Fetching from api checkout:', body);
     // elements.getElement(CardElement).clear();
