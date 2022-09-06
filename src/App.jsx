@@ -10,7 +10,6 @@ import MainHeader from './components/MainHeader';
 import LoginRegister from './pages/LoginRegister';
 import LoginSite from './pages/Login';
 import RegisterSite from './pages/Register';
-import UploadVideo from './components/UploadVideo';
 import AddVideoToJson from './components/AddVideoToJson';
 import ChannelVideos from './pages/ChannelVideos';
 import ChannelPlayList from './pages/ChannelPlayList';
@@ -22,6 +21,7 @@ import ChannelHeader from './components/ChannelHeader';
 import TabCarousel from './components/TabCarousel';
 import { SearchProvider } from './searchContext/SearchContext';
 import Verify from './pages/Verify';
+import NotFound from './components/NotFound';
 
 function App() {
   return (
@@ -31,9 +31,8 @@ function App() {
           <MainHeader />
         </SearchProvider>
         <Routes>
+          <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Home />} />
-          <Route path="/upload" element={<UploadVideo />} />
-          <Route path="/:id" element={<SingleVideo />} />
           <Route path="/api/videos/:id" element={<SingleVideo />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/login-register" element={<LoginRegister />} />
