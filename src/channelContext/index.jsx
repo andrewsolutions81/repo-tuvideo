@@ -17,10 +17,12 @@ export function ChannelProvider(props) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/users/${userLogged._id}`);
-      const data = await result.data;
-      const subs = data?.subscribedChannels?.map(user => user._id)
-      if (subs) setChannelSubs(subs)
+      if (userLogged) {
+        const result = await axios.get(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/users/${userLogged._id}`);
+        const data = await result.data;
+        const subs = data?.subscribedChannels?.map(user => user._id)
+        if (subs) setChannelSubs(subs)
+      }
     }
     fetchData();
   }, [])
@@ -44,9 +46,13 @@ export function ChannelProvider(props) {
   };
 
   async function subscribeHandler(userID) {
-    if (!channelsSubs.includes(userID)) {
-      const axiosData = await axios.put(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/users/addSubscribe/${userLogged._id}`, { userToSubscribe: userID });
-      setChannelSubs(channelsSubs.concat(userID));
+    if (!userLogged) {
+
+    } else {
+      if (!channelsSubs.includes(userID)) {
+        const axiosData = await axios.put(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/users/addSubscribe/${userLogged._id}`, { userToSubscribe: userID });
+        setChannelSubs(channelsSubs.concat(userID));
+      }
     }
   };
 
@@ -68,7 +74,7 @@ export function ChannelProvider(props) {
         setVideos(resultJson.video);
       }
     };
-
+    setModEdit(false);
     fetchData();
   }, [id]);
 
