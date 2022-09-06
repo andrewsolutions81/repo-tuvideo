@@ -25,7 +25,10 @@ function ChannelHeader() {
 
   const avatar = () => {
     if (!logo) {
-      return user.logo;
+      if (!user?.logo) {
+        return 'https://res.cloudinary.com/royhuamanavila/image/upload/v1660888009/image832_ec9r7e.png';
+      }
+      return user?.logo;
     }
     return URL.createObjectURL(logo);
   };
@@ -74,13 +77,10 @@ function ChannelHeader() {
         )
       }
       <div id="container" className="container-header">
-        {
-          modEdit ? (
-            <div id="temp-logo" className="logo">
-              {
-                user.logo ? (<img className="logo-img" src={avatar()} alt="" />)
-                  : <div className="logo-img"><div className="letter-logo">{user?.username[0]}</div></div>
-              }
+        <div id="temp-logo" className="logo">
+          <img className="logo-img" src={avatar()} alt="" />
+          {
+            modEdit && (
               <div className="input-file">
                 <input
                   type="file"
@@ -95,16 +95,9 @@ function ChannelHeader() {
                   </g>
                 </svg>
               </div>
-            </div>
-          ) : (
-            <div className="logo">
-              {
-                user?.logo ? (<img className="logo-img" src={avatar()} alt="" />)
-                  : (<div className="logo-img"><div className="letter-logo">{user?.username[0]}</div></div>)
-              }
-            </div>
-          )
-        }
+            )
+          }
+        </div>
         <div className="details">
           <div className="details-container">
             <div className="channel-description">
@@ -149,7 +142,7 @@ function ChannelHeader() {
               ) : (
                 <div>
                   {
-                    (userLogged._id === id) ? (
+                    (userLogged?._id === id) ? (
                       <button type="button" className="button-blue" onClick={() => setModEdit(true)}>CUSTOMIZE CHANNEL</button>
                     ) : (
                       buttonSubscribe(id)

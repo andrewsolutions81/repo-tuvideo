@@ -16,7 +16,7 @@ function SingleVideo() {
         const videoRes = await axios.get(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/videos/${id}`);
 
         dispatch(fetchSuccess(videoRes.data));
-      } catch (err) {}
+      } catch (err) { }
     };
     fetchData();
   }, [dispatch, id]);
