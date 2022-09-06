@@ -1,12 +1,32 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Modal from '@mui/material/Modal';
+import { useDispatch } from 'react-redux';
+import { setDonation } from '../../actions/donation';
 import './styles.scss';
 
 function DonationModal() {
+  const [userDonationAmmount, setUserDonationAmmount] = useState();
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const navigateToCheckout = () => {
+    dispatch(setDonation({
+      amount: userDonationAmmount,
+      userId: 987,
+    }));
+    navigate('/checkout');
+  };
+
+  const handleChange = (e) => {
+    setUserDonationAmmount(e.target.value);
+    console.log(userDonationAmmount);
+  };
+
   return (
     <>
       <button type="button" className="video-options__donation-btn" onClick={handleOpen}>
@@ -25,10 +45,11 @@ function DonationModal() {
               <label htmlFor="quantity">
                 How much do you wanna donate?
               </label>
-              <input type="number" name="" id="quantity" placeholder="$" />
+              <input type="number" name="donation-ammount" id="quantity" placeholder="$" onChange={handleChange} />
             </div>
             <div className="donate-btn">
-              <button type="submit">
+              <button type="submit" onClick={navigateToCheckout}>
+                {/* validacion */}
                 Donate
               </button>
             </div>

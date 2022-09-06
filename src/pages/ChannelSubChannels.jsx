@@ -4,7 +4,7 @@ function ChannelSubChannels() {
   return (
     <div>
       <ChannelManager>
-        <h1>Este canal no incluye ningún otro canal.</h1>
+        <h1>This channel doesnt have any other channels.</h1>
       </ChannelManager>
     </div>
   );

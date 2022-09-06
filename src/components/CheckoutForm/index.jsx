@@ -1,11 +1,12 @@
-/* eslint-disable no-console */
 // CheckoutForm component index.jsx
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import { useSelector } from 'react-redux';
 import './CheckoutForm.styles.css';
 
 function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
+  const donation = useSelector((state) => state.donation);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,11 +28,12 @@ function CheckoutForm() {
       },
       body: JSON.stringify({
         paymentMethod,
-        amount: 10_000, // cents -> $100
+        amount: Number(donation.donationAmount) * 100, // cents -> $100
+        userId: donation.idUser,
       }),
     };
 
-    const response = await fetch(`${process.env.REACT_APP_BACK_PROD_BASE_URL}/api/checkout`, options);
+    const response = await fetch(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/checkout`, options);
     const body = await response.json();
     console.log('Fetching from api checkout:', body);
     // elements.getElement(CardElement).clear();

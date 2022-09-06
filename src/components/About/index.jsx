@@ -12,11 +12,11 @@ function About() {
     <div className="about-container">
       <div>
         <div>
-          <p className="about-subtitle">Descripción</p>
+          <p className="about-subtitle">Description</p>
           <p className="about-description">{user?.description}</p>
         </div>
         <div className="about-links">
-          <p>Vínculos</p>
+          <p>Links</p>
           <ul>
             <li>
               <a href="#">Facebook</a>
@@ -31,8 +31,8 @@ function About() {
         </div>
       </div>
       <div className="about-statistics">
-        <p className="about-subtitle">Estadisticas</p>
-        <p>{`Se unió el ${date.getDate()} ${monthNames[date.getMonth()]} ${date.getFullYear()}`}</p>
+        <p className="about-subtitle">Stats</p>
+        <p>{`Joined on ${date.getDate()} ${monthNames[date.getMonth()]} ${date.getFullYear()}`}</p>
       </div>
     </div>
   );

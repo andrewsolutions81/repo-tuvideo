@@ -11,7 +11,7 @@ function LandingVideos() {
   const [showSpinner, setShowSpinner] = useState(false);
 
   useEffect(() => {
-    fetch('https://tuvideo-backend.herokuapp.com/api/videos/')
+    fetch('http://localhost:3001/api/videos/')
       .then((res) => res.json())
       .then((res) => {
         if (res) {
@@ -34,19 +34,23 @@ function LandingVideos() {
     Object.entries(allVideos).map((singleVideo) => (singleVideo[1]
       && (
       <div className="card__videos" key={singleVideo[1]._id}>
+        <Link to={`/api/videos/${singleVideo[1]._id}`} className="title"><video width="320" height="180px" src={singleVideo[1].url} poster={singleVideo[1].thumbnail} /></Link>
 
-        <video width="320" height="180px" src={singleVideo[1].url} />
         <div className="card__info">
           <div className="card__info__title">
             <div className="ch-info-container__avatar">
-              <img src="/media/images/ch-avatar.jpeg" alt="avatar" />
+              <Link to={`/channel/${singleVideo[1].user._id}/featured`} className="title">
+                <img src={singleVideo[1].user.logo || '/media/images/ch-avatar.jpeg'} alt="avatar" />
+              </Link>
             </div>
             <Link to={`/api/videos/${singleVideo[1]._id}`} className="title">{singleVideo[1].title}</Link>
           </div>
           <div className="card__info__channel">
-            <p className="more-videos-container__ch-name">Channel</p>
+            <Link to={`/channel/${singleVideo[1].user._id}/featured`} className="more-videos-container__ch-name">{singleVideo[1].user.username}</Link>
             <p className="more-videos-container__views">
-              206 visualizaciones •
+              {singleVideo[1].views}
+              {' '}
+              views •
               {' '}
               {setTime(singleVideo[1].createdAt)}
             </p>

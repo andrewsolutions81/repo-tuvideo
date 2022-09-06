@@ -4,7 +4,7 @@ const setTime = (timestamp) => {
 
   const dateSet = new Date(timestamp);
 
-  return dateSet.toLocaleDateString('es-ES', options);
+  return dateSet.toLocaleDateString('en-US', options);
 };
 
 export default setTime;
