@@ -15,6 +15,7 @@ import SocialShareModal from '../SocialShareModal';
 import DonationModal from '../DonationModal';
 import { useChannel } from '../../channelContext';
 import { dislike, like } from '../../services/videoSlice';
+import LoginModal from '../LoginModal';
 
 function VideoBox(props) {
   const { video } = props;
@@ -44,6 +45,10 @@ function VideoBox(props) {
     dispatch(dislike(currentUser._id));
   };
 
+  const handleModal = () => {
+
+  }
+
   return (
     <div className="video-full-section">
       {
@@ -59,24 +64,29 @@ function VideoBox(props) {
                   views
                 </p>
                 <div className="video-options__buttons">
-                  <button type="button" className="video-options__like-btn" onClick={handleLike}>
-                    {currentVideo?.likes?.includes(currentUser?._id) ? (
-                      <img src="/media/icons/like.png" alt="like" style={{ opacity: '1' }} />
-                    ) : (
-                      <img src="/media/icons/like.png" alt="like" style={{ opacity: '0.2' }} />
-                    )}
-                    {' '}
-                    {currentVideo?.likes?.length}
-                  </button>
-                  <button type="button" className="video-options__dislike-btn" onClick={handleDislike}>
-                    {currentVideo?.dislikes?.includes(currentUser?._id) ? (
-                      <img src="/media/icons/dislike.png" alt="dislike" style={{ opacity: '1' }} />
-                    ) : (
-                      <img src="/media/icons/dislike.png" alt="dislike" style={{ opacity: '0.2' }} />
-                    )}
-                    {' '}
-                    Dislike
-                  </button>
+{
+  currentUser ?
+
+  <><button type="button" className="video-options__like-btn" onClick={handleLike}>
+                        {currentVideo?.likes?.includes(currentUser?._id) ? (
+                          <img src="/media/icons/like.png" alt="like" style={{ opacity: '1' }} />
+                        ) : (
+                          <img src="/media/icons/like.png" alt="like" style={{ opacity: '0.2' }} />
+                        )}
+                        {' '}
+                        {currentVideo?.likes?.length}
+                      </button><button type="button" className="video-options__dislike-btn" onClick={handleDislike}>
+                          {currentVideo?.dislikes?.includes(currentUser?._id) ? (
+                            <img src="/media/icons/dislike.png" alt="dislike" style={{ opacity: '1' }} />
+                          ) : (
+                            <img src="/media/icons/dislike.png" alt="dislike" style={{ opacity: '0.2' }} />
+                          )}
+                          {' '}
+                          Dislike
+                        </button></>
+:
+ <LoginModal currentVideo={currentVideo} currentUser={currentUser} handleDislike={handleDislike}/>
+}
                   <DonationModal />
                   <SocialShareModal />
                 </div>

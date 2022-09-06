@@ -4,7 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { login } from '../../actions/auth';
 import './styles.css';
 
-function Login() {
+function Login({ handleClose }) {
   const [form, setForm] = useState({});
   const [loading, setLoading] = useState(false);
   const { isLoggedIn } = useSelector((state) => state.auth);
@@ -36,6 +36,7 @@ function Login() {
   return (
     <div className="col-md-12">
       <div className="card card-container">
+        <button type="button" className="x-btn" onClick={handleClose}>X</button>
         <img
           src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
           alt="profile-img"
