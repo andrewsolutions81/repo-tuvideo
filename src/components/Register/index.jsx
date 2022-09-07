@@ -50,6 +50,7 @@ function Register() {
                 className="form-control register-form"
                 name="username"
                 onChange={onHandleChange}
+                required
               />
             </div>
             <div className="form-group">
@@ -59,6 +60,7 @@ function Register() {
                 className="form-control register-form"
                 name="email"
                 onChange={onHandleChange}
+                required
               />
             </div>
             <div className="form-group">
@@ -68,6 +70,7 @@ function Register() {
                 className="form-control register-form"
                 name="password"
                 onChange={onHandleChange}
+                required
               />
             </div>
             <div className="form-group">

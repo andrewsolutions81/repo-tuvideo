@@ -52,6 +52,7 @@ function Login({ handleClose }) {
                 name="email"
                 id="email"
                 onChange={onHandleChange}
+                required
               />
             </label>
           </div>
@@ -64,6 +65,7 @@ function Login({ handleClose }) {
                 name="password"
                 id="password"
                 onChange={onHandleChange}
+                required
               />
             </label>
           </div>
