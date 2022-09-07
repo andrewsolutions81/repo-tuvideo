@@ -5,6 +5,7 @@ import message from './message';
 import count from './count';
 import videoReducer from '../services/videoSlice';
 import donationReducer from './donation';
+import comment from './comment';
 
 export default combineReducers({
   auth,
@@ -12,4 +13,5 @@ export default combineReducers({
   count,
   video: videoReducer,
   donation: donationReducer,
+  comment,
 });

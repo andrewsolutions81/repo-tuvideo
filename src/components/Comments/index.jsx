@@ -1,56 +1,128 @@
+/* eslint-disable max-len */
+/* eslint-disable */
 /* eslint-disable no-underscore-dangle */
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-import './styles.css';
+import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import './styles.scss';
 import axios from 'axios';
-/* import CommentsList from './CommentsList'; */
+import { COMMENT } from '../../actions/types';
+import setTime from '../../services/toLocalString';
+import LoginModalComment from '../LoginModalComments';
 
-function CommentsApp({ video }) {
+function CommentsApp() {
   const [comment, setComment] = useState('');
-  const logedUser = useSelector((state) => state?.auth?.user?.profile);
+  const dispatch = useDispatch();
+  const currentUser = useSelector((state) => state.auth?.user?.profile);
+  const currentVideo = useSelector((state) => state.video.currentVideo);
+  const allComments = useSelector((state) => state.comment.commentText);
+  const [fetchedComments, setFetchedComments] = useState('');
 
-  const handleSubmit = async () => {
-    const formData = new FormData();
-    formData.append('user', logedUser?._id);
-    formData.append('commentText', comment);
+  useEffect(() => {
+    const fetchComments = async () => {
+      try {
+        const response = await axios.get(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/comments/`);
+        setFetchedComments(response.data);
+      } catch (error) {
+        console.error(error, 'error in comment handle submit');
+      }
+    };
+    fetchComments();
+  }, [currentUser]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setComment('');
+    dispatch({ type: COMMENT, payload: { user: currentUser._id, commentText: comment } });
+    const data = {
+      user: currentUser._id,
+      commentText: comment,
+    };
+
     try {
-      const response = await axios({
-        method: 'POST',
-        url: `${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/comments/${video.id}`,
-        data: formData,
-        headers: { 'Content-Type': 'multipart/form-data' },
-      });
-      return response;
+      await axios.post(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/comments/${currentVideo._id}`, data);
     } catch (error) {
       console.error(error, 'error in comment handle submit');
-      return error;
     }
   };
-
   return (
     <div className="comments">
-      <div className="coments-container">
-        <div className="comments-header-renderer">
-          <h2 className="comments__title">Comments</h2>
-          <div className="comments-imput">
-            <div className="imput-container">
-              <form>
-                <input onChange={(e) => setComment(e.target.value)} type="text" className="new-comment" name="new-comment" placeholder="Add a comment..." />
-              </form>
-              <br className="comments-line" />
-            </div>
-            <div className="comments__buttons-container">
-              <button onClick={handleSubmit} type="submit" className="comments__button comment-button">
-                COMMENT
-              </button>
-            </div>
-          </div>
+      <div className="comments-header">
+        {
+          currentVideo?.comments?.length > 0
+            ? (
+              <h3 className="comments__title">
+                {currentVideo.comments.length}
+                {' '}
+                comments
+              </h3>
+            )
+            : (
+              <h3 className="comments__title">
+                0 comments
+              </h3>
+            )
+        }
+
+      </div>
+      <div className="comments-form-container">
+        <div className="comments-view__avatar">
+          <img src={currentVideo?.user?.logo || '/media/icons/blank_profile.png'} alt="avatar" />
         </div>
-        <div className="comments-section-container">
-          <div className="comments-comment-container">
-            {/* <CommentsList comments={comments} /> */}
+        <form className="comments-form" onSubmit={handleSubmit}>
+          <div className="comments-form__input">
+            <input onChange={(e) => setComment(e.target.value)} value={comment} type="text" name="new-comment" placeholder="Add a comment..." />
           </div>
+          <div className="comments-form__btn">
+            {
+  currentUser
+    ? (
+      <button type="submit">
+        COMMENT
+      </button>
+    )
+    : <LoginModalComment currentVideo={currentVideo} currentUser={currentUser} />
+}
+          </div>
+        </form>
+      </div>
+      <div className="comments-view">
+        <div>
+          {
+              allComments
+              && (
+              <div className="single-comment">
+                <img src={currentVideo?.user?.logo || '/media/icons/blank_profile.png'} alt="avatar" />
+                <div className="single-comment__comment">
+                  <p className="single-comment__comment__username">
+                    {currentVideo?.user?.username}
+                    {' '}
+                    <span>Just Now</span>
+                  </p>
+                  <p>{allComments}</p>
+                </div>
+              </div>
+              )
+            }
+
+          {         fetchedComments &&  
+              fetchedComments.map((singleComment) => singleComment
+              && (
+              <div className="single-comment">
+                <img src={currentVideo?.user?.logo || '/media/icons/blank_profile.png'} alt="avatar" />
+                <div className="single-comment__comment">
+                  <p className="single-comment__comment__username">
+                    {currentVideo?.user?.username}
+                    {' '}
+                    <span>{setTime(singleComment.createdAt)}</span>
+                  </p>
+                  <p>{singleComment.commentText}</p>
+                </div>
+              </div>
+              ))
+            }
+
         </div>
+
       </div>
     </div>
   );

@@ -10,3 +10,4 @@ export const DECREMENT = 'DECREMENT';
 export const VERIFY_SUCCESS = 'VERIFY_SUCCESS';
 export const LIKE = 'LIKE';
 export const DISLIKE = 'DISLIKE';
+export const COMMENT = 'COMMENT';
