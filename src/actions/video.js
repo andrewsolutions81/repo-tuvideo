@@ -1,7 +1,5 @@
-import {
-  LIKE,
-  DISLIKE,
-} from './types';
+/* eslint-disable import/prefer-default-export */
+/* eslint-disable no-undef */
 import AuthService from '../services/auth.service';
 
 export function register(username, email, password) {

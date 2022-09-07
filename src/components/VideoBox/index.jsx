@@ -85,7 +85,7 @@ function VideoBox(props) {
                           Dislike
                         </button></>
 :
- <LoginModal currentVideo={currentVideo} currentUser={currentUser} handleDislike={handleDislike}/>
+ <LoginModal currentVideo={currentVideo} currentUser={currentUser}/>
 }
                   <DonationModal />
                   <SocialShareModal />
@@ -110,7 +110,6 @@ function VideoBox(props) {
             </div>
             <CommentsApp />
             <div>
-              {currentVideo?.comments?.map((comment, index) => <p key={index}>{comment.commentText}</p>)}
             </div>
           </main>
           <aside>

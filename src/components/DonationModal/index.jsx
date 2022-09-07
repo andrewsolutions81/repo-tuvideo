@@ -1,8 +1,9 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Modal from '@mui/material/Modal';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setDonation } from '../../actions/donation';
 import './styles.scss';
 
@@ -13,11 +14,11 @@ function DonationModal() {
   const handleClose = () => setOpen(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  const currentUser = useSelector((state) => state.auth?.user?.profile);
   const navigateToCheckout = () => {
     dispatch(setDonation({
       amount: userDonationAmmount,
-      userId: 987,
+      userId: currentUser._id,
     }));
     navigate('/checkout');
   };
