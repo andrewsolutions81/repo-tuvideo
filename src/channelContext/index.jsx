@@ -57,7 +57,6 @@ export function ChannelProvider(props) {
   };
 
   const buttonSubscribe = (id) => {
-    console.log(channelsSubs.includes(id))
     return channelsSubs?.includes(id) ? (
       <button type='button' className='button-gray' >SUBSCRIBED</button>
     ) : (
