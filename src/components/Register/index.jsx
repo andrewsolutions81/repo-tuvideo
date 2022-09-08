@@ -47,7 +47,7 @@ function Register() {
 
     if (password.length < 5) {
       error.push({
-        key: 'password', message: 'incorrect password',
+        key: 'password', message: 'password is too short',
       });
     }
 
