@@ -8,7 +8,7 @@ import {
 } from './types';
 import AuthService from '../services/auth.service';
 
-export function register(username, email, password) {
+export function register({ username, email, password }) {
   return async (dispatch) => {
     try {
       await AuthService.register(username, email, password);
