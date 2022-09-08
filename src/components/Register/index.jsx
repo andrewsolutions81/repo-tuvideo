@@ -1,3 +1,7 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-useless-return */
+/* eslint-disable no-useless-escape */
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-shadow */
 /* eslint-disable consistent-return */
@@ -11,6 +15,7 @@ import './styles.css';
 function Register() {
   const [form, setForm] = useState({});
   const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState({});
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -19,13 +24,48 @@ function Register() {
       ...form,
       [e.target.name]: e.target.value,
     });
+    setErrors({
+      ...errors,
+      [e.target.name]: null,
+    });
+  };
+
+  const getFormError = (formData) => {
+    const error = [];
+    const { email, password } = formData;
+    const isEmailValid = (email) => /\S+@\S+\.\S+/.test(email);
+
+    if (!email.length) {
+      error.push({
+        key: 'email', message: 'email cannot be empty',
+      });
+    } else if (!isEmailValid(email)) {
+      error.push({
+        key: 'email', message: 'email is not valid',
+      });
+    }
+
+    if (password.length < 5) {
+      error.push({
+        key: 'password', message: 'password is too short',
+      });
+    }
+
+    return error;
   };
 
   const handleRegister = (e) => {
     e.preventDefault();
-    const { username, email, password } = form;
     setLoading(true);
-    dispatch(register(username, email, password));
+    const formErrors = getFormError(form).reduce((actual, error) => {
+      actual[error.key] = error.message;
+      return actual;
+    }, {});
+    if (Object.keys(formErrors).length) {
+      setErrors(formErrors);
+      return;
+    }
+    dispatch(register(form));
     setTimeout(() => {
       navigate('/verify');
     }, 1500);
@@ -50,6 +90,7 @@ function Register() {
                 className="form-control register-form"
                 name="username"
                 onChange={onHandleChange}
+                required
               />
             </div>
             <div className="form-group">
@@ -59,7 +100,15 @@ function Register() {
                 className="form-control register-form"
                 name="email"
                 onChange={onHandleChange}
+                required
               />
+              {
+                  errors?.email && (
+                    <div>
+                      {errors.email}
+                    </div>
+                  )
+                }
             </div>
             <div className="form-group">
               <label htmlFor="password">Password</label>
@@ -68,18 +117,25 @@ function Register() {
                 className="form-control register-form"
                 name="password"
                 onChange={onHandleChange}
+                required
               />
+              {
+                  errors?.password && (
+                    <div>
+                      {errors.password}
+                    </div>
+                  )
+                }
             </div>
             <div className="form-group">
               <button type="submit" className="btn btn-primary btn-block" disabled={loading}>
                 {loading && (
-                <span className="spinner-border spinner-border-sm" />
+                  <span className="spinner-border spinner-border-sm" />
                 )}
                 <span className="loginRegisterButton">Register</span>
               </button>
             </div>
           </div>
-          <input type="checkbox" name="remember" id="remember" />
         </form>
         <p>
           Do you have an account?
