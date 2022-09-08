@@ -29,7 +29,6 @@ function LandingVideos() {
     showSpinner
       ? (
         <>
-
           {
     Object.entries(allVideos).map((singleVideo) => (singleVideo[1]
       && (
