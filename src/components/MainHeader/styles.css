@@ -12,6 +12,11 @@
   align-items: center;
 }
 
+.header__logo__image{
+  height: 40px;
+  width: 120px;
+}
+
 .header__logo--active {
   display: flex;
   align-items: center;
@@ -225,7 +230,7 @@
   letter-spacing: 0.5px;
   text-transform: uppercase;
 
-  color: #065FD4;
+  color: #390857;
 }
 
 @media (max-width: 768px) {

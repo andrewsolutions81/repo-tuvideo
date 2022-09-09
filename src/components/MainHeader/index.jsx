@@ -52,7 +52,7 @@ function MainHeader() {
           <img src="/media/icons/Burger.png" alt="Menu" onClick={handleMenu} />
         </div>
         <div className="header__logo__logo">
-          <Link to="/"><img src="/media/icons/LogoYoutube.png" alt="Menu" /></Link>
+          <Link to="/"><img className="header__logo__image" src="/media/images/logo.png" alt="Menu" /></Link>
         </div>
       </div>
       <div className="header__search-bar">
@@ -116,7 +116,7 @@ function MainHeader() {
             <img src="/media/icons/Burger.png" alt="Menu" onClick={handleMenu} />
           </div>
           <div className="header__logo__logo">
-            <Link to="/"><img src="/media/icons/LogoYoutube.png" alt="Menu" /></Link>
+            <Link to="/"><img className="header__logo__image" src="/media/images/logo.png" alt="Menu" /></Link>
           </div>
         </div>
         <div className="main-sidebar">

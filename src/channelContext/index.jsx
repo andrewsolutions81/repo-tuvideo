@@ -60,7 +60,7 @@ export function ChannelProvider(props) {
     return channelsSubs?.includes(id) ? (
       <button type='button' className='button-gray' >SUBSCRIBED</button>
     ) : (
-      <button type='button' className='button-red' onClick={() => subscribeHandler(id)}>SUBSCRIBE</button>
+      <button type='button' className='button-purple' onClick={() => subscribeHandler(id)}>SUBSCRIBE</button>
     )
   }
 

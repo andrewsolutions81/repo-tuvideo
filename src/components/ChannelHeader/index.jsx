@@ -137,7 +137,7 @@ function ChannelHeader() {
                     SAVE CHANGES
 
                   </button>
-                  <button className="button-red" type="button" onClick={() => { setModEdit(false); }}>CANCEL CHANGES</button>
+                  <button className="button-purple" type="button" onClick={() => { setModEdit(false); }}>CANCEL CHANGES</button>
                 </div>
               ) : (
                 <div>
