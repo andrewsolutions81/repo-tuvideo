@@ -10,6 +10,7 @@ import {
 } from 'reactstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import axios from 'axios';
 import UploadVideo from '../UploadVideo';
 
 import Search from '../Search';
@@ -24,6 +25,7 @@ function MainHeader() {
   const profile = useSelector((state) => state.auth?.user?.profile);
   const [open, setOpen] = useState();
   const [dropdown, setDropdown] = useState(false);
+  const [avatar, setAvatar] = useState();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -65,40 +67,43 @@ function MainHeader() {
             </div>
           )
         }
-        <div className="header__user__sign-in">
-          <div className="header__user__sign-in__icon">
-            <img src="/media/icons/User.png" alt="Sign In" />
-          </div>
-
-          <UploadVideo setOpenModal={setOpenModal} openModal={openModal} />
-
+        <div className="before__fragment">
           {
             profile
               ? (
-                <div className="header__user__sign-in__text">
-                  <Dropdown isOpen={dropdown} toggle={dropdownToggles}>
-                    <DropdownToggle className="header__user__sign-in__text--toggle">
-                      <p className="header__user__sign-in__text--center">{profile.username}</p>
-                    </DropdownToggle>
-                    <DropdownMenu>
-                      <div>
-                        <DropdownItem className="dropdown-items"><Link to={`/channel/${profile?._id}/featured`}>Mi canal</Link></DropdownItem>
-                        <DropdownItem className="dropdown-items">
-                          <div>
-                            <button onClick={handleLogout} type="button" className="btn-primary-logout">
-                              <span>Logout</span>
-                            </button>
-                          </div>
-                        </DropdownItem>
-                      </div>
-                    </DropdownMenu>
-                  </Dropdown>
+                <div className="header__user__sign-in---logged">
 
+                  <UploadVideo setOpenModal={setOpenModal} openModal={openModal} />
+                  <div className="header__user__sign-in__text">
+                    <Dropdown isOpen={dropdown} toggle={dropdownToggles}>
+                      <DropdownToggle className="header__user__sign-in__text--toggle">
+                        <img className="header__user__sign-in__logged-in" src={profile.logo} alt="logo" />
+                      </DropdownToggle>
+                      <DropdownMenu>
+                        <div>
+                          <DropdownItem className="dropdown-items"><Link to={`/channel/${profile?._id}/featured`}>Mi canal</Link></DropdownItem>
+                          <DropdownItem className="dropdown-items">
+                            <div>
+                              <button onClick={handleLogout} type="button" className="btn-primary-logout">
+                                <span>Logout</span>
+                              </button>
+                            </div>
+                          </DropdownItem>
+                        </div>
+                      </DropdownMenu>
+                    </Dropdown>
+
+                  </div>
                 </div>
               )
               : (
-                <div className="header__user__sign-in__text">
-                  <Link to="/login"><p className="header__user__sign-in__text--center">Sign In</p></Link>
+                <div className="header__user__sign-in---visitor">
+                  <div className="header__user__sign-in__icon">
+                    <img src="/media/icons/User.png" alt="Sign In" />
+                  </div>
+                  <div className="header__user__sign-in__text">
+                    <Link to="/login"><p className="header__user__sign-in__text--center">Sign In</p></Link>
+                  </div>
                 </div>
               )
           }
