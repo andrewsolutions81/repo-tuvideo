@@ -122,9 +122,9 @@ function ChannelHeader() {
             {
               modEdit ? (
                 <div className="buttons-edit">
-                  <button className="button-blue" type="button" onClick={() => setOpen(true)}>ADD ELEMENT</button>
+                  <button className="button-purple" type="button" onClick={() => setOpen(true)}>ADD ELEMENT</button>
                   <button
-                    className="button-green"
+                    className="button-orange"
                     type="button"
                     onClick={() => {
                       const formData = new FormData();
@@ -143,7 +143,7 @@ function ChannelHeader() {
                 <div>
                   {
                     (userLogged?._id === id) ? (
-                      <button type="button" className="button-blue" onClick={() => setModEdit(true)}>CUSTOMIZE CHANNEL</button>
+                      <button type="button" className="button-orange" onClick={() => setModEdit(true)}>CUSTOMIZE CHANNEL</button>
                     ) : (
                       buttonSubscribe(id)
                     )

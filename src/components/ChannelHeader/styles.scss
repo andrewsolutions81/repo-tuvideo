@@ -137,6 +137,10 @@ html {
   @include button-color(#d01818);
 }
 
+.button-orange {
+  @include button-color(#EF620B);
+}
+
 .button-gray {
   @include button-color(#ececec);
   color: #606060;
