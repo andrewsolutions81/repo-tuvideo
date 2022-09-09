@@ -1,6 +1,6 @@
 .logo-item {
-  max-width: 130px;
-  min-width: 70px;
+  height: 100px;
+  width: 100px;
   border-radius: 50%;
   background-color: #d01818;
   font-size: 5rem;
@@ -41,7 +41,7 @@
 
 .subscribes-container {
   width: 80%;
-  margin: 0px auto;
+  margin: 20px auto;
   display: flex;
   flex-direction: column;
   align-items: center;

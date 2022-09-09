@@ -35,10 +35,7 @@ function ChannelItem({ channel }) {
   const { buttonSubscribe } = useChannel();
   return (
     <div className="channelItem-container">
-      {
-        channel?.logo ? <img className="logo-item" src={channel.logo} alt="logo" />
-          : <div className="without-logo"><div className="letter-logo">{channel.username[0]}</div></div>
-      }
+      <img className="logo-item" src={channel.logo || 'https://res.cloudinary.com/royhuamanavila/image/upload/v1660888009/image832_ec9r7e.png'} alt="logo" />
       <div className="statisctics-item">
         <p className="username-item">{channel.username}</p>
         <p className="user-countsubs">{`${channel.video.length} videos`}</p>

@@ -132,6 +132,15 @@ function MainHeader() {
                 {' '}
                 Explore
               </Link>
+              {
+                profile && (
+                  <Link to="/subscribes" className="main-sidebar__category">
+                    <img src="/media/icons/Subscriptions.png" alt="Compass-explore-icon" />
+                    {' '}
+                    Subscribes
+                  </Link>
+                )
+              }
             </ul>
           </div>
           <hr />
