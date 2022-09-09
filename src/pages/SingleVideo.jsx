@@ -13,7 +13,7 @@ function SingleVideo() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const videoRes = await axios.get(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/videos/${id}`);
+        const videoRes = await axios.get(`${process.env.REACT_APP_BACK_PROD_BASE_URL}/api/videos/${id}`);
 
         dispatch(fetchSuccess(videoRes.data));
       } catch (err) { }

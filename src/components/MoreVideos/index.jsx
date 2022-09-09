@@ -13,7 +13,7 @@ function MoreVideos() {
   useEffect(() => {
     const fetchMoreVideos = async () => {
       try {
-        const videos = await axios.get(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/videos/`);
+        const videos = await axios.get(`${process.env.REACT_APP_BACK_PROD_BASE_URL}/api/videos/`);
         return setAllVideos(videos.data);
       } catch (error) {
         return error;
