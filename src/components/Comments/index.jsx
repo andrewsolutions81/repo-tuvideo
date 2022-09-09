@@ -20,7 +20,7 @@ function CommentsApp() {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/videos/`);
+        const response = await axios.get(`${process.env.REACT_APP_BACK_PROD_BASE_URL}/api/videos/`);
         setFetchedComments(response.data)
       } catch (error) {
         console.error(error, 'error in comment handle submit');
@@ -39,7 +39,7 @@ function CommentsApp() {
     };
 
     try {
-      await axios.post(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/comments/${currentVideo._id}`, data);
+      await axios.post(`${process.env.REACT_APP_BACK_PROD_BASE_URL}/api/comments/${currentVideo._id}`, data);
     } catch (error) {
       console.error(error, 'error in comment handle submit');
     }
@@ -118,7 +118,7 @@ function CommentsApp() {
                     </p>
                     <p>{comments.commentText}</p>
                   </div>
-                </div> 
+                </div>
                   )
                 )
             }

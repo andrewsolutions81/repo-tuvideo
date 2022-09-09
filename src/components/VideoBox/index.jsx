@@ -27,7 +27,7 @@ function VideoBox(props) {
   useEffect(() => {
     const addView = async () => {
       try {
-        return await axios.patch(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/videos/view/${currentVideo._id}`);
+        return await axios.patch(`${process.env.REACT_APP_BACK_PROD_BASE_URL}/api/videos/view/${currentVideo._id}`);
       } catch (err) {
         return err;
       }
@@ -36,12 +36,12 @@ function VideoBox(props) {
   }, [currentVideo._id]);
 
   const handleLike = async () => {
-    await axios.patch(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/videos/like/${currentVideo._id}`);
+    await axios.patch(`${process.env.REACT_APP_BACK_PROD_BASE_URL}/api/videos/like/${currentVideo._id}`);
     dispatch(like(currentUser._id));
   };
 
   const handleDislike = async () => {
-    await axios.patch(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/videos/dislike/${currentVideo._id}`);
+    await axios.patch(`${process.env.REACT_APP_BACK_PROD_BASE_URL}/api/videos/dislike/${currentVideo._id}`);
     dispatch(dislike(currentUser._id));
   };
 
