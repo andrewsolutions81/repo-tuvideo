@@ -5,7 +5,6 @@ import './styles.css';
 function Landing() {
   return (
     <div className="card__main">
-      <div className="card__sidebar">.</div>
       <div className="card__content">
         <LandingVideos />
       </div>

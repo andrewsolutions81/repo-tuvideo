@@ -52,7 +52,7 @@ function MainHeader() {
           <img src="/media/icons/Burger.png" alt="Menu" onClick={handleMenu} />
         </div>
         <div className="header__logo__logo">
-          <Link to="/"><img src="/media/icons/LogoYoutube.png" alt="Menu" /></Link>
+          <Link to="/"><img className="header__logo__image" src="/media/images/logo.png" alt="Menu" /></Link>
         </div>
       </div>
       <div className="header__search-bar">
@@ -81,7 +81,7 @@ function MainHeader() {
                       </DropdownToggle>
                       <DropdownMenu>
                         <div>
-                          <DropdownItem className="dropdown-items"><Link to={`/channel/${profile?._id}/featured`}>Mi canal</Link></DropdownItem>
+                          <DropdownItem className="dropdown-items"><Link to={`/channel/${profile?._id}/videos`}>Mi canal</Link></DropdownItem>
                           <DropdownItem className="dropdown-items">
                             <div>
                               <button onClick={handleLogout} type="button" className="btn-primary-logout">
@@ -116,7 +116,7 @@ function MainHeader() {
             <img src="/media/icons/Burger.png" alt="Menu" onClick={handleMenu} />
           </div>
           <div className="header__logo__logo">
-            <Link to="/"><img src="/media/icons/LogoYoutube.png" alt="Menu" /></Link>
+            <Link to="/"><img className="header__logo__image" src="/media/images/logo.png" alt="Menu" /></Link>
           </div>
         </div>
         <div className="main-sidebar">
