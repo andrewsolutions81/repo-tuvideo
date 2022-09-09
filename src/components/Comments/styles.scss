@@ -1,48 +1,50 @@
-.comments-form-container{
+.comments-form-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.comments-view__avatar{
+.comments-view__avatar {
   cursor: none;
   flex: 0 1 auto;
   align-self: auto;
 
-  & img{
+  & img {
     cursor: default !important;
   }
 }
 
-.comments-header{
-  margin-top:50px;
+.comments-header {
+  margin-top: 50px;
 }
-.comments-form{
+
+.comments-form {
   flex: 03 1 auto;
   align-self: auto;
-  margin-top:50px;
+  margin-top: 50px;
 
-  & input{
+  & input {
     width: 100%;
     background-color: transparent;
-    border-top:none;
+    border-top: none;
     border-left: none;
     border-right: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     transition: all ease-in-out .25s;
     font-size: 15px;
 
-    &:focus-visible{
+    &:focus-visible {
       outline: none;
-      border-bottom: 2px  solid black ;
+      border-bottom: 2px solid black;
     }
   }
-  &__btn{
-    margin-top:20px;
-    margin-right:25px;
+
+  &__btn {
+    margin-top: 20px;
+    margin-right: 25px;
     float: right;
     display: inline;
-    background-color: black;
+    background-color: #EF620B;
     border: 0px;
     border-radius: 2px;
     padding: 10px 16px;
@@ -57,14 +59,14 @@
   }
 }
 
-.comments-view{
-  margin-top:50px;
-  padding-bottom:100px;
+.comments-view {
+  margin-top: 50px;
+  padding-bottom: 100px;
 
   &__avatar {
     margin-right: 20px;
   }
-  
+
   &__avatar img {
     max-width: 50px;
     height: auto;
@@ -73,12 +75,12 @@
   }
 }
 
-.single-comment{
+.single-comment {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
 
-  & img{
+  & img {
     max-width: 40px;
     height: auto;
     cursor: default !important;
@@ -88,24 +90,24 @@
     margin-right: 20px;
   }
 
-  &__comment{
+  &__comment {
     flex: 03 1 auto;
     align-self: auto;
 
-    &__username{
+    &__username {
       color: black;
       font-size: 14px;
       font-weight: 500;
     }
-    & span{
-      color:gray;
+
+    & span {
+      color: gray;
       font-size: 12px;
       font-weight: 300;
     }
-    &:last-child{
-      font-size:12px;
+
+    &:last-child {
+      font-size: 12px;
     }
   }
 }
-
-

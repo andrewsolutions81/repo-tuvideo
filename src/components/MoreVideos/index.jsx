@@ -24,28 +24,28 @@ function MoreVideos() {
   return (
     <div>
       {
-      Object.entries(allVideos).map((singleVideo) => (singleVideo[1].category === videoCategory
-        && (
-          <div className="more-videos-container" key={singleVideo[1]._id}>
-            <div className="more-videos-container__video">
-              <Link to={`/api/videos/${singleVideo[1]._id}`} className="title">
-                <video width="320" height="95px" src={singleVideo[1].url} poster={singleVideo[1].thumbnail} />
-              </Link>
-              <div>
-                <Link to={`/api/videos/${singleVideo[1]._id}`} className="more-videos-container__title">{singleVideo[1].title}</Link>
-                <Link to={`/channel/${singleVideo[1].user._id}/featured`} className="more-videos-container__ch-name">
-                  <p className="more-videos-container__ch-name">{singleVideo[1].user.username}</p>
+        Object.entries(allVideos).map((singleVideo) => (singleVideo[1].category === videoCategory
+          && (
+            <div className="more-videos-container" key={singleVideo[1]._id}>
+              <div className="more-videos-container__video">
+                <Link to={`/api/videos/${singleVideo[1]._id}`} className="title">
+                  <video width="320" height="95px" src={singleVideo[1].url} poster={singleVideo[1].thumbnail} />
                 </Link>
-                <p className="more-videos-container__views">
-                  {singleVideo[1].views}
-                  {' '}
-                  views
-                </p>
+                <div>
+                  <Link to={`/api/videos/${singleVideo[1]._id}`} className="more-videos-container__title">{singleVideo[1].title}</Link>
+                  <Link to={`/channel/${singleVideo[1].user._id}/videos`} className="more-videos-container__ch-name">
+                    <p className="more-videos-container__ch-name">{singleVideo[1].user.username}</p>
+                  </Link>
+                  <p className="more-videos-container__views">
+                    {singleVideo[1].views}
+                    {' '}
+                    views
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        )
-      ))
+          )
+        ))
       }
     </div>
   );

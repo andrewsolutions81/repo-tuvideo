@@ -13,21 +13,8 @@ function CommentsApp() {
   const [comment, setComment] = useState('');
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.auth?.user?.profile);
-  const currentVideo = useSelector((state) => state.video.currentVideo);
   const allComments = useSelector((state) => state.comment.commentText);
-  const [fetchedComments, setFetchedComments] = useState('');
-
-  useEffect(() => {
-    const fetchComments = async () => {
-      try {
-        const response = await axios.get(`${process.env.REACT_APP_BACK_PROD_BASE_URL}/api/videos/`);
-        setFetchedComments(response.data)
-      } catch (error) {
-        console.error(error, 'error in comment handle submit');
-      }
-    };
-    fetchComments();
-  }, [currentUser]);
+  const currentVideo = useSelector((state) => state.video.currentVideo);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -74,22 +61,22 @@ function CommentsApp() {
           </div>
           <div className="comments-form__btn">
             {
-  currentUser
-    ? (
-      <button type="submit">
-        COMMENT
-      </button>
-    )
-    : <LoginModalComment currentVideo={currentVideo} currentUser={currentUser} />
-}
+              currentUser
+                ? (
+                  <button className='button-orange' type="submit">
+                    COMMENT
+                  </button>
+                )
+                : <LoginModalComment currentVideo={currentVideo} currentUser={currentUser} />
+            }
           </div>
         </form>
       </div>
       <div className="comments-view">
         <div>
           {
-              allComments
-              && (
+            allComments
+            && (
               <div className="single-comment">
                 <img src={currentUser?.logo || '/media/icons/blank_profile.png'} alt="avatar" />
                 <div className="single-comment__comment">
@@ -99,29 +86,29 @@ function CommentsApp() {
                     <span>Just Now</span>
                   </p>
                   <p>{allComments}</p>
+
                 </div>
               </div>
-              )
-            }
+            )
+          }
 
-          {   fetchedComments &&
-              fetchedComments.filter(video => video._id == currentVideo._id)
-              .map(video => video.comments
-                .map(comments => comments &&
-                  <div className="single-comment" key={currentVideo._id}>
-                  <img src={currentUser?.logo || '/media/icons/blank_profile.png'} alt="avatar" />
+          {
+            currentVideo?.comments?.map((comment, index) => {
+              return (
+                <div className="single-comment" key={index}>
+                  <img src={comment?.user?.logo || '/media/icons/blank_profile.png'} alt="avatar" />
                   <div className="single-comment__comment">
                     <p className="single-comment__comment__username">
-                      {currentUser?.username}
+                      {comment?.user?.username}
                       {' '}
-                      <span>{setTime(comments.createdAt)}</span>
+                      <span>{setTime(comment.createdAt)}</span>
                     </p>
-                    <p>{comments.commentText}</p>
+                    <p>{comment.commentText}</p>
                   </div>
                 </div>
-                  )
-                )
-            }
+              )
+            })
+          }
         </div>
 
       </div>
