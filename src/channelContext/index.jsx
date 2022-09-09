@@ -18,7 +18,7 @@ export function ChannelProvider(props) {
   useEffect(() => {
     const fetchData = async () => {
       if (userLogged) {
-        const result = await axios.get(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/users/${userLogged._id}`);
+        const result = await axios.get(`${process.env.REACT_APP_BACK_PROD_BASE_URL}/api/users/${userLogged._id}`);
         const data = await result.data;
         const subs = data?.subscribedChannels?.map(user => user._id)
         if (subs) setChannelSubs(subs)
@@ -32,7 +32,7 @@ export function ChannelProvider(props) {
     try {
       const response = await axios({
         method: 'POST',
-        url: `${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/users/${id}`,
+        url: `${process.env.REACT_APP_BACK_PROD_BASE_URL}/api/users/${id}`,
         data: formData,
         headers: { 'Content-Type': 'multipart/form-data' },
       });
@@ -50,14 +50,13 @@ export function ChannelProvider(props) {
 
     } else {
       if (!channelsSubs.includes(userID)) {
-        const axiosData = await axios.put(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/users/addSubscribe/${userLogged._id}`, { userToSubscribe: userID });
+        const axiosData = await axios.put(`${process.env.REACT_APP_BACK_PROD_BASE_URL}/api/users/addSubscribe/${userLogged._id}`, { userToSubscribe: userID });
         setChannelSubs(channelsSubs.concat(userID));
       }
     }
   };
 
   const buttonSubscribe = (id) => {
-    console.log(channelsSubs.includes(id))
     return channelsSubs?.includes(id) ? (
       <button type='button' className='button-gray' >SUBSCRIBED</button>
     ) : (
@@ -68,7 +67,7 @@ export function ChannelProvider(props) {
   useEffect(() => {
     const fetchData = async () => {
       if (id) {
-        const result = await fetch(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/users/${id}`);
+        const result = await fetch(`${process.env.REACT_APP_BACK_PROD_BASE_URL}/api/users/${id}`);
         const resultJson = await result.json();
         setUser(resultJson);
         setVideos(resultJson.video);

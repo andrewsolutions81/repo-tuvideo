@@ -15,12 +15,12 @@ function DonationModal() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.auth?.user?.profile);
-  const navigateToCheckout = () => {
+  const navigateToPayment = () => {
     dispatch(setDonation({
       amount: userDonationAmmount,
       userId: currentUser._id,
     }));
-    navigate('/checkout');
+    navigate('/api/payment');
   };
 
   const handleChange = (e) => {
@@ -49,7 +49,7 @@ function DonationModal() {
               <input type="number" name="donation-ammount" id="quantity" placeholder="$" onChange={handleChange} />
             </div>
             <div className="donate-btn">
-              <button type="submit" onClick={navigateToCheckout}>
+              <button type="submit" onClick={navigateToPayment}>
                 {/* validacion */}
                 Donate
               </button>

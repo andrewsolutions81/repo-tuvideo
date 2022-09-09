@@ -11,7 +11,7 @@ function LandingVideos() {
   const [showSpinner, setShowSpinner] = useState(false);
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/videos/')
+    fetch(`${process.env.REACT_APP_BACK_PROD_BASE_URL}/api/videos/`)
       .then((res) => res.json())
       .then((res) => {
         if (res) {
@@ -29,39 +29,38 @@ function LandingVideos() {
     showSpinner
       ? (
         <>
-
           {
-    Object.entries(allVideos).map((singleVideo) => (singleVideo[1]
-      && (
-      <div className="card__videos" key={singleVideo[1]._id}>
-        <Link to={`/api/videos/${singleVideo[1]._id}`} className="title"><video width="320" height="180px" src={singleVideo[1].url} poster={singleVideo[1].thumbnail} /></Link>
+            Object.entries(allVideos).map((singleVideo) => (singleVideo[1]
+              && (
+                <div className="card__videos" key={singleVideo[1]._id}>
+                  <Link to={`/api/videos/${singleVideo[1]._id}`} className="title"><video width="320" height="180px" src={singleVideo[1].url} poster={singleVideo[1].thumbnail} /></Link>
 
-        <div className="card__info">
-          <div className="card__info__title">
-            <div className="ch-info-container__avatar">
-              <Link to={`/channel/${singleVideo[1].user._id}/featured`} className="title">
-                <img src={singleVideo[1].user.logo || '/media/images/ch-avatar.jpeg'} alt="avatar" />
-              </Link>
-            </div>
-            <Link to={`/api/videos/${singleVideo[1]._id}`} className="title">{singleVideo[1].title}</Link>
-          </div>
-          <div className="card__info__channel">
-            <Link to={`/channel/${singleVideo[1].user._id}/featured`} className="more-videos-container__ch-name">{singleVideo[1].user.username}</Link>
-            <p className="more-videos-container__views">
-              {singleVideo[1].views}
-              {' '}
-              views •
-              {' '}
-              {setTime(singleVideo[1].createdAt)}
-            </p>
-          </div>
-        </div>
-      </div>
+                  <div className="card__info">
+                    <div className="card__info__title">
+                      <div className="ch-info-container__avatar">
+                        <Link to={`/channel/${singleVideo[1].user._id}/featured`} className="title">
+                          <img src={singleVideo[1].user.logo || '/media/images/ch-avatar.jpeg'} alt="avatar" />
+                        </Link>
+                      </div>
+                      <Link to={`/api/videos/${singleVideo[1]._id}`} className="title">{singleVideo[1].title}</Link>
+                    </div>
+                    <div className="card__info__channel">
+                      <Link to={`/channel/${singleVideo[1].user._id}/featured`} className="more-videos-container__ch-name">{singleVideo[1].user.username}</Link>
+                      <p className="more-videos-container__views">
+                        {singleVideo[1].views}
+                        {' '}
+                        views •
+                        {' '}
+                        {setTime(singleVideo[1].createdAt)}
+                      </p>
+                    </div>
+                  </div>
+                </div>
 
-      )
-    ))
+              )
+            ))
 
-    }
+          }
 
         </>
       )

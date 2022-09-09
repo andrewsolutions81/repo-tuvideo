@@ -20,8 +20,8 @@ function CommentsApp() {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/comments/`);
-        setFetchedComments(response.data);
+        const response = await axios.get(`${process.env.REACT_APP_BACK_PROD_BASE_URL}/api/videos/`);
+        setFetchedComments(response.data)
       } catch (error) {
         console.error(error, 'error in comment handle submit');
       }
@@ -39,7 +39,7 @@ function CommentsApp() {
     };
 
     try {
-      await axios.post(`${process.env.REACT_APP_BACK_DEV_BASE_URL}/api/comments/${currentVideo._id}`, data);
+      await axios.post(`${process.env.REACT_APP_BACK_PROD_BASE_URL}/api/comments/${currentVideo._id}`, data);
     } catch (error) {
       console.error(error, 'error in comment handle submit');
     }
@@ -66,7 +66,7 @@ function CommentsApp() {
       </div>
       <div className="comments-form-container">
         <div className="comments-view__avatar">
-          <img src={currentVideo?.user?.logo || '/media/icons/blank_profile.png'} alt="avatar" />
+          <img src={currentUser?.logo || '/media/icons/blank_profile.png'} alt="avatar" />
         </div>
         <form className="comments-form" onSubmit={handleSubmit}>
           <div className="comments-form__input">
@@ -91,10 +91,10 @@ function CommentsApp() {
               allComments
               && (
               <div className="single-comment">
-                <img src={currentVideo?.user?.logo || '/media/icons/blank_profile.png'} alt="avatar" />
+                <img src={currentUser?.logo || '/media/icons/blank_profile.png'} alt="avatar" />
                 <div className="single-comment__comment">
                   <p className="single-comment__comment__username">
-                    {currentVideo?.user?.username}
+                    {currentUser?.username}
                     {' '}
                     <span>Just Now</span>
                   </p>
@@ -104,23 +104,24 @@ function CommentsApp() {
               )
             }
 
-          {         fetchedComments &&  
-              fetchedComments.map((singleComment) => singleComment
-              && (
-              <div className="single-comment">
-                <img src={currentVideo?.user?.logo || '/media/icons/blank_profile.png'} alt="avatar" />
-                <div className="single-comment__comment">
-                  <p className="single-comment__comment__username">
-                    {currentVideo?.user?.username}
-                    {' '}
-                    <span>{setTime(singleComment.createdAt)}</span>
-                  </p>
-                  <p>{singleComment.commentText}</p>
+          {   fetchedComments &&
+              fetchedComments.filter(video => video._id == currentVideo._id)
+              .map(video => video.comments
+                .map(comments => comments &&
+                  <div className="single-comment" key={currentVideo._id}>
+                  <img src={currentUser?.logo || '/media/icons/blank_profile.png'} alt="avatar" />
+                  <div className="single-comment__comment">
+                    <p className="single-comment__comment__username">
+                      {currentUser?.username}
+                      {' '}
+                      <span>{setTime(comments.createdAt)}</span>
+                    </p>
+                    <p>{comments.commentText}</p>
+                  </div>
                 </div>
-              </div>
-              ))
+                  )
+                )
             }
-
         </div>
 
       </div>
