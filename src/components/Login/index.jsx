@@ -9,6 +9,7 @@ import './styles.css';
 function Login({ handleClose }) {
   const [form, setForm] = useState({});
   const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState({});
   const { isLoggedIn } = useSelector((state) => state.auth);
   const { message } = useSelector((state) => state.message);
   const dispatch = useDispatch();
@@ -21,11 +22,44 @@ function Login({ handleClose }) {
     });
   };
 
+  // eslint-disable-next-line consistent-return
+  const handleValidate = (e) => {
+    const { name, value } = e.target;
+    const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+    if (name === 'email') {
+      if (value.length < 3) {
+        setErrors({
+          ...errors,
+          nombre: {
+            isRequired: 'El correo es muy corto',
+          },
+        });
+      } else if (!value.match(mailformat)) {
+        setErrors({
+          ...errors,
+          nombre: {
+            isRequired: 'El correo no es valido',
+          },
+        });
+      } else {
+        setErrors({
+          ...errors,
+          nombre: null,
+        });
+      }
+    }
+  };
+
   const handleLogin = (e) => {
     e.preventDefault();
     const { email, password } = form;
     setLoading(true);
     dispatch(login(email, password));
+
+    if (errors) {
+      // eslint-disable-next-line no-alert
+    }
     // No se hace nada mas, porq el dispatch cambia todo en el reducer
     // entocnes en el componente se va a volver a renderizar
     // y tendra el estado de redux actulizado con isLoggedIn = true
@@ -54,6 +88,7 @@ function Login({ handleClose }) {
                 name="email"
                 id="email"
                 onChange={onHandleChange}
+                onBlur={handleValidate}
                 required
               />
             </label>
@@ -67,6 +102,7 @@ function Login({ handleClose }) {
                 name="password"
                 id="password"
                 onChange={onHandleChange}
+                onBlur={handleValidate}
                 required
               />
             </label>
@@ -87,6 +123,22 @@ function Login({ handleClose }) {
             </div>
           )}
         </form>
+        <ul>
+          {
+            Object.keys(errors).map((item, idx) => {
+              if (errors[item]?.message) {
+                return (
+                  <li key={idx}>
+                    <strong>{item}</strong>
+                    <p>{errors[item].message}</p>
+                  </li>
+                );
+              }
+
+              return null;
+            })
+          }
+        </ul>
         <p>
           Don&apos;t have an account?
           <Link to="/register" className="card-container-url">
