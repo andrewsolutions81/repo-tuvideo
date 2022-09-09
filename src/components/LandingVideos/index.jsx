@@ -38,14 +38,14 @@ function LandingVideos() {
                   <div className="card__info">
                     <div className="card__info__title">
                       <div className="ch-info-container__avatar">
-                        <Link to={`/channel/${singleVideo[1].user._id}/featured`} className="title">
+                        <Link to={`/channel/${singleVideo[1].user._id}/videos`} className="title">
                           <img src={singleVideo[1].user.logo || '/media/images/ch-avatar.jpeg'} alt="avatar" />
                         </Link>
                       </div>
                       <Link to={`/api/videos/${singleVideo[1]._id}`} className="title">{singleVideo[1].title}</Link>
                     </div>
                     <div className="card__info__channel">
-                      <Link to={`/channel/${singleVideo[1].user._id}/featured`} className="more-videos-container__ch-name">{singleVideo[1].user.username}</Link>
+                      <Link to={`/channel/${singleVideo[1].user._id}/videos`} className="more-videos-container__ch-name">{singleVideo[1].user.username}</Link>
                       <p className="more-videos-container__views">
                         {singleVideo[1].views}
                         {' '}
