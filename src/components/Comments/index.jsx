@@ -63,7 +63,7 @@ function CommentsApp() {
             {
               currentUser
                 ? (
-                  <button className='button-orange' type="submit">
+                  <button type="submit">
                     COMMENT
                   </button>
                 )
