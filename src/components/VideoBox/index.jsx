@@ -64,10 +64,10 @@ function VideoBox(props) {
                   views
                 </p>
                 <div className="video-options__buttons">
-{
-  currentUser ?
+                  {
+                    currentUser ?
 
-  <><button type="button" className="video-options__like-btn" onClick={handleLike}>
+                      <><button type="button" className="video-options__like-btn" onClick={handleLike}>
                         {currentVideo?.likes?.includes(currentUser?._id) ? (
                           <img src="/media/icons/like.png" alt="like" style={{ opacity: '1' }} />
                         ) : (
@@ -84,9 +84,9 @@ function VideoBox(props) {
                           {' '}
                           Dislike
                         </button></>
-:
- <LoginModal currentVideo={currentVideo} currentUser={currentUser}/>
-}
+                      :
+                      <LoginModal currentVideo={currentVideo} currentUser={currentUser} />
+                  }
                   <DonationModal />
                   <SocialShareModal />
                 </div>
@@ -94,11 +94,11 @@ function VideoBox(props) {
             </div>
             {/* Channel info and video description */}
             <div className="ch-info-container">
-              <Link to={`/channel/${currentVideo?.user?._id}/featured`} className="ch-info-container__avatar">
+              <Link to={`/channel/${currentVideo?.user?._id}/videos`} className="ch-info-container__avatar">
                 <img src={currentVideo?.user?.logo || '/media/icons/blank_profile.png'} alt="avatar" />
               </Link>
               <div className="ch-info-container__ch-info">
-                <Link to={`/channel/${currentVideo?.user?._id}/featured`} className="ch-info-container__name">{currentVideo?.user?.username}</Link>
+                <Link to={`/channel/${currentVideo?.user?._id}/videos`} className="ch-info-container__name">{currentVideo?.user?.username}</Link>
                 <p className="ch-info-container__subs"></p>
                 <p className="ch-info-container__desc">{currentVideo.description}</p>
               </div>
