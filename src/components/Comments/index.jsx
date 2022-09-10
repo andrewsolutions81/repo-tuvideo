@@ -96,7 +96,9 @@ function CommentsApp() {
             currentVideo?.comments?.map((comment, index) => {
               return (
                 <div className="single-comment" key={index}>
-                  <img src={comment?.user?.logo || '/media/icons/blank_profile.png'} alt="avatar" />
+                    <div className='single-comment__img'>
+                    <img src={comment?.user?.logo || '/media/icons/blank_profile.png'} alt="avatar" />
+                    </div>
                   <div className="single-comment__comment">
                     <p className="single-comment__comment__username">
                       {comment?.user?.username}
