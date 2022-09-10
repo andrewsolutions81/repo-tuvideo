@@ -22,7 +22,7 @@ function MoreVideos() {
     fetchMoreVideos();
   }, []);
   return (
-    <div>
+    <div className="aside_container">
       {
         Object.entries(allVideos).map((singleVideo) => (singleVideo[1].category === videoCategory
           && (

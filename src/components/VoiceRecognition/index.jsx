@@ -34,7 +34,7 @@ function VoiceRecognition() {
       <button type="button" className="header__search-bar__mic" onClick={handleSpeech}>
         <img src={`${state.toggle ? '/media/icons/stop.png' : '/media/icons/Mic.png'}`} alt="Voz" />
       </button>
-      <p>{state.toggle ? 'Click to stop' : 'Click to speak'}</p>
+      <p className="clic-to-speak">{state.toggle ? 'Click to stop' : 'Click to speak'}</p>
     </div>
   );
 }

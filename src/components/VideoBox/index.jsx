@@ -12,7 +12,6 @@ import MoreVideos from '../MoreVideos';
 import './styles.scss';
 import CommentsApp from '../Comments';
 import SocialShareModal from '../SocialShareModal';
-import DonationModal from '../DonationModal';
 import { useChannel } from '../../channelContext';
 import { dislike, like } from '../../services/videoSlice';
 import LoginModal from '../LoginModal';
@@ -87,7 +86,6 @@ function VideoBox(props) {
                       :
                       <LoginModal currentVideo={currentVideo} currentUser={currentUser} />
                   }
-                  <DonationModal />
                   <SocialShareModal />
                 </div>
               </div>
@@ -95,7 +93,9 @@ function VideoBox(props) {
             {/* Channel info and video description */}
             <div className="ch-info-container">
               <Link to={`/channel/${currentVideo?.user?._id}/videos`} className="ch-info-container__avatar">
-                <img src={currentVideo?.user?.logo || '/media/icons/blank_profile.png'} alt="avatar" />
+                  <div className='ch-info-container__avatar__image'>
+                  <img src={currentVideo?.user?.logo || '/media/icons/blank_profile.png'} alt="avatar" />
+                  </div>
               </Link>
               <div className="ch-info-container__ch-info">
                 <Link to={`/channel/${currentVideo?.user?._id}/videos`} className="ch-info-container__name">{currentVideo?.user?.username}</Link>
