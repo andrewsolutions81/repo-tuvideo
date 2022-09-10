@@ -37,9 +37,11 @@ function LandingVideos() {
 
                   <div className="card__info">
                     <div className="card__info__title">
-                      <div className="ch-info-container__avatar">
+                      <div className="ch-info-container__avatar__landing">
                         <Link to={`/channel/${singleVideo[1].user._id}/videos`} className="title">
-                          <img className="card__info__avatar" src={singleVideo[1].user.logo || '/media/images/ch-avatar.jpeg'} alt="avatar" />
+                          <div className="card__info__avatar">
+                            <img src={singleVideo[1].user.logo || '/media/images/ch-avatar.jpeg'} alt="avatar" />
+                          </div>
                         </Link>
                       </div>
                       <Link to={`/api/videos/${singleVideo[1]._id}`} className="title">{singleVideo[1].title}</Link>

@@ -85,6 +85,7 @@ button{
     margin-left: auto;
     padding:10px 16px;
     text-transform: uppercase;
+
 }
 @media (min-width:768px){
     .ch-info-container__ch-info{
@@ -136,3 +137,4 @@ button{
     font-size: 13px;
     font-weight: 400;
 }
+
