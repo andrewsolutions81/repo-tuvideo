@@ -4,7 +4,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import Modal from '@mui/material/Modal';
 import './styles.css';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import {
   Dropdown, DropdownItem, DropdownMenu, DropdownToggle,
 } from 'reactstrap';
@@ -12,6 +12,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import UploadVideo from '../UploadVideo';
+import { useChannel } from '../../channelContext';
 
 import Search from '../Search';
 import VoiceRecognition from '../VoiceRecognition';
@@ -19,6 +20,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { logout } from '../../actions/auth';
 
 function MainHeader() {
+  const { updateUser } = useChannel();
   const [openModal, setOpenModal] = useState(false);
   const handleOpen = () => setOpenModal(true);
 
@@ -44,6 +46,15 @@ function MainHeader() {
     dispatch(logout());
     navigate('/', { replace: true });
   };
+
+  useEffect(() => {
+    const getAvatarAsync = async () => {
+      const { data } = await axios.get(`${process.env.REACT_APP_BACK_PROD_BASE_URL}/api/users/${profile?._id}`);
+      setAvatar(data.logo);
+    };
+
+    getAvatarAsync();
+  }, [updateUser]);
 
   return (
     <div className="header__container">
@@ -77,7 +88,7 @@ function MainHeader() {
                   <div className="header__user__sign-in__text">
                     <Dropdown isOpen={dropdown} toggle={dropdownToggles}>
                       <DropdownToggle className="header__user__sign-in__text--toggle">
-                        <img className="header__user__sign-in__logged-in" src={profile.logo} alt="logo" />
+                        <img className="header__user__sign-in__logged-in" src={avatar || 'https://res.cloudinary.com/royhuamanavila/image/upload/v1660888009/image832_ec9r7e.png'} alt="logo" />
                       </DropdownToggle>
                       <DropdownMenu>
                         <div>
