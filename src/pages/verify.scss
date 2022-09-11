@@ -1,6 +1,6 @@
 .account-active{
   height:200px;
-  width:400px;
+  width:90%;
   padding:20px;
   display: flex;
   flex-direction: column;
@@ -23,5 +23,11 @@
     text-decoration: none;
     text-transform: uppercase;
     text-align: center;
+  }
+}
+
+@media (min-width:768px){
+  .account-active{
+    width: 400px;
   }
 }

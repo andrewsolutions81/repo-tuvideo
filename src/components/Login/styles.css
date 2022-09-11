@@ -1,5 +1,5 @@
 .card {
-  height: 450px;
+  height: 400px;
 }
 
 .card-container.card {
@@ -7,7 +7,9 @@
   padding: 40px 40px;
   margin: 0 auto;
 }
-
+.card-container .form-group label[for=email], .card-container .form-group label[for=password]{
+  width:100%;
+}
 .btn-primary {
   margin-top: 10px;
   margin-bottom: 10px;

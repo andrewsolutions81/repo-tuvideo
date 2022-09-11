@@ -9,7 +9,7 @@
 }
 
 .register-form {
-  width: 50%;
+  width: 100%;
 }
 
 .btn-primary {
@@ -19,4 +19,8 @@
 .loginRegisterButton {
   color: black;
   font-weight: 400;
+}
+
+.back-to-login{
+  padding-bottom: 10px;
 }

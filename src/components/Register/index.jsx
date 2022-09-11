@@ -137,7 +137,7 @@ function Register() {
             </div>
           </div>
         </form>
-        <p>
+        <p className="back-to-login">
           Do you have an account?
           <Link to="/login" className="card-container-url">
             <p>
