@@ -4,6 +4,15 @@
   align-items: center;
 }
 
+@media (max-width: 768px){
+  .comments-header{
+    padding: 10px;
+  }
+  .comments-form-container{
+    padding: 10px;
+  }
+}
+
 .comments-view__avatar {
   cursor: none;
   flex: 0 1 auto;

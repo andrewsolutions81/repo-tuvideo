@@ -26,9 +26,6 @@ function Login({ handleClose }) {
     const { email, password } = form;
     setLoading(true);
     dispatch(login(email, password));
-    // No se hace nada mas, porq el dispatch cambia todo en el reducer
-    // entocnes en el componente se va a volver a renderizar
-    // y tendra el estado de redux actulizado con isLoggedIn = true
   };
 
   if (isLoggedIn) {
