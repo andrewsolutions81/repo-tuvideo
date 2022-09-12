@@ -78,7 +78,9 @@ function CommentsApp() {
             allComments
             && (
               <div className="single-comment">
+                <div className='single-comment__img'>
                 <img src={currentUser?.logo || '/media/icons/blank_profile.png'} alt="avatar" />
+                </div>
                 <div className="single-comment__comment">
                   <p className="single-comment__comment__username">
                     {currentUser?.username}
