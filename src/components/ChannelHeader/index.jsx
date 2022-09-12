@@ -47,6 +47,13 @@ function ChannelHeader() {
     return URL.createObjectURL(banner);
   };
 
+  const cancelChangesHandler = () => {
+    setBanner('');
+    setLogo('');
+    setUsername('');
+    setModEdit(false);
+  };
+
   return (
     <div className="channel-header">
       {
@@ -138,7 +145,7 @@ function ChannelHeader() {
                     SAVE CHANGES
 
                   </button>
-                  <button className="button-red" type="button" onClick={() => { setModEdit(false); }}>CANCEL CHANGES</button>
+                  <button className="button-red" type="button" onClick={cancelChangesHandler}>CANCEL CHANGES</button>
                 </div>
               ) : (
                 <div>
