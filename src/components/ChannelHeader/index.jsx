@@ -52,7 +52,8 @@ function ChannelHeader() {
       {
         (banner || user?.banner) && (
           <div>
-            <div className="banner-visible-area" style={{ backgroundImage: `url(${getBanner()})` }}>
+            <div className="banner-visible-area">
+              <img className="banner-image" src={getBanner()} alt="" />
               <div className="banner-editor" />
               {
                 modEdit && (

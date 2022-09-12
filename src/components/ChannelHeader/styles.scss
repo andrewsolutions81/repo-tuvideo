@@ -190,6 +190,12 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+}
+
+.banner-image {
+  width: 100%;
+  height: auto;
 }
 
 @media screen and (max-width: 700px) {
